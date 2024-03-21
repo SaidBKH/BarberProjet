@@ -18,12 +18,10 @@
                 <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
                 <header>
                         <nav>
-                            <div id="nav-left">
                                 <a href="index.php">ACCUEIL</a>
                                <!-- <a href="index.php?ctrl=forum&action=listCategory">CATEGORIE</a> -->
                             </div>
 
-                            <div id="nav-right">
                                 <?php if(App\Session::getUser()): ?>
                                     <a href="index.php?ctrl=user&action=profile">
                                     <span class="fas fa-user"></span>
@@ -31,8 +29,12 @@
                                     </a>
                                     <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
                                 <?php else: ?>
-                                    <a href="index.php?ctrl=barber&action=listCategorie">list Categorie </a>
-                                    <a href="index.php?ctrl=security&action=registerForm">S'INSCRIRE</a>
+                                    <a href="#">Actualité</a>
+                                    <a href="#">Réservations</a>
+                                    <a href="#">Nos Services</a>
+                                    <a href="#">Nous rejoindre</a>
+                                    <a href="#">Contact</a>
+                                    <a href="#">Connexion</a>
                                 <?php endif; ?>
 
                             </div>
