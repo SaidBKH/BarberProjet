@@ -7,15 +7,15 @@ use App\DAO;
 class UserManager extends Manager{
 
     // on indique la classe POO et la table correspondante en BDD pour le manager concerné
-    protected $className = "Model\Entities\User";
-    protected $tableName = "user";
+    protected $className = "Model\Entities\User_";
+    protected $tableName = "user_";
 
     public function __construct(){
         parent::connect();
     }
   
     public function emailExist($email) {
-        $sql = "SELECT email FROM user WHERE email = :email LIMIT 1";
+        $sql = "SELECT email FROM user_ WHERE email = :email LIMIT 1";
         $donnee = ['email' => $email];
         $result = DAO::select($sql, $donnee);
 
@@ -29,23 +29,23 @@ class UserManager extends Manager{
     //           'Model\Entities\User'
     //       );
 
-    public function findByEmail($email) {
-        $sql = "SELECT * FROM ".$this->tableName." WHERE email = :email";
-        return $this->getOneOrNullResult(
+     public function findByEmail($email) {
+         $sql = "SELECT * FROM ".$this->tableName." WHERE email = :email";
+     return $this->getOneOrNullResult(
             DAO::select($sql, ['email' => $email, ],false), 
-            $this->className
-        );
-    }
+             $this->className
+         );
+     }
 
-    public function updateEmail($id) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = filter_input( INPUT_POST, "email", FILTER_VALIDATE_EMAIL );
-            if ($email !== false) {
-                $userManager = new UserManager();
-                $userManager->updateMail($id, $mail);
-                header("Location: index.php?ctrl=user&action=profile");
-            exit();
-            }
-        }
-    }
+    // public function updateEmail($id) {
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //         $email = filter_input( INPUT_POST, "email", FILTER_VALIDATE_EMAIL );
+    //         if ($email !== false) {
+    //             $userManager = new UserManager();
+    //             $userManager->updateMail($id, $mail);
+    //             header("Location: index.php?ctrl=user&action=profile");
+    //         exit();
+    //         }
+    //     }
+    // }
 }

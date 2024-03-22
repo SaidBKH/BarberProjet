@@ -54,9 +54,5 @@ final class Categorie extends Entity{
         return $this;
     }
 
-    public function __toString(){
-        return $this->name;
-    }
-
     
 }

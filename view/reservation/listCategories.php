@@ -8,17 +8,9 @@
 <br>
         <?php
         foreach($categories as $categorie ){ ?>
-            <p><?= $categorie->getNomCategorie() ?></p>
-        <?php
-
-}?>
-
-<div class="listService">
-    <h1>Liste des services</h1>
-<br>
-<?php
-        foreach($services as $service ){ ?>
-            <p><?= $service->getNom() ?></p>
+<p><a href="index.php?ctrl=reservation&action=listServiceByCategory&id=<?= $categorie->getId() ?>">
+            <?= $categorie->getNomCategorie() ?></a></p>
+           
         <?php
 
 }?>

@@ -18,6 +18,17 @@ class ServiceManager extends Manager{
         DAO::insert($sql, ['nom' => $nom]);
     }
 
+// récupérer tous les services d'une catégorie spécifique (par son id)
+public function findServicesByCategory($id) {
 
-
+    $sql = "SELECT * 
+            FROM ".$this->tableName." t 
+            WHERE t.categorie_id = :id";
+   
+    // la requête renvoie plusieurs enregistrements --> getMultipleResults
+    return  $this->getMultipleResults(
+        DAO::select($sql, ['id' => $id]), 
+        $this->className
+    );
+}
 }

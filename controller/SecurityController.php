@@ -4,23 +4,10 @@ namespace Controller;
 use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\UserManager;
-use Model\Managers\PostManager;
-
-use Model\Entities\User;
+use Model\Entities\User_;
 
 class SecurityController extends AbstractController{
     // contiendra les méthodes liées à l'authentification : register, login et logout
-
-   // public function register () {}
-  //  public function login () {}
-  //  public function logout () {}
-
-    public function registerForm() {
-        return [
-            "view" => VIEW_DIR . "security/registerForm.php",
-            "meta_description" => "Formulaire d'inscription"
-        ];
-    }
 
     public function register() {
 
@@ -28,48 +15,52 @@ class SecurityController extends AbstractController{
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $nickName = filter_input(INPUT_POST, "nickName", FILTER_SANITIZE_SPECIAL_CHARS);
+            $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
             $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
             $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-            $confirmPassword = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);             
+            $confirmPassword = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS); 
+            $telephone = filter_input(INPUT_POST, "telephone", FILTER_SANITIZE_SPECIAL_CHARS);   
+            
+            
          //La fonction PHP preg_match() va nous permettre de rechercher des motifs bien précis au sein d’une chaîne de caractères.
             if (!preg_match("/^.{12,}$/", $password)) {
                 echo "Le mot de passe doit contenir au moins 12 caractères.";
-                $this->redirectTo("home","index");
+                $this->redirectTo("security","register");
              }
-
-
-            //var_dump($nickName, $email, $password, $confirmPassword);
-            if($nickName && $email && $password && $confirmPassword) {
+            //var_dump($prenom, $email, $password, $confirmPassword && $telephone);die;
+            if($prenom && $email && $password && $confirmPassword && $telephone) {
         
                 if ($userManager->emailExist($email)) {
                     echo "l'email existe deja";
-                    $this->redirectTo("home","index");
+                    $this->redirectTo("security","register");
                 }
                 
                 // si les mots de passe correspondent 
                 if ($password == $confirmPassword) {
                 
                     $userManager->add([
-                            "nickname" => $nickName,
+                            "prenom" => $prenom,
                             "email" => $email,
                             "password" => password_hash($password, PASSWORD_DEFAULT), 
+                            "telephone" => $telephone,
                             // password_hash — Crée une clé de hachage pour un mot de passe
                         // PASSWORD_DEFAULT - Utilisation de l'algorithme bcrypt (par défaut depuis PHP 5.5.0).
                             "role" => "Utilisateur"
                     ]);
-                    $this->redirectTo("home", "index");
+
+                    //var_dump($prenom, $email, $password, $confirmPassword && $telephone);die;
+
+                    $this->redirectTo("security", "register");
                 }
             } 
         }
+        return ["view" => VIEW_DIR . "security/register.php",
+        "meta_description" => "Formulaire d'inscription"
+   ];
+
+
     }
 
-    public function loginForm() {
-        return [
-            "view" => VIEW_DIR . "security/loginForm.php",
-            "meta_description" => "Formulaire de connexion"
-        ];
-    }
 
     public function login() {
         $userManager = new UserManager();
@@ -85,7 +76,7 @@ class SecurityController extends AbstractController{
 
                     // Récupérer l'user grace à l'e-mail
                     $user = $userManager->findByEmail($email);
-                    //var_dump($user);die;
+                    
 
                     // Vérifie mdp 
                     if ($user && password_verify($password, $user->getPassword())) {

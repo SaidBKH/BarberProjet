@@ -8,7 +8,7 @@
         <script src="https://cdn.tiny.cloud/1/zg3mwraazn1b2ezih16je1tc6z7gwp5yd4pod06ae5uai8pa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
         <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css">
-        <title>FORUM</title>
+        <title>Jesuispassechezsouf</title>
     </head>
     <body>
         <div id="wrapper"> 
@@ -25,16 +25,21 @@
                                 <?php if(App\Session::getUser()): ?>
                                     <a href="index.php?ctrl=user&action=profile">
                                     <span class="fas fa-user"></span>
-                                    &nbsp;<?= App\Session::getUser()->getNickName() ?>
+                                    &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                     </a>
-                                    <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
-                                <?php else: ?>
                                     <a href="#">Actualité</a>
-                                    <a href="#">Réservations</a>
+                                    <a href="index.php?ctrl=reservation&action=listService">Réservations</a>
                                     <a href="#">Nos Services</a>
                                     <a href="#">Nous rejoindre</a>
                                     <a href="#">Contact</a>
-                                    <a href="#">Connexion</a>
+                                    <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                <?php else: ?>
+                                    <a href="#">Actualité</a>
+                                    <a href="index.php?ctrl=reservation&action=listService">Réservations</a>
+                                    <a href="">Nos Services</a>
+                                    <a href="#">Nous rejoindre</a>
+                                    <a href="#">Contact</a>
+                                    <a href="index.php?ctrl=security&action=login">Connexion</a>
                                 <?php endif; ?>
 
                             </div>
@@ -42,14 +47,14 @@
                         
                 </header>
                 
-                <main id="forum">
+                <main id="barber">
                     <?= $page ?>
                 </main>
             </div>
             <footer>
             <div class ="footer">
                 <br>
-                <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="#">Règlement du forum</a> - <a href="#">Mentions légales</a></p>
+                <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="#">politique de confidentialité </a> - <a href="#">Mentions légales</a></p>
             </footer>
         </div>
         <script

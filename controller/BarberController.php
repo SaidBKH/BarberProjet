@@ -10,13 +10,17 @@ use Model\Managers\ServiceManager;
 
 
 
-class HomeController extends AbstractController implements ControllerInterface {
+class BarberController extends AbstractController implements ControllerInterface {
 
         public function index() {
+        
+            
             return [
-                "view" => VIEW_DIR."barber/home.php",
-                "meta_description" => "page d'accueil",
-                "data" => [                   
+                "view" => VIEW_DIR."barber/listCategorie.php",
+                "meta_description" => "Liste des Service du site",
+                "data" => [
+                    "categories" => $categories,
+                    "services" =>$services
                 ]
             ];
         }

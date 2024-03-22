@@ -10,13 +10,14 @@ use App\Entity;
 final class User_ extends Entity{
 
     private $id;
-    private $nickname;
     private $email;
-    private $role;
+    private $telephone;
+    private $prenom;
     private $password;
+    private $creationDate;
+    private $role;
 
-    private $nbUser;
-    private $reCount;
+    
 
 
     public function __construct($data){         
@@ -41,29 +42,14 @@ final class User_ extends Entity{
     }
 
     /**
-     * Get the value of nickName
+     * Get the value of email
      */ 
-    public function getNickName(){
-        return $this->nickname;
-    }
-
-    /**
-     * Set the value of nickName
-     *
-     * @return  self
-     */ 
-    public function setNickName($nickname){
-        $this->nickname = $nickname;
-
-        return $this;
-    }
-
     public function getEmail(){
         return $this->email;
     }
 
     /**
-
+     * Set the value of email
      *
      * @return  self
      */ 
@@ -73,27 +59,51 @@ final class User_ extends Entity{
         return $this;
     }
 
-    public function getRole(){
-        return $this->role;
+        /**
+     * Get the value of telephone
+     */ 
+    public function getTelephone(){
+        return $this->telephone;
     }
 
     /**
-     * Set the value of 
+     * Set the value of telephone
      *
      * @return  self
      */ 
-    public function setRole($role){
-        $this->role = $role;
+    public function setTelephone($telephone){
+        $this->telephone = $telephone;
 
         return $this;
     }
 
+        /**
+     * Get the value of prenom
+     */ 
+    public function getPrenom(){
+        return $this->prenom;
+    }
+
+    /**
+     * Set the value of prenom
+     *
+     * @return  self
+     */ 
+    public function setPrenom($prenom){
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+            /**
+     * Get the value of password
+     */ 
     public function getPassword(){
         return $this->password;
     }
 
     /**
-     * Set the value of 
+     * Set the value of password
      *
      * @return  self
      */ 
@@ -103,13 +113,39 @@ final class User_ extends Entity{
         return $this;
     }
 
-    public function __toString() {
-        return $this->nickname;
+        /**
+     * Get the value of creationDate
+     */ 
+    public function getCreationDate(){
+        return $this->creationDate;
     }
 
-    public function hasRole($role) {
-        return $this->role === $role;
-    }
+    /**
+     * Set the value of creationDate
+     *
+     * @return  self
+     */ 
+    public function setCreationDate($creationDate){
+        $this->creationDate = $creationDate;
 
+        return $this;
+    }
     
+            /**
+     * Get the value of role
+     */ 
+    public function getRole(){
+        return $this->role;
+    }
+
+    /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function setRole($role){
+        $this->role = $role;
+
+        return $this;
+    }
 }

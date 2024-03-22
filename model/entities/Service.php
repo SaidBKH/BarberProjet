@@ -78,7 +78,8 @@ final class Service extends Entity{
      * Get the value of duree
      */ 
     public function getDuree(){
-        return $this->duree;
+        $duree = $this->duree->format('i');
+        return $duree;
     }
 
     /**
@@ -87,7 +88,7 @@ final class Service extends Entity{
      * @return  self
      */ 
     public function setDuree($duree){
-        $this->duree = $duree;
+        $this->duree = new \DateTime($duree);
         return $this;
     }
 
@@ -106,9 +107,6 @@ final class Service extends Entity{
     }
 
 
-    public function __toString(){
-        return $this->name;
-    }
 
     
 }
