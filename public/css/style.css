@@ -1,0 +1,277 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI';
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// HEADER    ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.header {
+    height: 50px;
+    width: calc(100% - 20px);
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(50, 50, 50);
+    box-shadow: rgb(115, 115, 255);
+}
+.header img {
+    max-height: 40px;
+}
+.header_mobile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111827;
+    cursor: pointer;
+    transition: 0.4s; transform: linear;
+}
+  
+.header_mobile:hover {
+    transform: rotate(10deg);
+}
+
+.header_mobile svg {
+    align-items: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    stroke: #c4c4c4;
+
+}
+
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0.0.0.0.4);
+    display: none;
+    z-index: 1;
+}
+
+.mobile-overlay.active {
+    display: block;
+}
+
+.nav_mobile{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: rgb(50, 50, 50);
+    padding: 30px 20px;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+   transform:translateX(100%);
+ transition: 0.4s transform cubic-bezier(0.43,.73,.0,.98);  
+    
+}
+
+.nav_mobile.active{
+   transform: initial; 
+    
+}
+
+.nav_mobile_close {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111827;
+    cursor: pointer;
+    transition: 0.4s; transform: linear;
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    right: 15px;
+}
+
+.nav_mobile_profil{
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+
+
+}
+
+
+.nav_mobile_profil a{
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+
+
+}
+
+
+.nav_mobile_menu {
+    padding: 0;;
+    list-style: none;
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+}
+
+.nav_mobile_menu li {
+    position: relative;   
+    margin-bottom: 24px
+
+}
+
+.nav_mobile_menu li:last-of-type{
+    margin-bottom: initial;
+
+}
+
+.nav_mobile_menu li a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative; 
+
+}
+
+
+.nav_mobile_menu li a:after {
+    content:'';
+    height: 1px;
+    width: 0px;
+    background-color: white;
+    position: absolute;
+    bottom: -6px;
+    right: 0;
+    transition: 0.3s width ease-in-out;
+}
+
+
+.nav_mobile_menu li a:hover:after {
+   width: 100%;
+    left: 0;
+   
+}
+
+
+.nav_mobile_social{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.nav_mobile_social li{
+    margin: 0px 8px;
+
+}
+.nav_mobile_social li a{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    font-family: "Arial";
+    transition: 0.3s opacity ease-in;
+
+}
+
+.nav_mobile_social li a:hover {
+    opacity: 1;
+
+}
+
+
+
+
+/* icone du menu  */
+.nav_mobile_menu a i,
+.nav_mobile_social a i {
+    margin-right: 10px; 
+    font-size: 15px;
+}
+
+
+.nav_mobile_menu a i,
+.nav_mobile_social a i {
+    color: #ffffff; 
+}
+
+
+.nav_mobile_menu a:hover i,
+.nav_mobile_social a:hover i {
+    color: #007bff; 
+}
+
+
+.nav_mobile_close:hover {
+    transform: rotate(10deg);
+}
+
+.nav_mobile_close svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffff;
+
+} 
+
+
+.nav_bureau_menu li {
+    margin-right: 20px;
+    
+}
+
+
+
+.nav_bureau_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Ajout de la justification */
+    list-style: none;
+    padding: 0;
+}
+
+.nav_bureau_menu a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .bureau {
+        display: none;
+    }}
+
+    @media screen and (min-width: 769px) {
+        .header_mobile {
+            display: none;
+        }}
+
+/* //////////////////////////////////////////////
+////////////////////////////////////////////// */

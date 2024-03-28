@@ -12,6 +12,9 @@ final class Service extends Entity{
     private $id;
     private $nom;
     private $prix;
+    private $duree;
+    private $categorie;
+
 
 
 
