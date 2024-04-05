@@ -5,26 +5,48 @@ namespace Controller;
 
 use App\AbstractController;
 use App\ControllerInterface;
-use Model\Managers\CategorieManager;
-use Model\Managers\ServiceManager;
+use Model\Managers\ContactManager;
+use Model\Entities\Categories_message_contact;
+use Model\Entities\Message_contact;
+
 
 
 
 class BarberController extends AbstractController implements ControllerInterface {
 
-        public function index() {
+    public function index() {
+        return [
+            "view" => VIEW_DIR."barber/contact.php",
+            "meta_description" => "page d'accueil",
+            "data" => [                   
+            ]
+        ];
+    }
+   
+
+    public function messageContact() {
+
+        $ContactManager = new ContactManager();
         
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+            $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
+            $date_creation = filter_input(INPUT_POST, "date_creation", FILTER_SANITIZE_SPECIAL_CHARS); 
+            $categorie = filter_input(INPUT_POST, "categorie_id", FILTER_SANITIZE_SPECIAL_CHARS);   
             
-            return [
-                "view" => VIEW_DIR."barber/listCategorie.php",
-                "meta_description" => "Liste des Service du site",
-                "data" => [
-                    "categories" => $categories,
-                    "services" =>$services
-                ]
-            ];
         }
+        return ["view" => VIEW_DIR . "barber/contact.php",
+        "meta_description" => "Formulaire de contact"
+   ];
+
+
+    }
+
+
     }     
+
 
     
 //     public function users(){

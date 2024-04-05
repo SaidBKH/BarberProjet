@@ -66,7 +66,8 @@
                                         <a href="#">Nous rejoindre</a>
                                     </li>
                                     <li>
-                                        <a href="#">Contact</a>
+                                    <a href="index.php?ctrl=barber&action=contact">Contact
+                                        </a>
                                     </li>
                                     <?php if(!App\Session::getUser()): ?> <!--Ajouter cette condition pour les utilisateurs non connectés -->
                                         <li>
