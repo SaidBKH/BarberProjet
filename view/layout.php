@@ -60,13 +60,13 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">Nos Services</a>
+                                        <a href="index.php?ctrl=services&action=nos_services">Nos Services</a>
                                     </li>
                                     <li>
                                         <a href="#">Nous rejoindre</a>
                                     </li>
                                     <li>
-                                    <a href="index.php?ctrl=barber&action=contact">Contact
+                                    <a href="index.php?ctrl=contact&action=contact">Contact
                                         </a>
                                     </li>
                                     <?php if(!App\Session::getUser()): ?> <!--Ajouter cette condition pour les utilisateurs non connectés -->
@@ -116,7 +116,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="index.php?ctrl=services&action=nos_services">
                                             <i class="fas fa-toolbox"></i>Nos Services
                                         </a>
                                     </li>
@@ -126,7 +126,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="index.php?ctrl=contact&action=contact">
                                             <i class="fas fa-envelope"></i>Contact
                                         </a>
                                     </li>

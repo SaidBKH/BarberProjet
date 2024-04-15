@@ -12,11 +12,11 @@ use Model\Entities\Message_contact;
 
 
 
-class BarberController extends AbstractController implements ControllerInterface {
+class contactController extends AbstractController implements ControllerInterface {
 
     public function index() {
         return [
-            "view" => VIEW_DIR."barber/contact.php",
+            "view" => VIEW_DIR."contact/contact.php",
             "meta_description" => "page d'accueil",
             "data" => [                   
             ]
@@ -24,28 +24,8 @@ class BarberController extends AbstractController implements ControllerInterface
     }
    
 
-    public function messageContact() {
-
-        $ContactManager = new ContactManager();
-        
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
-            $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-            $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
-            $date_creation = filter_input(INPUT_POST, "date_creation", FILTER_SANITIZE_SPECIAL_CHARS); 
-            $categorie = filter_input(INPUT_POST, "categorie_id", FILTER_SANITIZE_SPECIAL_CHARS);   
-            
-        }
-        return ["view" => VIEW_DIR . "barber/contact.php",
-        "meta_description" => "Formulaire de contact"
-   ];
-
-
     }
-
-
-    }     
+  
 
 
     
