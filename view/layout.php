@@ -63,7 +63,7 @@
                                         <a href="index.php?ctrl=services&action=nos_services">Nos Services</a>
                                     </li>
                                     <li>
-                                        <a href="#">Nous rejoindre</a>
+                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">Nous rejoindre</a>
                                     </li>
                                     <li>
                                     <a href="index.php?ctrl=contact&action=contact">Contact
@@ -121,7 +121,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">
                                             <i class="fas fa-users"></i>Nous rejoindre
                                         </a>
                                     </li>
