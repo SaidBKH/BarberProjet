@@ -14,7 +14,7 @@
        <!-- Intègre Font Awesome, une bibliothèque d'icônes.-->
        
         <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css"> <!--  Lie le fichier CSS de style à la page.-->
-        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style_desktop.css">
+        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.home.css">
 
         <title>Jesuispassechezsouf</title>   <!--Définit le titre de la page. --> <!-- -->
     
