@@ -1,73 +1,81 @@
+/* Styles pour la div principale */
 .main-container {
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    align-items: center;
-
+    margin: 0 auto; /* Centre la div principale horizontalement */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour de la div principale */
+    text-align: center; /* Centrer le contenu horizontalement */
+align-items: center;
+    /* Ajout de la marge sur les écrans de taille ordinateur */
     @media screen and (min-width: 992px) {
-        padding: 2px 40px;
+        padding: 2px 40px; /* Espacement intérieur de la div principale avec marge sur les côtés */
     }
 }
 
+/* Styles pour le titre */
 .title {
     padding-top: 20px;
-    font-size: 3vw;
-    margin-bottom: 20px;
+    font-size: 3vw; /* Taille de police responsive en fonction de la largeur de l'écran */
+    margin-bottom: 20px; /* Espacement en bas du titre */
 }
 
 .accueil-top {
     height: 100%;
     background-color: rgb(29, 158, 205);
 }
-
+/* Styles pour le bouton "Prendre rendez-vous" */
 .btn-rdv {
-    display: block;
-    margin: 0 auto 20px;
-    padding: 10px 20px;
-    font-size: 1.5vw;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    display: block; /* Afficher le bouton en tant que bloc pour occuper toute la largeur disponible */
+    margin: 0 auto 20px; /* Centrer le bouton horizontalement avec un espacement en bas */
+    padding: 10px 20px; /* Espacement intérieur du bouton */
+    font-size: 1.5vw; /* Taille de police du bouton responsive en fonction de la largeur de l'écran */
+    background-color: #ffffff; /* Couleur de fond du bouton */
+    color: rgb(0, 0, 0); /* Couleur du texte du bouton */
+    border: none; /* Supprimer la bordure du bouton */
+    border-radius: 5px; /* Arrondir les coins du bouton */
+    cursor: pointer; /* Curseur de type pointer au survol */
+    transition: background-color 0.3s ease; /* Animation sur le changement de couleur de fond */
 }
 
 .btn-rdv:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Couleur de fond du bouton au survol */
 }
 
+/* Styles pour la présentation */
 .accueil-presentation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Utilisation du modèle de boîte flexible */
+    justify-content: space-between; /* Répartir l'espace entre les enfants */
+    align-items: center; /* Centrer les enfants verticalement */
 }
 
 .accueil-presentation figure {
     max-width: 500px;
-    width: 50%;
+    width: 50%; /* Largeur de l'image */
 }
 
 .accueil-presentation img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ajuster la largeur de l'image à 100% du conteneur parent */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
 }
 
 .accueil-presentation .texte-presentation {
-    width: 50%;
-    text-align: justify;
+    width: 50%; /* Largeur du conteneur de texte */
+    text-align: justify; /* Justifier le texte */
 }
 
+/* Media query pour les écrans de taille téléphone */
 @media screen and (max-width: 768px) {
     .accueil-presentation {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column; /* Afficher les enfants en colonne pour les petits écrans */
+        align-items: flex-start; /* Aligner les enfants en haut pour les petits écrans */
+    }
+    img.devanture{
+        width: 100%;
     }
 
     .accueil-presentation figure,
     .accueil-presentation .texte-presentation {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
+        width: 100%; /* Ajuster la largeur des enfants à 100% pour les petits écrans */
+        margin-right: 0; /* Supprimer l'espacement à droite pour les petits écrans */
+        margin-bottom: 20px; /* Espacement en bas pour les petits écrans */
+        
     }
 }
