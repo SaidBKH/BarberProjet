@@ -79,3 +79,105 @@ align-items: center;
         
     }
 }
+
+/* /////////////////////////////// LIST SERVICES //////////////////////////////////////////////// */
+
+
+.list-services {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.list-services figure {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-services img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+.service-lien::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 45, 45, 0.7); /* Filtre rouge (70% d'opacité) */
+    z-index: 0;
+}
+
+.service-lien:hover::before {
+    opacity: 0.5; /* baisse opacité au survol */
+}
+
+/* //////////////////////////////INSTAGRAM //////////////////////////// */
+
+.instagram {
+    background-color: #f5f5f5; /* Couleur de fond */
+    padding: 40px 0; /* Espacement intérieur */
+}
+
+.instagram-contenu {
+    max-width: 600px; /* Largeur maximale du contenu */
+    margin: 0 auto; /* Centrer le contenu horizontalement */
+    text-align: center; /* Centrer le texte */
+}
+
+.instagram-contenu h2 {
+    font-size: 24px; /* Taille de police du titre */
+    margin-bottom: 10px; /* Espacement en bas du titre */
+}
+
+.instagram-contennu p {
+    font-size: 16px; /* Taille de police du paragraphe */
+    margin-bottom: 20px; /* Espacement en bas du paragraphe */
+}
+
+.instagram-lien {
+    display: inline-block; /* Afficher en tant que bloc */
+    background-color: #405de6; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Supprimer soulignement */
+    transition: background-color 0.3s ease; /* Animation sur le changement de couleur de fond */
+}
+
+.instagram-lien:hover {
+    background-color: #3b5998; /* Couleur de fond au survol */
+}
+
+.instagram-lien i {
+    margin-right: 5px; /* Espacement à droite de l'icône */
+}
