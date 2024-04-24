@@ -70,7 +70,7 @@ final class Galerie extends Entity{
      * @return  self
      */ 
     public function setDescription($description){
-        $this->title = $description;
+        $this->description = $description;
         return $this;
     }
 
