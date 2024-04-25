@@ -18,8 +18,7 @@ class HomeController extends AbstractController implements ControllerInterface {
         $galerieManager = new GalerieManager();
 
         // Récupérez les images
-        $images = $galerieManager->findAll(); 
-
+        $images = $galerieManager->findAll(["title", "DESC"]);; 
         // Transmettez les données à la vue
         return [
             "view" => VIEW_DIR . "accueil/home.php",

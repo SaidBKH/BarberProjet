@@ -72,16 +72,15 @@
 <?php
     $images = $result["data"]['images']; 
 ?>
-
     <h1>Liste des images</h1>
     <br>
+
         <div class="listImages">
             <?php foreach ($images as $image) : ?>
-
                     <p><?= $image->getId() ?></p>
                     <p><?= $image->getTitle() ?></p>
                     <p><?= $image->getDescription() ?></p>
-            
+                    <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitle() ?>">
             <?php endforeach; ?>
         </div>
 

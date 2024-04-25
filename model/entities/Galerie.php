@@ -12,7 +12,7 @@ final class Galerie extends Entity{
     private $id;
     private $title;
     private $description;
-    private $image_url;
+    private $imageUrl;
     private $date_creation;
 
     // chaque entité aura le même constructeur grâce à la méthode hydrate (issue de App\Entity)
@@ -78,7 +78,7 @@ final class Galerie extends Entity{
      * Get the value of name
      */ 
     public function getImageUrl(){
-        return $this->image_url;
+        return $this->imageUrl;
     }
 
     /**
@@ -86,8 +86,8 @@ final class Galerie extends Entity{
      *
      * @return  self
      */ 
-    public function setImageUrl($image_url){
-        $this->image_url = $image_url;
+    public function setImageUrl($imageUrl){
+        $this->imageUrl = $imageUrl;
         return $this;
     }
 
