@@ -77,10 +77,7 @@
 
         <div class="listImages">
             <?php foreach ($images as $image) : ?>
-                    <p><?= $image->getId() ?></p>
-                    <p><?= $image->getTitle() ?></p>
-                    <p><?= $image->getDescription() ?></p>
-                    <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitle() ?>">
+                    <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
             <?php endforeach; ?>
         </div>
 

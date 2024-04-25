@@ -43,7 +43,7 @@ final class Galerie extends Entity{
     /**
      * Get the value of name
      */ 
-    public function getTitle(){
+    public function getTitre(){
         return $this->title;
     }
 
@@ -52,27 +52,12 @@ final class Galerie extends Entity{
      *
      * @return  self
      */ 
-    public function setTitle($title){
+    public function setTitre($title){
         $this->title = $title;
         return $this;
     }
 
-      /**
-     * Get the value of name
-     */ 
-    public function getDescription(){
-        return $this->description;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
-    public function setDescription($description){
-        $this->description = $description;
-        return $this;
-    }
+ 
 
       /**
      * Get the value of name
