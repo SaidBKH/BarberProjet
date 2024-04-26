@@ -181,3 +181,10 @@ align-items: center;
 .instagram-lien i {
     margin-right: 5px; /* Espacement à droite de l'icône */
 }
+
+
+.carousel-item img {
+    max-height: 400px; /* Hauteur maximale des images du carrousel */
+    width: auto; /* Largeur automatique pour conserver les proportions */
+    margin: 0 auto; /* Centrer les images horizontalement */
+}

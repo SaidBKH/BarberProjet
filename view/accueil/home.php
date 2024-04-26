@@ -72,14 +72,29 @@
 <?php
     $images = $result["data"]['images']; 
 ?>
-    <h1>Liste des images</h1>
-    <br>
+ <div class="container">
+    <h1 class="text-center mt-5">Carrousel d'Images</h1>
 
-        <div class="listImages">
-            <?php foreach ($images as $image) : ?>
-                    <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
-            <?php endforeach; ?>
+    <div id="carouselExampleIndicators" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <?php
+            // Boucle pour afficher les images dans le carrousel
+            $first = true;
+            foreach ($images as $image) :
+            ?>
+            <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
+                <img src="<?= $image->getImageUrl() ?>" class="d-block w-100" alt="<?= $image->getTitre() ?>">
+            </div>
+            <?php
+            $first = false;
+            endforeach;
+            ?>
         </div>
+    </div>
+</div>
+
+<!-- Inclure le JS de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
