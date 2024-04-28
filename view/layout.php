@@ -13,12 +13,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
        <!-- Intègre Font Awesome, une bibliothèque d'icônes.-->
        
-       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-       
         <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css"> <!--  Lie le fichier CSS de style à la page.-->
-        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.home.css">
+        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style_desktop.css">
 
         <title>Jesuispassechezsouf</title>   <!--Définit le titre de la page. --> <!-- -->
     

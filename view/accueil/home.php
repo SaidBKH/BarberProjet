@@ -1,3 +1,12 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Inclure le CSS de Slick Slider -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+<!-- Inclure le JS de Slick Slider -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 <div class="main-container">
 
     <div class="accueil-top">
@@ -72,31 +81,29 @@
 <?php
     $images = $result["data"]['images']; 
 ?>
- <div class="container">
-    <h1 class="text-center mt-5">Carrousel d'Images</h1>
-
-    <div id="carouselExampleIndicators" class="carousel slide mt-4" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <?php
-            // Boucle pour afficher les images dans le carrousel
-            $first = true;
-            foreach ($images as $image) :
-            ?>
-            <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
-                <img src="<?= $image->getImageUrl() ?>" class="d-block w-100" alt="<?= $image->getTitre() ?>">
-            </div>
-            <?php
-            $first = false;
-            endforeach;
-            ?>
+    <h1>Liste des images</h1>
+    <br>
+    <div class="slider">
+            <?php foreach ($images as $image) : ?>
+                <div>
+                    <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
+                </div>
+            <?php endforeach; ?>
         </div>
-    </div>
-</div>
 
-<!-- Inclure le JS de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
+        <script>
+    $(document).ready(function(){
+        $('.slider').slick({
+            dots: true, // Afficher les indicateurs de pagination
+            infinite: true, // Activer le défilement infini
+            speed: 500, // Vitesse de transition (en millisecondes)
+            autoplay: true, // Activer le mode automatique
+            autoplaySpeed: 3000, // Intervalle de temps entre chaque diapositive (en millisecondes)
+            slidesToShow: 1, // Nombre de diapositives à afficher simultanément
+            slidesToScroll: 1 // Nombre de diapositives à faire défiler à la fois
+        });
+    });
+</script>
 
 
 </div>

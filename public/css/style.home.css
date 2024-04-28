@@ -183,8 +183,12 @@ align-items: center;
 }
 
 
-.carousel-item img {
-    max-height: 400px; /* Hauteur maximale des images du carrousel */
-    width: auto; /* Largeur automatique pour conserver les proportions */
-    margin: 0 auto; /* Centrer les images horizontalement */
+.slider {
+    width: 80%; /* Largeur du slider */
+    margin: 0 auto; /* Centrer le slider horizontalement */
+}
+
+.slider img {
+    width: 100%; /* Ajuster la largeur des images à 100% */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
 }
