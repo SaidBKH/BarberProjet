@@ -106,6 +106,15 @@ const swiper = new Swiper('.swiper-container', {
 </div>
 
 <div class="newletter">
+
+<div class="newsletter">
+  <h2>Abonnez-vous à notre newsletter</h2>
+  <form action="traitement-newsletter.php" method="POST">
+    <input type="email" name="email" placeholder="Votre adresse e-mail" required>
+    <button type="submit">S'abonner</button>
+  </form>
+</div>
+
 </div>
 
 <div class="footer">
