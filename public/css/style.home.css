@@ -183,12 +183,59 @@ align-items: center;
 }
 
 
-.slider {
-    width: 80%; /* Largeur du slider */
-    margin: 0 auto; /* Centrer le slider horizontalement */
-}
-
-.slider img {
-    width: 100%; /* Ajuster la largeur des images à 100% */
-    height: auto; /* Hauteur automatique pour conserver les proportions */
-}
+/* Styles pour le conteneur du slider */
+.swiper-container {
+    width: 80%; /* Largeur du slider (par exemple, 80% de la largeur du conteneur parent) */
+    margin: 0 auto; /* Centrage horizontal */
+    overflow: hidden; /* Masquer le débordement du contenu */
+    position: relative; /* Position relative pour les éléments enfants positionnés absolument */
+  }
+  
+  /* Styles pour chaque diapositive dans le slider */
+  .swiper-slide {
+    width: 33.33%; /* Largeur de chaque diapositive (1/3 de la largeur du conteneur) */
+    display: inline-block; /* Affichage en ligne */
+    box-sizing: border-box; /* La largeur inclut le padding et la bordure */
+    padding: 5px; /* Espacement intérieur autour de chaque diapositive */
+  }
+  
+  /* Styles pour les images à l'intérieur des diapositives */
+  .swiper-slide img {
+    width: 100%; /* Largeur maximale de l'image (remplit la diapositive) */
+    height: auto; /* Hauteur automatique pour conserver le ratio */
+    border-radius: 8px; /* Coins arrondis pour les images */
+  }
+  
+  /* Styles pour les boutons de navigation (précédent/suivant) */
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute; /* Position absolue par rapport au conteneur du slider */
+    top: 50%; /* Position verticale à 50% du conteneur */
+    transform: translateY(-50%); /* Déplacement vers le haut de moitié de sa propre hauteur */
+    width: 40px; /* Largeur des boutons */
+    height: 40px; /* Hauteur des boutons */
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
+    color: white; /* Couleur du texte */
+    font-size: 24px; /* Taille de police */
+    text-align: center; /* Centrage du texte */
+    line-height: 40px; /* Hauteur de ligne égale à la hauteur du bouton */
+    cursor: pointer; /* Curseur de la souris en pointeur */
+    z-index: 10; /* Index de positionnement */
+  }
+  
+  /* Styles pour le bouton suivant */
+  .swiper-button-next {
+    right: 0; /* Position à droite du conteneur du slider */
+  }
+  
+  /* Styles pour le bouton précédent */
+  .swiper-button-prev {
+    left: 0; /* Position à gauche du conteneur du slider */
+  }
+  
+  /* Styles pour l'effet de survol des boutons de navigation */
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Couleur de fond au survol */
+  }
+  

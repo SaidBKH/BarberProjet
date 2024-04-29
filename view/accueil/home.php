@@ -1,12 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Inclure le CSS de Slick Slider -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-
-<!-- Inclure le JS de Slick Slider -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
 <div class="main-container">
 
     <div class="accueil-top">
@@ -75,34 +66,40 @@
     </div>
 
 
-<div class="galerie">
-
 
 <?php
     $images = $result["data"]['images']; 
 ?>
-    <h1>Liste des images</h1>
-    <br>
-    <div class="slider">
-            <?php foreach ($images as $image) : ?>
-                <div>
-                    <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
-                </div>
-            <?php endforeach; ?>
-        </div>
 
-        <script>
-    $(document).ready(function(){
-        $('.slider').slick({
-            dots: true, // Afficher les indicateurs de pagination
-            infinite: true, // Activer le défilement infini
-            speed: 500, // Vitesse de transition (en millisecondes)
-            autoplay: true, // Activer le mode automatique
-            autoplaySpeed: 3000, // Intervalle de temps entre chaque diapositive (en millisecondes)
-            slidesToShow: 1, // Nombre de diapositives à afficher simultanément
-            slidesToScroll: 1 // Nombre de diapositives à faire défiler à la fois
-        });
-    });
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+<?php foreach ($images as $image) : ?>
+      <div class="swiper-slide">
+        <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
+      </div>
+    <?php endforeach; ?>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+// Initialiser Swiper.js avec les options souhaitées
+const swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3, // Nombre de diapositives visibles par défaut
+  spaceBetween: 10, // Espacement entre les diapositives
+  loop: true, // Boucle infinie
+  autoplay: {
+    delay: 3000, // Délai entre les transitions automatiques
+  },
+  navigation: {
+    nextEl: '.swiper-button-next', // Sélecteur du bouton suivant
+    prevEl: '.swiper-button-prev', // Sélecteur du bouton précédent
+  },
+});
+
 </script>
 
 

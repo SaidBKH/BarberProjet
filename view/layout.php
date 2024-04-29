@@ -12,9 +12,15 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
        <!-- Intègre Font Awesome, une bibliothèque d'icônes.-->
+       <!-- Inclure Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<!-- Inclure Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
        
         <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css"> <!--  Lie le fichier CSS de style à la page.-->
-        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style_desktop.css">
+        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.home.css">
 
         <title>Jesuispassechezsouf</title>   <!--Définit le titre de la page. --> <!-- -->
     
