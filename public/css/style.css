@@ -10,6 +10,23 @@
 //////////////////////////////////////////////// HEADER    ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
+.main-container {
+    background-color: rgb(59, 59, 59);
+    margin: 0 auto; /* Centre la div principale horizontalement */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour de la div principale */
+    text-align: center; /* Centrer le contenu horizontalement */
+    align-items: center;
+    color: #fff; /* Couleur du texte */
+    font-family: Arial, sans-serif; /* Police de caractère */
+}
+
+/* Ajout de la marge sur les écrans de taille ordinateur */
+@media screen and (min-width: 992px) {
+    .main-container {
+        padding: 20px 40px; /* Espacement intérieur de la div principale avec marge sur les côtés */
+    }
+}
+
 .title {
     font-family: "Open Sans", sans-serif;
      
@@ -281,3 +298,80 @@
 
 /* //////////////////////////////////////////////
 ////////////////////////////////////////////// */
+
+/* Reset des marges par défaut */
+
+
+/* Styles pour la section "Nos services" */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #222; /* Couleur de fond sombre */
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff; /* Couleur de titre */
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Styles pour chaque service */
+.service {
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #333; /* Couleur de fond des services */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre légère */
+    text-align: center;
+}
+
+.service h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #fff; /* Couleur de titre */
+}
+
+.service p {
+    font-size: 16px;
+    color: #ccc; /* Couleur de texte */
+    margin-bottom: 20px;
+}
+
+.service img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Ombre légère pour les images */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff; /* Couleur de fond du bouton */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol du bouton */
+}
+
+/* Media query pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .service {
+        width: calc(50% - 20px);
+    }
+}

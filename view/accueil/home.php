@@ -44,7 +44,7 @@
         </figure>
         <figure>
             <a href="lien-service4" class="service-lien">
-                <img class="services" src="public/img/image3.jpeg" alt="Service 4">
+                <img class="services" src="public/img/nos_services4.jpeg" alt="Service 4">
                 <div class="image-overlay">
                     <p class="overlay-text">COULEUR</p>
                 </div>
@@ -52,7 +52,7 @@
         </figure>
     </div>
 
-</div>
+
 
     <div class="instagram">
         <div class="instagram-contenu">
@@ -67,55 +67,53 @@
 
 
 
-<?php
-    $images = $result["data"]['images']; 
-?>
+    <?php
+        $images = $result["data"]['images']; 
+    ?>
 
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-<?php foreach ($images as $image) : ?>
-      <div class="swiper-slide">
-        <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
-      </div>
-    <?php endforeach; ?>
-  </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <?php foreach ($images as $image) : ?>
+            <div class="swiper-slide">
+                <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
+            </div>
+            <?php endforeach; ?>
+        </div>
 
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+        <script>
+        // Initialiser Swiper.js avec les options souhaitées
+        const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3, // Nombre de diapositives visibles par défaut
+        spaceBetween: 10, // Espacement entre les diapositives
+        loop: true, // Boucle infinie
+        autoplay: {
+            delay: 3000, // Délai entre les transitions automatiques
+        },
+        navigation: {
+            nextEl: '.swiper-button-next', // Sélecteur du bouton suivant
+            prevEl: '.swiper-button-prev', // Sélecteur du bouton précédent
+        },
+        });
+
+        </script>
+
+
+    
+
+    <div class="newletter">
+
+        <div class="newsletter">
+        <h2>Abonnez-vous à notre newsletter</h2>
+        <form action="traitement-newsletter.php" method="POST">
+            <input type="email" name="email" placeholder="Votre adresse e-mail" required>
+            <button type="submit">S'abonner</button>
+        </form>
+        </div>
+
 </div>
 
-<script>
-// Initialiser Swiper.js avec les options souhaitées
-const swiper = new Swiper('.swiper-container', {
-  slidesPerView: 3, // Nombre de diapositives visibles par défaut
-  spaceBetween: 10, // Espacement entre les diapositives
-  loop: true, // Boucle infinie
-  autoplay: {
-    delay: 3000, // Délai entre les transitions automatiques
-  },
-  navigation: {
-    nextEl: '.swiper-button-next', // Sélecteur du bouton suivant
-    prevEl: '.swiper-button-prev', // Sélecteur du bouton précédent
-  },
-});
-
-</script>
-
-
-</div>
-
-<div class="newletter">
-
-<div class="newsletter">
-  <h2>Abonnez-vous à notre newsletter</h2>
-  <form action="traitement-newsletter.php" method="POST">
-    <input type="email" name="email" placeholder="Votre adresse e-mail" required>
-    <button type="submit">S'abonner</button>
-  </form>
-</div>
-
-</div>
-
-<div class="footer">
-</div>
