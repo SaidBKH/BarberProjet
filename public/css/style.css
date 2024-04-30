@@ -375,3 +375,67 @@ h1 {
         width: calc(50% - 20px);
     }
 }
+
+
+
+
+
+
+
+
+/* Styles améliorés pour la mise en page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.join-container {
+    line-height: 1.6;
+}
+
+.feature {
+    margin-bottom: 30px;
+}
+
+.feature i {
+    margin-right: 10px;
+    color: #007bff; /* Couleur de l'icône */
+}
+
+.feature h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
