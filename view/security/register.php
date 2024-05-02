@@ -1,25 +1,26 @@
-
 <div class="registerPage">
-    <br>
+    <figure class="logoContainer">
+        <img src="public/img/logo.png" alt="Logo" class="logo">
+    </figure>
+
     <h1>INSCRIPTION</h1>
-    <br> 
-    
-        <form action="index.php?ctrl=security&action=register" method="post">
-            <label for="prenom">Prénom :</label><br>
-            <input placeholder="prenom" type="text" id="prenom" name="prenom" required style="text-align: center;"><br>
 
-            <label for="email">Email :</label><br>
-            <input placeholder= email type="email" id="email" name="email" required style="text-align: center;"><br>
+    <form action="index.php?ctrl=security&action=register" method="post">
+        <label for="prenom">Prénom :</label><br>
+        <input placeholder="Prénom" type="text" id="prenom" name="prenom" required><br>
 
-            <label for="password">Mot de passe :</label><br>
-            <input placeholder="mot de passe" type="password" id="password" name="password" required style="text-align: center;"><br>
+        <label for="email">Email :</label><br>
+        <input placeholder="Email" type="email" id="email" name="email" required><br>
 
-            <label for="confirm_password">Confirmer le mot de passe :</label><br>
-            <input placeholder="mot de passe" type="password" id="confirm_password" name="confirm_password" required style="text-align: center;"><br>
+        <label for="password">Mot de passe :</label><br>
+        <input placeholder="Mot de passe" type="password" id="password" name="password" required><br>
 
-            <label for="telephone">telephone</label><br>
-            <input placeholder="telephone" type="telephone" id="telephone" name="telephone" required style="text-align: center;"><br>
+        <label for="confirm_password">Confirmer le mot de passe :</label><br>
+        <input placeholder="Confirmer le mot de passe" type="password" id="confirm_password" name="confirm_password" required><br>
 
-            <button type="submit">S'inscrire</button>
-        </form>
+        <label for="telephone">Téléphone :</label><br>
+        <input placeholder="Téléphone" type="tel" id="telephone" name="telephone" required><br>
+
+        <button type="submit">S'inscrire</button>
+    </form>
 </div>

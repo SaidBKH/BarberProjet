@@ -296,13 +296,11 @@
             display: none;
         }}
 
-/* //////////////////////////////////////////////
+/* //////////////////// NOS SERVICES /////////////////////
 ////////////////////////////////////////////// */
 
-/* Reset des marges par défaut */
 
 
-/* Styles pour la section "Nos services" */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -366,7 +364,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #6f6f6f; /* Couleur de fond au survol du bouton */
+    background-color: #0056b3; /* Couleur de fond au survol du bouton */
 }
 
 /* Media query pour les petits écrans */
@@ -438,4 +436,119 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* /////////////////////////////STYLE LOGINPAGE////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+
+.loginPage {
+    background-color: #222;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.logoContainer {
+    margin-bottom: 20px; /* Espacement en bas du logo */
+}
+
+.logo {
+    width: 100px; /* Taille du logo */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 200px; /* Largeur des champs de saisie */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"],
+button[name="register"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[name="register"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* /////////////////////////////REGISTER PAGE ////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+.registerPage {
+    background-color: #222;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.logoContainer {
+    margin-bottom: 20px; /* Espacement en bas du logo */
+}
+
+.logo {
+    width: 100px; /* Taille du logo */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+}
+
+h1 {
+    margin-bottom: 20px; /* Espacement en bas du titre */
+}
+
+form {
+    margin-bottom: 20px; /* Espacement en bas du formulaire */
+}
+
+label {
+    display: block; /* Affichage en bloc pour les libellés */
+    margin-bottom: 5px; /* Espacement en bas des libellés */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 200px; /* Largeur des champs de saisie */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }

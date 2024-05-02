@@ -34,8 +34,9 @@
                 <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
                 
                 <header class="header"><!--En-tête de la page. -->
-                    <img src="public/img/logo.png">  <!-- le logo-->
-
+                  <figure>
+                   <img src="public/img/logo.png">  <!-- le logo-->
+                  </figure>
                     <div class="header_mobile" onclick="toggleMenu()"> 
                     <!-- Définition de l'icône pour ouvrir le menu -->
  
