@@ -35,7 +35,7 @@
                 
                 <header class="header"><!--En-tête de la page. -->
                   <figure>
-                   <img src="public/img/logo.png">  <!-- le logo-->
+                   <img src="public/img/logo.png">  <!-- le logo---->
                   </figure>
                     <div class="header_mobile" onclick="toggleMenu()"> 
                     <!-- Définition de l'icône pour ouvrir le menu -->
