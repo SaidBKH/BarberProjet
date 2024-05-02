@@ -366,7 +366,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #0056b3; /* Couleur de fond au survol du bouton */
+    background-color: #6f6f6f; /* Couleur de fond au survol du bouton */
 }
 
 /* Media query pour les petits écrans */
