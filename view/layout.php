@@ -60,7 +60,7 @@
                                         <a href="index.php">ACCUEIL</a>
                                    </li> 
                                     <li>
-                                        <a href="#">Actualité</a>
+                                        <a href="index.php?ctrl=actualites&action=actualites">Actualité</a>
                                     </li>
                                     <li>
                                         <a href="index.php?ctrl=reservation&action=listService">Réservations
