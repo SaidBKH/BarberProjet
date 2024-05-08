@@ -52,7 +52,7 @@
                                             <span class="fas fa-user"></span>
                                             &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                         </a>
-                                        <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                        <a href="index.php?ctrl=security&action=logout">DÉCONNEXION</a>
                                     </div>
                                 <?php endif; ?>
                                 <ul class="nav_bureau_menu">
@@ -60,20 +60,20 @@
                                         <a href="index.php">ACCUEIL</a>
                                    </li> 
                                     <li>
-                                        <a href="index.php?ctrl=actualites&action=actualites">Actualité</a>
+                                        <a href="index.php?ctrl=actualites&action=actualites">ACTUALITÉ</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=reservation&action=listService">Réservations
+                                        <a href="index.php?ctrl=reservation&action=listService">RÉSERVATIONS
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=services&action=nos_services">Nos Services</a>
+                                        <a href="index.php?ctrl=services&action=nos_services">NOS SERVICES</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">Nous rejoindre</a>
+                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">NUS REJOINDRE</a>
                                     </li>
                                     <li>
-                                    <a href="index.php?ctrl=contact&action=contact">Contact
+                                    <a href="index.php?ctrl=contact&action=contact">CONTACT
                                         </a>
                                     </li>
                                     <?php if(!App\Session::getUser()): ?> <!--Ajouter cette condition pour les utilisateurs non connectés -->
@@ -113,34 +113,34 @@
                                         </a>
                                     </li> 
                                     <li>
-                                        <a href="#">
-                                            <i class="fas fa-newspaper"></i>Actualité
+                                        <a href="index.php?ctrl=actualites&action=actualites">
+                                            <i class="fas fa-newspaper"></i>ACTUALITÉ
                                         </a>
                                     </li>
                                     <li>
                                         <a href="index.php?ctrl=reservation&action=listService">
-                                            <i class="fas fa-calendar-check"></i>Réservations
+                                            <i class="fas fa-calendar-check"></i>RÉSERVATION
                                         </a>
                                     </li>
                                     <li>
                                         <a href="index.php?ctrl=services&action=nos_services">
-                                            <i class="fas fa-toolbox"></i>Nos Services
+                                            <i class="fas fa-toolbox"></i>NOS SERVICES
                                         </a>
                                     </li>
                                     <li>
                                         <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">
-                                            <i class="fas fa-users"></i>Nous rejoindre
+                                            <i class="fas fa-users"></i>NOUS REJOINDRE
                                         </a>
                                     </li>
                                     <li>
                                         <a href="index.php?ctrl=contact&action=contact">
-                                            <i class="fas fa-envelope"></i>Contact
+                                            <i class="fas fa-envelope"></i>CONTACT
                                         </a>
                                     </li>
                                     <?php if(!App\Session::getUser()): ?> <!--Ajouter cette condition pour les utilisateurs non connectés -->
                                         <li>
                                             <a href="index.php?ctrl=security&action=login">
-                                                <i class="fas fa-sign-in-alt"></i>Connexion
+                                                <i class="fas fa-sign-in-alt"></i>CONNEXION
                                             </a>
                                         </li>
                                     <?php endif; ?>
