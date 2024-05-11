@@ -595,3 +595,79 @@ button[type="submit"]:hover {
     color: #ffffff;
 }
 
+
+/* /////////////////////////////footer ////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+/* Styles pour le footer */
+
+/* Styles pour le footer */
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info, .horaires {
+    width: 45%;
+}
+
+.contact-info h3, .horaires h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info p, .horaires p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.legal {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.legal a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal a:hover {
+    color: #007bff;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .horaires {
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
+
+
+#mainpage {
+    min-height: calc(100vh - 30px);
+}
+
+

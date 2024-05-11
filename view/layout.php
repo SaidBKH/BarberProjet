@@ -70,7 +70,7 @@
                                         <a href="index.php?ctrl=services&action=nos_services">NOS SERVICES</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">NUS REJOINDRE</a>
+                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">NOUS REJOINDRE</a>
                                     </li>
                                     <li>
                                     <a href="index.php?ctrl=contact&action=contact">CONTACT
@@ -79,7 +79,7 @@
                                     <?php if(!App\Session::getUser()): ?> <!--Ajouter cette condition pour les utilisateurs non connectés -->
                                         <li>
                                             <a href="index.php?ctrl=security&action=login">
-                                                <i class="fas fa-sign-in-alt"></i>Connexion
+                                                <i class="fas fa-sign-in-alt"></i>CONNEXION
                                             </a>
                                         </li>
                                     <?php endif; ?>
@@ -103,7 +103,7 @@
                                             <span class="fas fa-user"></span>
                                             &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                         </a>
-                                        <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                        <a href="index.php?ctrl=security&action=logout">DÉCONNEXION</a>
                                     </div>
                                 <?php endif; ?>
                                 <ul class="nav_mobile_menu">
@@ -167,10 +167,24 @@
                 </main>
             </div>
             <footer>
-            <div class ="footer">
-                <br>
-                <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="#">politique de confidentialité </a> - <a href="#">Mentions légales</a></p>
-            </footer>
+    <div class="footer-container">
+        <div class="contact-info">
+            <h3>Informations de contact</h3>
+            <p>Téléphone : 04.50.75.03.39</p>
+            <p>Email : <a href="mailto:jesuispassechezsouf@gmail.com">jesuispassechezsouf@gmail.com</a></p>
+            <p>Adresse : 1 Allée Francois Truffaut, 74100 Annemasse</p>
+        </div>
+        <div class="horaires">
+            <h3>Horaires de rendez-vous</h3>
+            <p>Lundi - Vendredi : 09h00 - 18h00</p>
+            <p>Samedi : 09h00 - 12h00</p>
+            <p>Dimanche : Fermé</p>
+        </div>
+    </div>
+    <div class="legal">
+        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mention&action=politique_confidentialite">Politique de confidentialité</a> - <a href="#">Mentions légales</a></p>
+    </div>
+</footer>
         </div>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
