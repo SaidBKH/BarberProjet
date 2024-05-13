@@ -2,12 +2,12 @@
 
     <div class="accueil-top">
         <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
-        <button class="btn-rdv">Prendre rendez-vous</button>
+        <a href="index.php?ctrl=reservation&action=listService"><button class="btn-rdv">Prendre rendez-vous</button></a>
     </div>
 
     <div class="accueil-presentation">
         <figure>
-            <img class="devanture" src="public/img/devanture.jpeg" alt="Devanture">
+            <img class="devanture" src="public/img/devanture.jpeg" alt="Devanture du salon de coiffure">
         </figure>
         <div class="texte-presentation">
             <h2>Salon de Coiffure à Annemasse !</h2>
@@ -19,32 +19,32 @@
 
     <div class="list-services">
         <figure>
-            <a href="lien-service1" class="service-lien">
-                <img class="services" src="public/img/nos_services1.jpeg" alt="Service 1">
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services1.jpeg" alt="coupe de cheveux">
                 <div class="image-overlay">
                     <p class="overlay-text">CHEVEUX</p>
                 </div>
             </a>
         </figure>
         <figure>
-            <a href="lien-service2" class="service-lien">
-                <img class="services" src="public/img/nos_services2.jpeg" alt="Service 2">
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services2.jpeg" alt="barbe">
                 <div class="image-overlay">
                     <p class="overlay-text">BARBE</p>
                 </div>
             </a>
         </figure>
         <figure>
-            <a href="lien-service3" class="service-lien">
-                <img class="services" src="public/img/nos_services3.jpeg" alt="Service 3">
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services3.jpeg" alt="Soins du visage">
                 <div class="image-overlay">
                     <p class="overlay-text">SOINS</p>
                 </div>
             </a>
         </figure>
         <figure>
-            <a href="lien-service4" class="service-lien">
-                <img class="services" src="public/img/nos_services4.jpeg" alt="Service 4">
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services4.jpeg" alt="coloration de cheveux">
                 <div class="image-overlay">
                     <p class="overlay-text">COULEUR</p>
                 </div>

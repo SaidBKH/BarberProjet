@@ -106,6 +106,21 @@ class SecurityController extends AbstractController{
         
     }
 
- 
+    public function profil() {
+        return [
+            "view" => VIEW_DIR."security/profil.php",
+            "meta_description" => "page d'accueil",
+            "data" => [                   
+            ]
+        ];
+    }
+
+    
+    
+    
+
+    
+
+
 
 }

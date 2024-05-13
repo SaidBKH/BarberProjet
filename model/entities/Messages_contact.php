@@ -114,7 +114,8 @@ final class Message_contact extends Entity{
      * Get the value of name
      */ 
     public function getDateCreation(){
-        return $this->date_creation;
+        $date = $this->date_creation->format('d-m H:i');
+        return $date;
     }
 
     /**
@@ -123,7 +124,7 @@ final class Message_contact extends Entity{
      * @return  self
      */ 
     public function setDateCreation($date_creation){
-        $this->date_creation = $date_creation;
+        $this->date_creation =new \DateTime($date_creation);
         return $this;
     }
 }

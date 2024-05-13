@@ -140,9 +140,8 @@
     font-family: Arial;
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
-
 
 }
 
@@ -173,7 +172,7 @@
     align-items: center;
     font-family: Arial;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     position: relative; 
 
 }
@@ -213,7 +212,7 @@
 
 }
 .nav_mobile_social li a{
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 12px;
     opacity: 0.6;

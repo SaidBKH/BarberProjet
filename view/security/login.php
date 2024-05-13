@@ -14,7 +14,13 @@
     </form>
     
     <p>Vous n'avez pas encore de compte ?</p>
+    <br>
     <button name="register">
         <a href="index.php?ctrl=security&action=register">JE M'INSCRIS</a>
     </button>
+
+
 </div>
+
+
+

@@ -35,7 +35,7 @@
                 
                 <header class="header"><!--En-tête de la page. -->
                   <figure>
-                   <img src="public/img/logo.png">  <!-- le logo---->
+                 <a href="index.php">  <img src="public/img/logo.png" alt ="logo jesuispassechezsouf"></a>  <!-- le logo---->
                   </figure>
                     <div class="header_mobile" onclick="toggleMenu()"> 
                     <!-- Définition de l'icône pour ouvrir le menu -->
@@ -48,7 +48,7 @@
                     <nav class="bureau">
                                 <?php if(App\Session::getUser()): ?> <!--Vérifie si un utilisateur est connecté. -->
                                     <div class ="nav_bureau_profil">
-                                        <a href="index.php?ctrl=user&action=profile">
+                                        <a href="index.php?ctrl=security&action=profil">
                                             <span class="fas fa-user"></span>
                                             &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                         </a>
@@ -99,7 +99,7 @@
                             <section class="top"> <!--section superieur de la nav -->
                                 <?php if(App\Session::getUser()): ?> <!--Vérifie si un utilisateur est connecté. -->
                                     <div class ="nav_mobile_profil">
-                                        <a href="index.php?ctrl=user&action=profile">
+                                        <a href="index.php?ctrl=security&action=profil">
                                             <span class="fas fa-user"></span>
                                             &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                         </a>
@@ -149,10 +149,11 @@
 
                             <section class = "bottom"> <!-- Section inférieure de la navigation mobile.-->
                                     <ul class ="nav_mobile_social"> <!--les reseaux sociaux -->
-                                            <a href="#">instagram</a>
+                                        <li>
+                                            <a href="https://www.instagram.com/jesuispassechezsouf/">instagram</a>
                                         </li>
                                         <li>
-                                            <a href="#">facebook</a>
+                                            <a href="https://www.facebook.com/jesuispassechezsouf">facebook</a>
                                         </li>
                                     </ul>
                             </section>
@@ -182,7 +183,7 @@
         </div>
     </div>
     <div class="legal">
-        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mention&action=politique_confidentialite">Politique de confidentialité</a> - <a href="#">Mentions légales</a></p>
+        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mention&action=politique_confidentialite">Politique de confidentialité</a> - <a href="index.php?ctrl=mention&action=mention_legal">Mentions légales</a></p>
     </div>
 </footer>
         </div>

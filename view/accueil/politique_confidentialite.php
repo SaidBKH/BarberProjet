@@ -1,5 +1,5 @@
 
-
+<div class = "politique_confidentialite">
     <h1>Mentions légales et politique de confidentialité</h1>
 
     <p>La société Jesuispasséchezsouf, soucieuse des droits des individus, notamment au regard des traitements automatisés et dans une volonté de transparence avec ses clients, a mis en place une politique reprenant l’ensemble de ces traitements, des finalités poursuivies par ces derniers ainsi que des moyens d’actions à la disposition des individus afin qu’ils puissent au mieux exercer leurs droits.</p>
@@ -174,3 +174,4 @@
     <br>
     <p>Pour toute question, information sur les produits présentés sur le site, ou concernant le site lui-même, vous pouvez laisser un message à l’adresse suivante : <a href="mailto:Jesuispassechezsouf@gmail.com">Jesuispassechezsouf@gmail.com</a></p>
 
+</div>

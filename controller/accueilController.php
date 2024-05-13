@@ -10,7 +10,7 @@ use Model\Managers\GalerieManager;
 
 
 
-class HomeController extends AbstractController implements ControllerInterface {
+class accueilController extends AbstractController implements ControllerInterface {
 
     public function index()
     {
@@ -32,6 +32,15 @@ class HomeController extends AbstractController implements ControllerInterface {
 
 
 }
+
+
+
+
+
+
+
+
+
     
 //     public function users(){
 //         $this->restrictTo("ROLE_USER");
