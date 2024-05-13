@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `actualites` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table barber.actualites : ~1 rows (environ)
+-- Listage des données de la table barber.actualites : ~0 rows (environ)
 INSERT INTO `actualites` (`id`, `titre`, `photo`, `texte`, `date`) VALUES
 	(1, 'Nouveau Programme de Fidélité : Économisez 15% chaque mois !', 'http://localhost:8888/BarberProjet-3/public/img/actu.jpeg\n', 'Découvrez notre tout nouveau programme de fidélité chez Jesuispassechezsouf ! À partir de maintenant, vous bénéficiez d\'une réduction de 15% sur chaque deuxième prestation réalisée dans le même mois.\n\nC\'est notre façon de récompenser votre fidélité et de vous offrir des économies régulières sur vos services de coiffure et de rasage. Lors de votre prochaine visite, informez simplement votre coiffeur que vous participez à notre programme de fidélité pour profiter de cette offre exclusive.\n\nNe manquez pas cette occasion d\'économiser et de profiter des meilleurs soins capillaires et de rasage. Prenez rendez-vous dès aujourd\'hui pour commencer à bénéficier de notre programme de fidélité mensuel !', '2024-05-06 13:27:24');
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   PRIMARY KEY (`id_client`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table barber.client : ~4 rows (environ)
+-- Listage des données de la table barber.client : ~3 rows (environ)
 INSERT INTO `client` (`id_client`, `prenom`, `telephone`, `email`, `password`, `role`, `creationDate`) VALUES
 	(1, 'said', '0388218891', 'said@said.fr', '$2y$10$QoqcloB/5FORzc3J9ulyM.ri5kaMK2.rvbqVJjou9gO0o7tx/h6.i', 'Utilisateur', '2024-03-21 23:00:00'),
 	(2, 'MOMO', '0388218895', 'momo@gmail.com', '$2y$10$bn0U1Jha0C5FV1kV66RtKe7M25Z/mxQFzrrkqlqvvlI.KhtNLZRzC', 'Utilisateur', '2024-03-22 09:52:25'),
@@ -142,10 +142,14 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `client_id` int DEFAULT NULL,
   `date` date NOT NULL,
   `heure` time NOT NULL,
-  PRIMARY KEY (`id_reservation`)
+  PRIMARY KEY (`id_reservation`),
+  KEY `service_id` (`service_id`),
+  KEY `client_id` (`client_id`),
+  CONSTRAINT `FK_reservations_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id_client`),
+  CONSTRAINT `FK_reservations_service` FOREIGN KEY (`service_id`) REFERENCES `service` (`id_service`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table barber.reservations : ~17 rows (environ)
+-- Listage des données de la table barber.reservations : ~0 rows (environ)
 INSERT INTO `reservations` (`id_reservation`, `service_id`, `client_id`, `date`, `heure`) VALUES
 	(1, 1, NULL, '2024-07-01', '10:00:00'),
 	(2, 1, NULL, '2024-07-01', '09:00:00'),
@@ -156,14 +160,31 @@ INSERT INTO `reservations` (`id_reservation`, `service_id`, `client_id`, `date`,
 	(7, 1, NULL, '2024-07-01', '12:00:00'),
 	(8, 1, NULL, '2024-07-01', '13:00:00'),
 	(9, 1, NULL, '2024-07-01', '13:30:00'),
-	(10, 1, NULL, '2024-07-01', '14:00:00'),
-	(11, 1, NULL, '2024-07-01', '14:30:00'),
+	(10, 2, NULL, '2024-07-01', '14:00:00'),
+	(11, 2, NULL, '2024-07-01', '14:30:00'),
 	(12, 1, NULL, '2024-07-01', '15:00:00'),
 	(13, 1, NULL, '2024-07-01', '15:30:00'),
 	(14, 1, NULL, '2024-07-01', '16:00:00'),
 	(15, 1, NULL, '2024-07-01', '16:30:00'),
 	(16, 1, NULL, '2024-07-01', '17:00:00'),
-	(17, 1, NULL, '2024-07-01', '17:30:00');
+	(17, 1, NULL, '2024-07-01', '17:30:00'),
+	(18, 1, NULL, '2024-08-01', '10:00:00'),
+	(19, 1, NULL, '2024-08-01', '09:00:00'),
+	(20, 1, NULL, '2024-08-01', '09:30:00'),
+	(21, 1, NULL, '2024-08-01', '10:30:00'),
+	(22, 1, NULL, '2024-08-01', '11:00:00'),
+	(23, 1, NULL, '2024-08-01', '11:30:00'),
+	(24, 1, NULL, '2024-08-01', '12:00:00'),
+	(25, 1, NULL, '2024-08-01', '13:00:00'),
+	(26, 1, NULL, '2024-08-01', '13:30:00'),
+	(27, 1, NULL, '2024-08-01', '14:00:00'),
+	(28, 1, NULL, '2024-08-01', '14:30:00'),
+	(29, 1, NULL, '2024-08-01', '15:00:00'),
+	(30, 1, NULL, '2024-08-01', '15:30:00'),
+	(31, 1, NULL, '2024-08-01', '16:00:00'),
+	(32, 1, NULL, '2024-08-01', '16:30:00'),
+	(33, 1, NULL, '2024-08-01', '17:00:00'),
+	(34, 1, NULL, '2024-08-01', '17:30:00');
 
 -- Listage de la structure de table barber. service
 CREATE TABLE IF NOT EXISTS `service` (
@@ -172,7 +193,8 @@ CREATE TABLE IF NOT EXISTS `service` (
   `prix` float DEFAULT NULL,
   `duree` datetime DEFAULT NULL,
   `categorie_id` int DEFAULT NULL,
-  PRIMARY KEY (`id_service`)
+  PRIMARY KEY (`id_service`),
+  KEY `categorie_id` (`categorie_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Listage des données de la table barber.service : ~14 rows (environ)
