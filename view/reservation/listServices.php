@@ -9,7 +9,7 @@ $categorie = $result["data"]['categorie'];
         <p><?= $service->getNom() ?> <?= $service->getPrix() ?>€</p>
         <p>Durée : <?= $service->getDuree() ?> min</p>
         <!-- Bouton pour réserver -->
-        <form action="index.php?ctrl=reservation&action=makeReservation" method="post">
+        <form action="index.php?ctrl=reservation&action=planning" method="post">
             <input type="hidden" name="service_id" value="<?= $service->getId() ?>">
             <button type="submit">Réserver</button>
         </form>

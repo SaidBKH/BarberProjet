@@ -3,15 +3,15 @@ namespace Controller;
 // definition require definition  namespace 
 use App\AbstractController;
 use App\ControllerInterface;
-use Model\Managers\UserManager;
-use Model\Entities\User_;
+use Model\Managers\ClientManager;
+use Model\Entities\Client;
 
 class SecurityController extends AbstractController{
     // contiendra les méthodes liées à l'authentification : register, login et logout
 
     public function register() {
 
-        $userManager = new UserManager();
+        $clientManager = new ClientManager();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -30,7 +30,7 @@ class SecurityController extends AbstractController{
             //var_dump($prenom, $email, $password, $confirmPassword && $telephone);die;
             if($prenom && $email && $password && $confirmPassword && $telephone) {
         
-                if ($userManager->emailExist($email)) {
+                if ($clientManager->emailExist($email)) {
                     echo "l'email existe deja";
                     $this->redirectTo("security","register");
                 }
@@ -38,7 +38,7 @@ class SecurityController extends AbstractController{
                 // si les mots de passe correspondent 
                 if ($password == $confirmPassword) {
                 
-                    $userManager->add([
+                    $clientManager->add([
                             "prenom" => $prenom,
                             "email" => $email,
                             "password" => password_hash($password, PASSWORD_DEFAULT), 
@@ -63,7 +63,7 @@ class SecurityController extends AbstractController{
 
 
     public function login() {
-        $userManager = new UserManager();
+        $clientManager = new ClientManager();
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
@@ -72,15 +72,15 @@ class SecurityController extends AbstractController{
             if ($email && $password) {
                 // Vérifier si l'email existe 
 
-                if ($userManager->emailExist($email)) {
+                if ($clientManager->emailExist($email)) {
 
                     // Récupérer l'user grace à l'e-mail
-                    $user = $userManager->findByEmail($email);
+                    $user = $clientManager->findByEmail($email);
                     
 
                     // Vérifie mdp 
                     if ($user && password_verify($password, $user->getPassword())) {
-                        $_SESSION['user'] = $user;
+                        $_SESSION['client'] = $user;
                         $this->redirectTo("home", "index");
                     } else {
                         echo "Mot de passe incorrect";

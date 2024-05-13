@@ -7,6 +7,7 @@ use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\CategorieManager;
 use Model\Managers\ServiceManager;
+use Model\Managers\ClientManager;
 
 
 
@@ -47,7 +48,21 @@ class ReservationController extends AbstractController implements ControllerInte
             ];
         }
 
-            
+        public function planningByService($id)
+        {
+            $reservationManager = new ReservationManager();
+    
+            $planning = $reservationManager->listDisponibiliteByService($serviceId);
+    
+            // Retourner le résultat pour être utilisé dans la vue
+            return [
+                "view" => VIEW_DIR . "reservation/planningByService.php",
+                "meta_description" => "Planning",
+                "data" => [
+                    "planning" => $planning
+                ]
+            ];
+        }
         }
 
 

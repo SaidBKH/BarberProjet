@@ -28,11 +28,11 @@ class Session{
     *   met un user dans la session (pour le maintenir connecté)
     */
     public static function setUser($user){
-        $_SESSION["user"] = $user;
+        $_SESSION["client"] = $user;
     }
 
     public static function getUser(){
-        return (isset($_SESSION['user'])) ? $_SESSION['user'] : false;
+        return (isset($_SESSION['client'])) ? $_SESSION['client'] : false;
     }
 
     public static function isAdmin(){
