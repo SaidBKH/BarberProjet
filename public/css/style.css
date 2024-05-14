@@ -738,4 +738,50 @@ h2 {
     color: white;
 }
 
+/* Style général de la liste des catégories */
+.category-list {
+    padding: 50px;
+    text-align: center;
+}
+
+/* Conteneur pour les catégories */
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Style d'un élément de catégorie */
+.category-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet de survol */
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre de la catégorie */
+.category-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+/* Paragraphe descriptif */
+.category-item p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+}
 

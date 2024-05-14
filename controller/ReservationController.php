@@ -75,8 +75,11 @@ class ReservationController extends AbstractController implements ControllerInte
         }
 
 
+
+
         public function reserve() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
                 // Récupérer l'heure sélectionnée depuis le formulaire
                 $heureSelectionnee = isset($_POST['heure_selectionnee']) ? $_POST['heure_selectionnee'] : '';
                 $serviceId = isset($_POST['service_id']) ? $_POST['service_id'] : '';
@@ -106,18 +109,6 @@ class ReservationController extends AbstractController implements ControllerInte
 
 
 
-
-
-
-
-
-
-
-
-    //     // Redirection vers une page de confirmation ou autre action après la réservation
-    //     header('Location: index.php?action=reservation_confirm');
-    //     exit;
-    // }
 
 
 

@@ -1,18 +1,16 @@
 <?php
     $categories = $result["data"]['categories']; 
-    $services = $result["data"]['services']; 
 ?>
 
-<div class="listCategory">
-    <h1>Liste des catégories</h1>
-<br>
-        <?php
-        foreach($categories as $categorie ){ ?>
-<p><a href="index.php?ctrl=reservation&action=listServiceByCategory&id=<?= $categorie->getId() ?>">
-            <?= $categorie->getNomCategorie() ?></a></p>
-           
-        <?php
+<div class="category-list">
+    <h1>Nos Catégories</h1>
 
-}?>
-
-
+    <div class="category-container">
+        <?php foreach ($categories as $categorie): ?>
+            <a href="index.php?ctrl=reservation&action=listServiceByCategory&id=<?= $categorie->getId() ?>" class="category-item">
+                <h2><?= htmlspecialchars($categorie->getNomCategorie()) ?></h2>
+                <p>Explorez nos services de <?= htmlspecialchars($categorie->getNomCategorie()) ?></p>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</div>
