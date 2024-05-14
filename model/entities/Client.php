@@ -145,4 +145,10 @@ final class Client extends Entity{
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this;
+    }
+
 }

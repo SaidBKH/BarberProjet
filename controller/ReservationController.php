@@ -77,29 +77,31 @@ class ReservationController extends AbstractController implements ControllerInte
 
         public function reserve() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Récupére l'heure sélectionnée depuis le formulaire
-                $heureSelectionnee = $_POST['heure_selectionnee'];
-                $serviceId = $_POST['service_id']; // Vous devez avoir cette valeur dans votre formulaire
-        
-                //Je récupere l'ID du client à partir de la session ou de l'authentification
-                $clientId = $_SESSION['client']; // Exemple : Supposons que vous stockiez l'ID du client dans la session
-        
+                // Récupérer l'heure sélectionnée depuis le formulaire
+                $heureSelectionnee = isset($_POST['heure_selectionnee']) ? $_POST['heure_selectionnee'] : '';
+                $serviceId = isset($_POST['service_id']) ? $_POST['service_id'] : '';
+                
+                // Récupérer l'ID du client à partir de la session
+                $clientId = $_SESSION['client']->getId();
+                
                 // Créer une nouvelle instance de Reservation avec les données
                 $reservationData = [
-                    'heure' => $heureSelectionnee,
-                    'date' => date('Y-m-d'), // Vous pouvez obtenir la date du jour
-                    'service' => $service,
-                    'client' => $client
+                    'heure' => str_replace("\n", "",(str_replace(" ", "", $heureSelectionnee))),
+                    'date' => date('Y-m-d'), 
+                    'service_id' => $serviceId, 
+                    'client_id' => $clientId 
                 ];
-        
+                
+                // Créer une instance de ReservationManager et créer la réservation
                 $reservationManager = new ReservationManager();
-        
-                // Insérer la réservation en base de données
-                $reservationManager->createReservation($reservationData);
-        
-        
+                $reservationManager->add($reservationData);
+                
+
             }
-}
+            header('Location: index.php?action=reservation_confirm');
+            //     
+        }
+        
 }
 
 

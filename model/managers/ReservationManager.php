@@ -3,6 +3,8 @@ namespace Model\Managers;
 
 use App\Manager;
 use App\DAO;
+use Model\Entities\Reservation;
+use Model\Entities\Client;
 
 class ReservationManager extends Manager{
 
@@ -33,24 +35,24 @@ class ReservationManager extends Manager{
     
     
 
-public function createReservation($data) {
-        // Créer une nouvelle instance de Reservation avec les données
-        $reservation = new Reservation($data);
+// public function createReservation($data) {
+//         // Créer une nouvelle instance de Reservation avec les données
+//         $data;
 
-        // Insérer la réservation en base de données
-        $sql = "INSERT INTO $this->tableName (heure, date, service_id, client_id)
-                VALUES (:heure, :date, :service_id, :client_id)";
+//         // Insérer la réservation en base de données
+//         $sql = "INSERT INTO $this->tableName (heure, date, service_id, client_id)
+//                 VALUES (:heure, :date, :service_id, :client_id)";
 
-        $params = [
-            'heure' => $reservation->getHeure(),
-            'date' => $reservation->getDate(),
-            'service_id' => $reservation->getService()->getId(),
-            'client_id' => $reservation->getClient()->getId()
-        ];
+//         $params = [
+//             'heure' => $reservation->getHeure(),
+//             'date' => $reservation->getDate(),
+//             'service_id' => $reservation->getService()->getId(),
+//             'client_id' => $reservation->getClient()->getId()
+//         ];
 
-        // Exécuter la requête SQL
-        $this->execute($sql, $params);
-    }
+//         // Exécuter la requête SQL
+//         $this->execute($sql, $params);
+//     }
 
 
 }
