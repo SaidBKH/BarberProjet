@@ -598,9 +598,6 @@ button[type="submit"]:hover {
 /* /////////////////////////////footer ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
 
-/* Styles pour le footer */
-
-/* Styles pour le footer */
 
 footer {
     background-color: #222;
@@ -667,6 +664,78 @@ footer {
 
 #mainpage {
     min-height: calc(100vh - 30px);
+}
+
+
+
+
+
+/* /////////////////////////////RESERVATIONS ////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+
+
+.container-reservation {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.tableau-disponibilite {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.heure-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto; /* Permet de faire défiler horizontalement si nécessaire */
+}
+
+.colonne-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jour-de-semaine {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.heures {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cellule-heure {
+    padding: 10px;
+    background-color: #747474;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cellule-heure.selectionnee {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.cellule-heure:hover {
+    background-color: #dcdcdc;
+}
+
+form {
+    margin-top: 20px;
+}
+
+h2 {
+    padding-bottom: 5px;
+    color: white;
 }
 
 
