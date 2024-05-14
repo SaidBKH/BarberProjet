@@ -73,34 +73,37 @@ class ReservationController extends AbstractController implements ControllerInte
                 ]
             ];
         }
+
+
+        public function reserve() {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Récupére l'heure sélectionnée depuis le formulaire
+                $heureSelectionnee = $_POST['heure_selectionnee'];
+                $serviceId = $_POST['service_id']; // Vous devez avoir cette valeur dans votre formulaire
+        
+                //Je récupere l'ID du client à partir de la session ou de l'authentification
+                $clientId = $_SESSION['client']; // Exemple : Supposons que vous stockiez l'ID du client dans la session
+        
+                // Créer une nouvelle instance de Reservation avec les données
+                $reservationData = [
+                    'heure' => $heureSelectionnee,
+                    'date' => date('Y-m-d'), // Vous pouvez obtenir la date du jour
+                    'service' => $service,
+                    'client' => $client
+                ];
+        
+                $reservationManager = new ReservationManager();
+        
+                // Insérer la réservation en base de données
+                $reservationManager->createReservation($reservationData);
+        
+        
+            }
+}
 }
 
 
 
-public function reserve() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Récupére l'heure sélectionnée depuis le formulaire
-        $heureSelectionnee = $_POST['heure_selectionnee'];
-        $serviceId = $_POST['service_id']; // Vous devez avoir cette valeur dans votre formulaire
-
-        //Je récupere l'ID du client à partir de la session ou de l'authentification
-        $clientId = $_SESSION['client']; // Exemple : Supposons que vous stockiez l'ID du client dans la session
-
-        // Créer une nouvelle instance de Reservation avec les données
-        $reservationData = [
-            'heure' => $heureSelectionnee,
-            'date' => date('Y-m-d'), // Vous pouvez obtenir la date du jour
-            'service' => $service,
-            'client' => $client
-        ];
-
-        $reservationManager = new ReservationManager();
-
-        // Insérer la réservation en base de données
-        $reservationManager->createReservation($reservationData);
-
-
-    }
 
 
 
@@ -113,7 +116,7 @@ public function reserve() {
     //     header('Location: index.php?action=reservation_confirm');
     //     exit;
     // }
-}
+
 
 
 

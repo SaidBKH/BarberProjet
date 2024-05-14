@@ -23,7 +23,7 @@ final class Reservation extends Entity{
     public function __construct($data){         
         $this->hydrate($data);        
     }
-tes de
+
     /**
      * Get the value of id
      */ 
