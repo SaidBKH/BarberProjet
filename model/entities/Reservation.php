@@ -69,10 +69,8 @@ final class Reservation extends Entity{
      * Get the value of date
      */ 
     public function getDate() {
-        // Convertir la date en objet DateTime
-        $dateTime = new \DateTime($this->date); 
-        
-        return $dateTime->format('j/m/Y');
+        // Convertir la date en objet DateTime        
+        return $this->date;
     }
     
 
