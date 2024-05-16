@@ -46,5 +46,17 @@ class ReservationManager extends Manager{
         ]);
     }
 
+
+public function ReservationsByClient($id) {
+    $sql = "SELECT * FROM " . $this->tableName . "
+            WHERE client_id = :id";
+
+    return $this->getMultipleResults(
+        DAO::select($sql, ['client_id' => $id]),
+        $this->className
+    );
+}
+
+
 }
    

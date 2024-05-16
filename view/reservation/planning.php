@@ -7,12 +7,16 @@ $heureSelectionnee = '';
 $service = isset($_GET['id']) ? $_GET['id'] : null;
 // $date = isset($_GET['date']) ? $_GET['date'] : '';
 
-
 ?>
 
 <?php
 $plannings = $result["data"]['planning']; 
-$services = $result["data"]['services']; 
+$service = $result["data"]['service']; 
+
+
+
+
+
 
 // Tableau pour regrouper les plannings par date
 $planningsParDate = [];
@@ -65,17 +69,24 @@ foreach ($plannings as $planning) {
                         <?php endforeach; ?>
                     </div>
                 </div>
-            <?php endforeach;     
-    ?>
+            <?php endforeach;?>
+        </div>
+       
+
+
+        <div class ="recapitulatif">
+            <h3>Récapitulatif de la réservation :</h3>
+            <p>Date : </div></p>
+            <p>Heure : </div></p>
+                <p>Service : <?= $service->getNom() ?></p>
         </div>
 
+   
         <form action="index.php?ctrl=reservation&action=reserve" method="post">
             <input id="horaire" type="hidden" name="heure_selectionnee" >
-            <input type="hidden" name="service_id" value="<?= $service ?>">
+            <input type="hidden" name="service_id" value="<?= $service->getId() ?>">
             <input id="date" type="hidden" name="date" value= "<?= $date?>"> 
-
-
-            
+           
             <button type="submit">Réserver</button>
         </form>
 
@@ -106,6 +117,11 @@ function selectionnerHeure(celluleHeure) {
   
     date.value = celluleHeure.dataset.jour; 
 
+
+    
 }
 
+
+
 </script>
+

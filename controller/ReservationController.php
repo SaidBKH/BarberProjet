@@ -59,7 +59,10 @@ class ReservationController extends AbstractController implements ControllerInte
             $serviceManager = new ServiceManager();
         
             // Récupérer les services pour affichage
-            $services = $serviceManager->findServicesByCategory($id);
+            $service = $serviceManager->findOneById($id);
+           
+
+
         
             // Récupérer les plannings disponibles pour ce service
             $planning = $reservationManager->listDispo($id);
@@ -69,7 +72,9 @@ class ReservationController extends AbstractController implements ControllerInte
                 "meta_description" => "Planning",
                 "data" => [
                     "planning" => $planning,
-                    "services" => $services
+                    "service" => $service,
+                    
+                    
                 ]
             ];
         }
@@ -116,6 +121,9 @@ class ReservationController extends AbstractController implements ControllerInte
             
             //     
         }
+
+
+        
         
 }
 
