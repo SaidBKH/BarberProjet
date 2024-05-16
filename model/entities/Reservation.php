@@ -49,7 +49,7 @@ final class Reservation extends Entity{
      */ 
     public function getHeure(){
         // Convertir l'heure en objet DateTime
-        $dateTime = new \DateTime($this->heure); // Utilisation de \DateTime sans namespace
+        $dateTime = new \DateTime($this->heure); 
         
         // Formater l'heure en utilisant le format spécifié
         return $dateTime->format('H:i');

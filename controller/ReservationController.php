@@ -82,26 +82,38 @@ class ReservationController extends AbstractController implements ControllerInte
 
                 // Récupérer l'heure sélectionnée depuis le formulaire
                 $heureSelectionnee = isset($_POST['heure_selectionnee']) ? $_POST['heure_selectionnee'] : '';
+
+                // Récupérer le service sélectionnée depuis le formulaire
                 $serviceId = isset($_POST['service_id']) ? $_POST['service_id'] : '';
-                
+
+                // Récupérer le service sélectionnée depuis le formulaire
+                $dateId = isset($_POST['date']) ? $_POST['date'] : '';
+
+
+                // var_dump($dateId); die;
+
                 // Récupérer l'ID du client à partir de la session
                 $clientId = $_SESSION['client']->getId();
+
+
                 
                 // Créer une nouvelle instance de Reservation avec les données
                 $reservationData = [
                     'heure' => str_replace("\n", "",(str_replace(" ", "", $heureSelectionnee))),
-                    'date' => date('Y-m-d'), 
+                    'date' => $dateId, 
                     'service_id' => $serviceId, 
                     'client_id' => $clientId 
                 ];
+
+                // var_dump($reservationData); die;
                 
                 // Créer une instance de ReservationManager et créer la réservation
                 $reservationManager = new ReservationManager();
-                $reservationManager->add($reservationData);
+                $reservationManager->updateReservation($heureSelectionnee, $dateId, $serviceId, $clientId);
                 
-
+                $this->redirectTo("Reservation", "listServices");
             }
-            header('Location: index.php?action=reservation_confirm');
+            
             //     
         }
         

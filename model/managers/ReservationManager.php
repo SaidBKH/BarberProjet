@@ -16,9 +16,6 @@ class ReservationManager extends Manager{
         parent::connect();
     }
    
-
-
-
         // fonction qui liste les disponibilité 
 
     public function listDispo($id) {
@@ -33,26 +30,21 @@ class ReservationManager extends Manager{
         );
     }
     
+
+    public function updateReservation($heure, $date, $serviceId, $clientId) {
+        $sql = "UPDATE $this->tableName 
+                SET client_id = :client_id
+               WHERE service_id = :service_id
+               AND date = :date
+               AND heure = :heure";
     
-
-// public function createReservation($data) {
-//         // Créer une nouvelle instance de Reservation avec les données
-//         $data;
-
-//         // Insérer la réservation en base de données
-//         $sql = "INSERT INTO $this->tableName (heure, date, service_id, client_id)
-//                 VALUES (:heure, :date, :service_id, :client_id)";
-
-//         $params = [
-//             'heure' => $reservation->getHeure(),
-//             'date' => $reservation->getDate(),
-//             'service_id' => $reservation->getService()->getId(),
-//             'client_id' => $reservation->getClient()->getId()
-//         ];
-
-//         // Exécuter la requête SQL
-//         $this->execute($sql, $params);
-//     }
-
+        return DAO::update($sql, [
+            'heure' => $heure,
+            'date' => $date,
+            'service_id' => $serviceId,
+            'client_id' => $clientId
+        ]);
+    }
 
 }
+   

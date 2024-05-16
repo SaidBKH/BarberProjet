@@ -3,8 +3,11 @@
 // l'heure selectionnee 
 $heureSelectionnee = ''; 
 
-// Définir $service avec une valeur par défaut ou récupérer la valeur à partir de $result["data"]['service']
+// je definie  $service avec une valeur par défaut ou récupérer la valeur à partir de $result["data"]['service']
 $service = isset($_GET['id']) ? $_GET['id'] : null;
+// $date = isset($_GET['date']) ? $_GET['date'] : '';
+
+
 ?>
 
 <?php
@@ -45,24 +48,34 @@ foreach ($plannings as $planning) {
     <?php else : ?>
         <div class="heure-grid">
             <?php foreach ($planningsParDate as $jourFormate => $heures) : ?>
+                <?php
+                    $fullDate = new \DateTime(str_replace("<br>"," ", $jourFormate));
+                    $fullDateFormat = $fullDate->format("Y-m-d");
+                ?>
                 <div class="colonne-date">
                     <h2><?= $jourFormate ?></h2>
                     <div class="heures">
                         <?php foreach ($heures as $heure) : ?>
-                            <div class="cellule-heure" onclick="selectionnerHeure(this)">
+
+                            <!-- utilisation de DataSet en JS -->
+                            
+                            <div class="cellule-heure" data-heure="<?= $heure ?>" data-jour="<?= $fullDateFormat ?>" onclick="selectionnerHeure(this)">
                                 <?= $heure ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
-            <?php endforeach; 
-            
-           ?>
+            <?php endforeach;     
+    ?>
         </div>
 
         <form action="index.php?ctrl=reservation&action=reserve" method="post">
             <input id="horaire" type="hidden" name="heure_selectionnee" >
             <input type="hidden" name="service_id" value="<?= $service ?>">
+            <input id="date" type="hidden" name="date" value= "<?= $date?>"> 
+
+
+            
             <button type="submit">Réserver</button>
         </form>
 
@@ -74,9 +87,6 @@ foreach ($plannings as $planning) {
 
 <script>
 function selectionnerHeure(celluleHeure) {
-
-    // 
-    
 
     // Réinitialiser la classe pour toutes les heures
     const toutesLesHeures = document.querySelectorAll('.cellule-heure');
@@ -90,6 +100,12 @@ function selectionnerHeure(celluleHeure) {
 
     const horaire = document.querySelector("#horaire")
     // Mettre à jour la valeur de l'input caché avec l'heure sélectionnée
-    horaire.value = celluleHeure.textContent.replace(" ",""); 
+    horaire.value = celluleHeure.dataset.heure;
+    
+    const date = document.querySelector("#date")
+  
+    date.value = celluleHeure.dataset.jour; 
+
 }
+
 </script>
