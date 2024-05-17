@@ -71,55 +71,53 @@ foreach ($plannings as $planning) {
                 </div>
             <?php endforeach;?>
         </div>
-       
 
-
-        <div class ="recapitulatif">
+        <div class="recapitulatif">
             <h3>Récapitulatif de la réservation :</h3>
-            <p>Date : </div></p>
-            <p>Heure : </div></p>
-                <p>Service : <?= $service->getNom() ?></p>
+            <p>Date : <span id="recap-date"></span></p>
+            <p>Heure : <span id="recap-heure"></span></p>
+            <p>Service : <?= $service->getNom() ?></p>
         </div>
 
-   
         <form action="index.php?ctrl=reservation&action=reserve" method="post">
-            <input id="horaire" type="hidden" name="heure_selectionnee" >
+            <input id="horaire" type="hidden" name="heure_selectionnee">
             <input type="hidden" name="service_id" value="<?= $service->getId() ?>">
-            <input id="date" type="hidden" name="date" value= "<?= $date?>"> 
-           
+            <input id="date" type="hidden" name="date">
             <button type="submit">Réserver</button>
         </form>
-
-
     <?php endif; ?>
 </div>
 
 
 
 <script>
+
 function selectionnerHeure(celluleHeure) {
 
-    // Réinitialiser la classe pour toutes les heures
-    const toutesLesHeures = document.querySelectorAll('.cellule-heure');
-    toutesLesHeures.forEach(cellule => {
-        cellule.classList.remove('selectionnee');
-    });
+// Réinitialiser la classe pour toutes les heures
+const toutesLesHeures = document.querySelectorAll('.cellule-heure');
+toutesLesHeures.forEach(cellule => {
+    cellule.classList.remove('selectionnee');
+});
 
-    // Appliquer la classe 'selectionnee' à la cellule cliquée
-    celluleHeure.classList.add('selectionnee');
+// Appliquer la classe 'selectionnee' à la cellule cliquée
+celluleHeure.classList.add('selectionnee');
 
+const horaire = document.querySelector("#horaire");
+// Mettre à jour la valeur de l'input caché avec l'heure sélectionnée
+horaire.value = celluleHeure.dataset.heure;
 
-    const horaire = document.querySelector("#horaire")
-    // Mettre à jour la valeur de l'input caché avec l'heure sélectionnée
-    horaire.value = celluleHeure.dataset.heure;
-    
-    const date = document.querySelector("#date")
-  
-    date.value = celluleHeure.dataset.jour; 
+const date = document.querySelector("#date");
+date.value = celluleHeure.dataset.jour;
 
+// Mettre à jour la section récapitulatif avec la date et l'heure sélectionnées
+const recapDate = document.querySelector("#recap-date");
+const recapHeure = document.querySelector("#recap-heure");
 
-    
+recapDate.textContent = celluleHeure.dataset.jour;
+recapHeure.textContent = celluleHeure.dataset.heure;
 }
+
 
 
 
