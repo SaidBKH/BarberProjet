@@ -1,19 +1,17 @@
 <div class="page_profil">
 
-    <div class="nom">
+<div class="nom">
         <p>
             <strong>Nom :</strong> <?= htmlspecialchars(App\Session::getUser()->getPrenom()) ?>
             <a href="index.php?ctrl=security&action=editProfile">Modifier</a>
         </p>
     </div>
-
     <div class="email">
         <p>
             <strong>Email :</strong> <?= htmlspecialchars(App\Session::getUser()->getEmail()) ?>
             <a href="index.php?ctrl=security&action=editProfile">Modifier</a>
         </p>
     </div>
-
     <div class="telephone">
         <p>
             <strong>Téléphone :</strong> <?= htmlspecialchars(App\Session::getUser()->getTelephone()) ?>

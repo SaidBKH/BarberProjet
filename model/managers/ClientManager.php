@@ -37,6 +37,23 @@ class ClientManager extends Manager{
          );
      }
 
+
+
+     public function updateProfile($id, $data) {
+        $fields = array_keys($data);
+        $values = array_values($data);
+
+        $setClause = "";
+        foreach ($fields as $field) {
+            $setClause .= "$field = ?, ";
+        }
+        $setClause = rtrim($setClause, ", ");
+
+        $sql = "UPDATE ".$this->tableName." SET $setClause WHERE id_client = ?";
+        $values[] = $id;
+
+        return DAO::update($sql, $values);
+    }
     // public function updateEmail($id) {
     //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //         $email = filter_input( INPUT_POST, "email", FILTER_VALIDATE_EMAIL );

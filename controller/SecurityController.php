@@ -3,6 +3,8 @@ namespace Controller;
 // definition require definition  namespace 
 use App\AbstractController;
 use App\ControllerInterface;
+use App\Session;
+
 use Model\Managers\ClientManager;
 use Model\Managers\ReservationManager;
 
@@ -127,6 +129,39 @@ class SecurityController extends AbstractController{
             ];
         }
         
+
+        public function editProfile() {
+            $clientManager = new ClientManager();
+            $client = Session::getUser();
+    
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+                $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
+                $telephone = filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_SPECIAL_CHARS);
+    
+                if ($email && $prenom && $telephone) {
+                    if (!$clientManager->emailExist($email) || $email === $client->getEmail()) {
+                        $clientManager->updateProfile($client->getId(), [
+                            'email' => $email,
+                            'prenom' => $prenom,
+                            'telephone' => $telephone
+                        ]);
+    
+                        $client->setEmail($email);
+                        $client->setPrenom($prenom);
+                        $client->setTelephone($telephone);
+                        Session::setUser($client);
+                        
+                        $this->redirectTo('security', 'profil');
+                    } else {
+                        echo "L'email existe déjà";
+                    }
+                }
+            }
+    
+            return ["view" => VIEW_DIR . "security/editProfile.php",
+                    "meta_description" => "Modification du profil"];
+        }
     }
 
     
