@@ -4,6 +4,8 @@ namespace Controller;
 use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\ClientManager;
+use Model\Managers\ReservationManager;
+
 use Model\Entities\Client;
 
 class SecurityController extends AbstractController{
@@ -106,16 +108,24 @@ class SecurityController extends AbstractController{
         
     }
 
-    public function profil() {
-        return [
-            "view" => VIEW_DIR."security/profil.php",
-            "meta_description" => "page d'accueil",
-            "data" => [  
-
-            ]
-        ];
+    
 
 
+
+
+        public function profil() {
+            $reservationManager = new ReservationManager;
+            $clientId = \App\Session::getUser()->getId();
+            $reservations = $reservationManager->ReservationsByClient($clientId);
+        
+            return [
+                "view" => VIEW_DIR."security/profil.php",
+                "meta_description" => "page d'accueil",
+                "data" => [  
+                    "reservations" => $reservations
+                ]
+            ];
+        }
         
     }
 
@@ -126,5 +136,3 @@ class SecurityController extends AbstractController{
     
 
 
-
-}
