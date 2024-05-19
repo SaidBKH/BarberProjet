@@ -17,7 +17,11 @@
             <strong>Téléphone :</strong> <?= htmlspecialchars(App\Session::getUser()->getTelephone()) ?>
             <a href="index.php?ctrl=security&action=editProfile">Modifier</a>
         </p>
+
+        <a href="index.php?ctrl=security&action=editPassword">Modifier votre mot de passe</a>
+
     </div>
+
 
     <div class="dateInscription">
         <p>

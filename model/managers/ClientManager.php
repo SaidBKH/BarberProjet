@@ -4,6 +4,9 @@ namespace Model\Managers;
 use App\Manager;
 use App\DAO;
 
+
+
+
 class ClientManager extends Manager{
 
     // on indique la classe POO et la table correspondante en BDD pour le manager concerné
@@ -37,6 +40,11 @@ class ClientManager extends Manager{
          );
      }
 
+     public function updatePassword($clientId, $newPasswordHash) {
+        $sql = "UPDATE client SET password = :password WHERE id = :id";
+        $params = ['password' => $newPasswordHash, 'id' => $clientId];
+        return DAO::update($sql, $params);
+    }
 
 
      public function updateProfile($id, $data) {
