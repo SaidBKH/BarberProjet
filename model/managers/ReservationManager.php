@@ -55,7 +55,11 @@ class ReservationManager extends Manager{
             $this->className
         );
     }
-    
+
+    public function AnnulerReservation($id) {
+        $sql = "UPDATE " . $this->tableName . " SET client_id = NULL WHERE id_reservation = :id";
+        return DAO::update($sql, ['id' => $id]);
+    }
 
 
 }

@@ -123,9 +123,28 @@ class ReservationController extends AbstractController implements ControllerInte
         }
 
 
+        public function AnnulerReservation() {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $reservationId = filter_input(INPUT_POST, 'reservation_id', FILTER_VALIDATE_INT);
+    
+                if ($reservationId) {
+                    $reservationManager = new ReservationManager();
+                    $success = $reservationManager->AnnulerReservation($reservationId);
+    
+                    if ($success) {
+                        echo "Réservation annulée avec succès.";
+                    } else {
+                        echo "Erreur lors de l'annulation de la réservation.";
+                    }
+                }
+    
+                $this->redirectTo("security", "profil");
+            }
+        }
+    }
+
         
         
-}
 
 
 

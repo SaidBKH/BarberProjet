@@ -21,24 +21,23 @@
         </p>
     </div>
 
-        <div class="dateInscription">
-            <p>
-                <strong>Membre depuis le :</strong>
-                <?php 
-                // Récupérer la date de création de l'utilisateur
-                $creationDate = App\Session::getUser()->getCreationDate();
+    <div class="dateInscription">
+        <p>
+            <strong>Membre depuis le :</strong>
+            <?php 
+            // Récupérer la date de création de l'utilisateur
+            $creationDate = App\Session::getUser()->getCreationDate();
 
-                // Formater la date au format "jour mois année"
-                $formattedDate = date('j/m/Y', strtotime($creationDate));
+            // Formater la date au format "jour mois année"
+            $formattedDate = date('j/m/Y', strtotime($creationDate));
 
-                // Afficher la date formatée
-                echo htmlspecialchars($formattedDate);
-                ?>
-            </p>
-        </div>
-        
-
-        <div class="listeReservationClient">
+            // Afficher la date formatée
+            echo htmlspecialchars($formattedDate);
+            ?>
+        </p>
+    </div>
+    
+    <div class="listeReservationClient">
         <h3>Mes Réservations</h3>
         <?php if (empty($result["data"]["reservations"])): ?>
             <p>Aucune réservation.</p>
@@ -49,12 +48,13 @@
                         <strong>Date :</strong> <?= htmlspecialchars($reservation->getDate()) ?><br>
                         <strong>Heure :</strong> <?= htmlspecialchars($reservation->getHeure()) ?><br>
                         <strong>Service :</strong> <?= htmlspecialchars($reservation->getService()->getNom()) ?>
+                        <form method="post" action="index.php?ctrl=reservation&action=AnnulerReservation">
+                            <input type="hidden" name="reservation_id" value="<?= $reservation->getId() ?>">
+                            <button type="submit">Annuler</button>
+                        </form>
                     </li>
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
     </div>
 </div>
-</div>
-
- 
