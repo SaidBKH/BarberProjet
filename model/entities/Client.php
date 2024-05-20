@@ -151,4 +151,8 @@ final class Client extends Entity{
         return $this;
     }
 
+    public function hasRole($role){
+        return $this->getRole() === $role;
+    }
+
 }

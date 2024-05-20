@@ -72,15 +72,24 @@ class SecurityController extends AbstractController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
             $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-
+    
             if ($email && $password) {
                 if ($clientManager->emailExist($email)) {
                     $user = $clientManager->findByEmail($email);
-
+    
                     if ($user && password_verify($password, $user->getPassword())) {
                         $_SESSION['client'] = $user;
-                        $this->redirectTo("home", "index");
-                        return;
+                        
+                        // Vérifier si l'utilisateur est un administrateur
+                        if (Session::isAdmin()) {
+                            // Rediriger vers la page d'administration
+                            header('Location: index.php?ctrl=admin&action=index');
+                            exit();
+                        } else {
+                            // Rediriger vers la page par défaut après la connexion
+                            header('Location: index.php?ctrl=security&action=profil');
+                            exit();
+                        }
                     } else {
                         echo "Mot de passe incorrect.";
                         $this->redirectTo("security", "login");
@@ -97,12 +106,13 @@ class SecurityController extends AbstractController {
                 return;
             }
         }
-
+    
         return [
             "view" => VIEW_DIR . "security/login.php",
             "meta_description" => "Formulaire de connexion"
         ];
     }
+    
 
     public function logout() {
         session_unset();
@@ -200,6 +210,47 @@ class SecurityController extends AbstractController {
                 "view" => VIEW_DIR . "security/edit_password.php",
                 "meta_description" => "Modifier votre mot de passe"
             ];
+    }
+
+
+
+
+
+
+
+    public function forgotPassword() {
+        // Afficher le formulaire de demande de récupération de mot de passe
+        include(VIEW_DIR . "security/forgot_password_form.php");
+    }
+    
+    public function sendPasswordResetEmail() {
+        // Récupérer l'e-mail soumis par le formulaire
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    
+        // Vérifier si l'e-mail existe dans la base de données
+        $clientManager = new ClientManager();
+        if ($clientManager->emailExist($email)) {
+            // Générer un token de réinitialisation de mot de passe
+            $token = bin2hex(random_bytes(32));
+    
+            // Stocker le token dans la base de données
+            $clientManager->generatePasswordResetToken($email, $token);
+    
+            // Envoyer un e-mail avec le lien de réinitialisation
+            $clientManager->sendPasswordResetEmail($email, $token);
+    
+            // Rediriger vers une page de confirmation
+            header('Location: index.php?ctrl=security&action=password_reset_confirmation');
+            exit();
+        } else {
+            // L'e-mail n'existe pas dans la base de données
+            // Rediriger vers une page d'erreur ou afficher un message d'erreur
+        }
+    }
+    
+    public function passwordResetConfirmation() {
+        // Afficher une page de confirmation après l'envoi du lien de réinitialisation
+        include('view/password_reset_confirmation.php');
     }
 }
 

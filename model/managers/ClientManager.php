@@ -75,5 +75,33 @@ class ClientManager extends Manager{
     // }
 
 
+    public function generatePasswordResetToken($email, $token) {
+        $sql = "UPDATE client SET reset_token = :token WHERE email = :email";
+        $params = ['token' => $token, 'email' => $email];
+        return DAO::update($sql, $params);
+    }
+    
+    public function sendPasswordResetEmail($email, $token) {
+        $subject = "Réinitialisation de mot de passe";
+        $message = "Bonjour,\n\nVous avez demandé à réinitialiser votre mot de passe. Veuillez cliquer sur le lien suivant pour choisir un nouveau mot de passe :\n\n";
+        $message .= "http://votre-site.com/reset_password.php?email=" . urlencode($email) . "&token=" . urlencode($token);
+        $headers = "From: votre-email@example.com\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    
+        // Envoi de l'e-mail
+        return mail($email, $subject, $message, $headers);
+    }
+
+    
+    public function resetPassword($email, $newPassword) {
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $sql = "UPDATE client SET password = :password, reset_token = NULL WHERE email = :email";
+        $params = ['password' => $hashedPassword, 'email' => $email];
+        return DAO::update($sql, $params);
+    }
+    
+
+
+
 
     }

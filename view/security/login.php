@@ -19,6 +19,7 @@
         <a href="index.php?ctrl=security&action=register">JE M'INSCRIS</a>
     </button>
 
+    <p>Mot de passe oublié ? <a href="index.php?ctrl=security&action=forgotPassword">Réinitialiser le mot de passe</a></p>
 
 </div>
 
