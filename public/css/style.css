@@ -785,3 +785,53 @@ h2 {
     margin-bottom: 20px;
 }
 
+
+
+
+
+
+
+
+
+
+/* Style général */
+.planning-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .planning-date {
+    margin-bottom: 20px;
+  }
+  
+  .planning-date h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .planning-date ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .planning-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .planning-item span {
+    flex: 1;
+  }
+  
+  .planning-item span:first-child {
+    margin-right: 10px;
+  }
+  
+
+
