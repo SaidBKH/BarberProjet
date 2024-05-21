@@ -62,5 +62,37 @@ class ReservationManager extends Manager{
     }
 
 
+    public function findAllGroupedByMonth() {
+        $sql = "SELECT DATE_FORMAT(date, '%Y-%m') AS month, COUNT(*) as count
+                FROM " . $this->tableName . "
+                WHERE client_id IS NOT NULL
+                GROUP BY month
+                ORDER BY month";
+        
+        return DAO::select($sql);
+    }
+    
+    public function findByMonthGroupedByDay($month) {
+        $sql = "SELECT DISTINCT DATE_FORMAT(date, '%Y-%m-%d') AS day
+                FROM " . $this->tableName . "
+                WHERE DATE_FORMAT(date, '%Y-%m') = :month AND client_id IS NOT NULL
+                ORDER BY day";
+        
+        return DAO::select($sql, ['month' => $month]);
+    }
+    
+    
+    
+    public function findByDate($date) {
+    $sql = "SELECT reservations.*, client.prenom, service.nom as service_nom
+            FROM " . $this->tableName . "
+            JOIN client ON reservations.client_id = client.id_client
+            JOIN service ON reservations.service_id = service.id_service
+            WHERE DATE_FORMAT(date, '%Y-%m-%d') = :date AND client_id IS NOT NULL
+            ORDER BY heure";
+            
+    return DAO::select($sql, ['date' => $date]);
 }
-   
+
+
+}

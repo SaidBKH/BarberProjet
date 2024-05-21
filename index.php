@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+
 define('DS', DIRECTORY_SEPARATOR); // le caractère séparateur de dossier (/ ou \)
 // meilleure portabilité sur les différents systêmes.
 define('BASE_DIR', dirname(__FILE__).DS); // pour se simplifier la vie
@@ -63,6 +64,8 @@ else{
     ob_end_clean();
     /* j'affiche le template principal (layout) */
     include VIEW_DIR."layout.php";
+
+   
 }
 
 // Les fonctions require et include permettent de charger un fichier php. Cependant, il y a une différence entre les deux:

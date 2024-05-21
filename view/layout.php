@@ -61,6 +61,9 @@
                                             &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                         </a>
                                         <a href="index.php?ctrl=security&action=logout">DÉCONNEXION</a>
+                                        <?php if(App\Session::isAdmin()): ?>
+                                            <a href="index.php?ctrl=admin&action=index">TABLEAU DE BORD</a>
+                                        <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
                                 <ul class="nav_bureau_menu">
@@ -112,7 +115,11 @@
                                             &nbsp;<?= App\Session::getUser()->getPrenom() ?>
                                         </a>
                                         <a href="index.php?ctrl=security&action=logout">DÉCONNEXION</a>
+                                        <?php if(App\Session::isAdmin()): ?>
+                                            <a href="index.php?ctrl=admin&action=tableau_de_bord">TABLEAU DE BORD</a>
+                                        <?php endif; ?>
                                     </div>
+                                    
                                 <?php endif; ?>
                                 <ul class="nav_mobile_menu">
                                     <li>
