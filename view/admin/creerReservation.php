@@ -39,7 +39,7 @@ $message = $result["data"]['message'];
 
         <div class="form-group">
             <label for="heure">Heure</label>
-            <input type="time" id="heure" name="heure" class="form-control" step="1">
+            <input type="time" id="heure" name="heure" class="form-control" step="1800">
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">Créer Réservation</button>

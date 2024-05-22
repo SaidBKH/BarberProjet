@@ -5,6 +5,7 @@ use App\AbstractController;
 use Model\Managers\CategorieManager;
 use Model\Managers\ServiceManager;
 use Model\Managers\ReservationManager;
+use Model\Managers\ActualitesManager;
 use App\Session;
 use Model\Entities\Reservation;
 
@@ -28,6 +29,18 @@ class AdminController extends AbstractController {
             "view" => VIEW_DIR . "admin/tableau_de_bord.php",
             "meta_description" => "Tableau de bord",
             "data" => [
+            ]
+        ];
+    }
+
+    public function GestionReservation() {
+     
+
+        return [
+            "view" => VIEW_DIR . "admin/GestionReservation.php",
+            "meta_description" => "Tableau de bord",
+            "data" => [
+                
             ]
         ];
     }
@@ -134,9 +147,53 @@ class AdminController extends AbstractController {
         ];
     }
 
+
+    
+    
+    public function creerActualite() {
+        $actualiteManager = new ActualitesManager();
+        
+
+        // Récupérer la liste de toutes les catégories
+        
+
+        // Traitement du formulaire de création de réservation
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titre'], $_POST['photo'], $_POST['texte'], $_POST['date'])) {
+            $titre = $_POST['titre'];
+            $photo = $_POST['photo'];
+            $texte = $_POST['texte'];
+            $date = $_POST['date'];
+
+            if ($titre && $photo && $texte && date) {
+                $actualiteData = [
+                    'titre' => $titre,
+                    'photo' => $photo,
+                    'texte' => $texte,
+                    'heure' => $heure
+
+                ];
+
+                $actualiteManager->add($actualiteData);
+                $message = 'Actualite créée avec succès';
+
+                //  var_dump($reservationData);die;
+
+                // Redirection après la création de la réservation
+                $this->redirectTo("admin", "tableau_de_bord");
+            } else {
+                $message = 'Veuillez remplir tous les champs';
+            }
+        }
+
+
+        return [
+            "view" => VIEW_DIR . "admin/creerActualite.php",
+            "meta_description" => "Tableau de bord",
+            "data" => [
+                
+            ]
+        ];
     }
-    
-    
 
-
+}
 
