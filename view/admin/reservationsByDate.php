@@ -1,7 +1,6 @@
 <?php 
 $reservations = $result["data"]['reservations']; 
 ?>
-
 <div class="container mt-5">
     <h1 class="text-center mb-4">Réservations du <?= date("d F Y", strtotime($reservations[0]['date'])) ?></h1>
     <div class="table-responsive">
@@ -20,11 +19,15 @@ $reservations = $result["data"]['reservations'];
                         'Heure' => htmlspecialchars($reservation['heure']),
                         'Prénom' => htmlspecialchars($reservation['prenom']),
                         'Email' => htmlspecialchars($reservation['email']),
-                        'Téléphone' => htmlspecialchars($reservation['telephone'])
+                        'Téléphone' => isset($reservation['telephone']) ? htmlspecialchars($reservation['telephone']) : ''
                     ]) ?>'>
                         <td><?= htmlspecialchars($reservation['service_nom']) ?></td>
                         <td><?= htmlspecialchars($reservation['heure']) ?></td>
-                        <td><?= htmlspecialchars($reservation['prenom']) ?></td>
+                        <td>
+                            <?= htmlspecialchars($reservation['prenom']) ?><br>
+                            <?= htmlspecialchars($reservation['email']) ?><br>
+                            <?= isset($reservation['telephone']) ? htmlspecialchars($reservation['telephone']) : '' ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

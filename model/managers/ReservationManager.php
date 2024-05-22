@@ -84,15 +84,16 @@ class ReservationManager extends Manager{
     
     
     public function findByDate($date) {
-    $sql = "SELECT reservations.*, client.prenom, service.nom as service_nom
-            FROM " . $this->tableName . "
-            JOIN client ON reservations.client_id = client.id_client
-            JOIN service ON reservations.service_id = service.id_service
-            WHERE DATE_FORMAT(date, '%Y-%m-%d') = :date AND client_id IS NOT NULL
-            ORDER BY heure";
-            
-    return DAO::select($sql, ['date' => $date]);
-}
+        $sql = "SELECT reservations.*, client.prenom, client.email, client.telephone, service.nom as service_nom
+                FROM " . $this->tableName . "
+                JOIN client ON reservations.client_id = client.id_client
+                JOIN service ON reservations.service_id = service.id_service
+                WHERE DATE_FORMAT(date, '%Y-%m-%d') = :date AND client_id IS NOT NULL
+                ORDER BY heure";
+                
+        return DAO::select($sql, ['date' => $date]);
+    }
+    
 
 
 }

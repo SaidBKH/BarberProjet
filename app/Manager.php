@@ -23,6 +23,7 @@ abstract class Manager{
                 FROM ".$this->tableName." a
                 ".$orderQuery;
 
+                
         return $this->getMultipleResults(
             DAO::select($sql), 
             $this->className

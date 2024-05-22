@@ -4,6 +4,8 @@ namespace Controller;
 use App\AbstractController;
 use Model\Managers\ReservationManager;
 use App\Session;
+use Model\Entities\Reservation;
+
 
 class AdminController extends AbstractController {
 
@@ -32,7 +34,7 @@ class AdminController extends AbstractController {
         $reservationsByMonth = $reservationManager->findAllGroupedByMonth();
 
         return [
-            "view" => VIEW_DIR . "admin/index.php",
+            "view" => VIEW_DIR . "admin/planning.php",
             "meta_description" => "Tableau de bord",
             "data" => [
                 "reservationsByMonth" => $reservationsByMonth
@@ -58,11 +60,13 @@ class AdminController extends AbstractController {
     
 
 
+
     public function reservationsByDate($date) {
         $date = $_GET['date'];
-    
+
         $reservationManager = new ReservationManager();
         $reservations = $reservationManager->findByDate($date);
+        // var_dump($reservations);
     
         return [
             "view" => VIEW_DIR . "admin/reservationsByDate.php",

@@ -1,5 +1,5 @@
 <?php 
-$reservationsByMonth = $result["data"]['reservationsByMonth'] ?? [];
+$reservationsByMonth = $result["data"]['reservationsByMonth'];
 ?>
 
 <div class="container mt-5">
@@ -17,3 +17,5 @@ $reservationsByMonth = $result["data"]['reservationsByMonth'] ?? [];
         <?php endif; ?>
     </div>
 </div>
+
+
