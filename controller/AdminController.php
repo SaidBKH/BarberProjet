@@ -2,9 +2,12 @@
 namespace Controller;
 
 use App\AbstractController;
+use Model\Managers\CategorieManager;
+use Model\Managers\ServiceManager;
 use Model\Managers\ReservationManager;
 use App\Session;
 use Model\Entities\Reservation;
+
 
 
 class AdminController extends AbstractController {
@@ -76,7 +79,64 @@ class AdminController extends AbstractController {
             ]
         ];
     }
+
+    public function creerReservation() {
+        $categorieManager = new CategorieManager();
+        $serviceManager = new ServiceManager();
+        $reservationManager = new ReservationManager();
+
+        // Récupérer la liste de toutes les catégories
+        $categories = $categorieManager->findAll();
+        $services = [];
+        $message = '';
+
+        // Si une catégorie est sélectionnée, récupérer les services associés
+        if (isset($_POST['categorie_id'])) {
+            $categorieId = (int)$_POST['categorie_id'];
+            $services = $serviceManager->findServicesByCategory($categorieId);
+        }
+
+        // Traitement du formulaire de création de réservation
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['service_id'], $_POST['date'], $_POST['heure'])) {
+            $serviceId = (int)$_POST['service_id'];
+            $date = $_POST['date'];
+            $heure = $_POST['heure'];
+
+            if ($serviceId && $date && $heure) {
+                $reservationData = [
+                    'service_id' => $serviceId,
+                    'date' => $date,
+                    'heure' => $heure,
+
+                ];
+
+                $reservationManager->add($reservationData);
+                $message = 'Réservation créée avec succès';
+
+                //  var_dump($reservationData);die;
+
+                // Redirection après la création de la réservation
+                $this->redirectTo("admin", "tableau_de_bord");
+            } else {
+                $message = 'Veuillez remplir tous les champs';
+            }
+        }
+
+
+        return [
+            "view" => VIEW_DIR . "admin/creerReservation.php",
+            "meta_description" => "Tableau de bord",
+            "data" => [
+                "categories" => $categories,
+                "services" => $services,
+                "message" => $message
+            ]
+        ];
+    }
+
+    }
     
-}
+    
+
 
 

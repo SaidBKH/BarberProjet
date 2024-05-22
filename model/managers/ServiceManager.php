@@ -13,6 +13,7 @@ class ServiceManager extends Manager{
     public function __construct(){
         parent::connect();
     }
+    
     public function addService($nom) {
         $sql = "INSERT INTO {$this->tableName} (nom) VALUES (:nom)";
         DAO::insert($sql, ['nom' => $nom]);
@@ -31,4 +32,7 @@ public function findServicesByCategory($id) {
         $this->className
     );
 }
+
+
+
 }

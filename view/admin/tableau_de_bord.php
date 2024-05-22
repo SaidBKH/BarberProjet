@@ -5,7 +5,7 @@
 
         <a href="index.php?ctrl=admin&action=planning">planning</a>
 
-        <a href="index.php?ctrl=admin&action=planning_semaine">créer planning de la semaine</a>
+        <a href="index.php?ctrl=admin&action=creerReservation">Créer planning de la semaine</a>
 
 
 </div>

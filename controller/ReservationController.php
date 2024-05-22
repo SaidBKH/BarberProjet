@@ -22,7 +22,6 @@ class ReservationController extends AbstractController implements ControllerInte
             $categories = $categorieManager->findAll(["nomCategorie", "DESC"]);
             $services = $serviceManager->findAll(["nom", "DESC"]); 
 
-
             return [
                 "view" => VIEW_DIR."reservation/listCategories.php",
                 "meta_description" => "accueil",
@@ -80,6 +79,7 @@ class ReservationController extends AbstractController implements ControllerInte
         }
 
 
+        
 
 
         public function reserve() {
@@ -141,6 +141,39 @@ class ReservationController extends AbstractController implements ControllerInte
                 $this->redirectTo("security", "profil");
             }
         }
+
+
+        public function creerReservation() {
+            $categorieManager = new CategorieManager();
+            $serviceManager = new ServiceManager();
+    
+            // Récupérer la liste de toutes les catégories
+            $categories = $categorieManager->findAll();
+            $services = [];
+    
+            // Si une catégorie est sélectionnée, récupérer les services associés
+            if (isset($_POST['categorie_id'])) {
+                $categorieId = (int)$_POST['categorie_id'];
+                $services = $serviceManager->findServicesByCategory($categorieId);
+            }
+    
+            return [
+                "view" => VIEW_DIR . "admin/creerReservation.php",
+                "meta_description" => "Tableau de bord",
+                "data" => [
+                    "categories" => $categories,
+                    "services" => $services
+                ]
+            ];
+        }
+
+
+
+
+
+
+
+
     }
 
         
