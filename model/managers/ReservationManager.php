@@ -97,50 +97,8 @@ class ReservationManager extends Manager{
     
 
 
-
-    public function creerReservation() {
-        $categorieManager = new CategorieManager();
-        $serviceManager = new ServiceManager();
-        $reservationManager = new ReservationManager();
-        
-        // Récupérer la liste de toutes les catégories et de tous les services
-        $categories = $categorieManager->findAll();
-        $services = $serviceManager->findAll();
-
-        // Générer les plages horaires pour aujourd'hui
-        $date = date('Y-m-d');
-        $timeSlots = $reservationManager->generateTimeSlots($date);
-        
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Traitement du formulaire de réservation ici
-            // ...
-        }
-
-        return [
-            "view" => VIEW_DIR."admin/creerReservation.php",
-            "meta_description" => "Ajouter une réservation",
-            "data" => [
-                "categories" => $categories,
-                "services" => $services,
-                "timeSlots" => $timeSlots
-            ]
-        ];
-    }
-
-
-    public function generateTimeSlots($date) {
-        $timeSlots = array();
-        $startTime = strtotime('09:00');
-        $endTime = strtotime('19:00');
-
-        // Parcourir les heures de 9h à 19h avec un intervalle de 30 minutes
-        for ($time = $startTime; $time < $endTime; $time += 1800) {
-            // Construire la plage horaire au format heure:minute
-            $timeSlots[] = date('H:i', $time);
-        }
-
-        return $timeSlots;
-    }
     
 
-}
+
+
+    }

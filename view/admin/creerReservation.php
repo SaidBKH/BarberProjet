@@ -1,15 +1,16 @@
 <?php
+setlocale(LC_TIME, 'fr_FR.UTF-8');
+
 $categories = $result["data"]['categories'];
 $services = $result["data"]['services'];
 $message = $result["data"]['message'];
 ?>
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Créer un creneau</h1>
+    <h1 class="text-center mb-4">Créer des créneaux</h1>
     <?php if ($message): ?>
         <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
     <?php endif; ?>
-
 
     <form method="post" action="">
         <div class="form-group">
@@ -33,15 +34,49 @@ $message = $result["data"]['message'];
         </div>
 
         <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" id="date" name="date" class="form-control" value="<?= date('Y-m-d') ?>">
+            <label for="dates">Dates</label>
+            <div id="dates" class="d-flex flex-wrap">
+                <?php
+                $currentDate = new DateTime();
+                $endDate = new DateTime();
+                $endDate->modify('+14 days');
+
+                while ($currentDate <= $endDate) {
+                    // Ne pas afficher les dimanches
+                    if ($currentDate->format('N') != 7) {
+                        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        echo '<div class="form-check">';
+                        echo '<input class="form-check-input date-checkbox" type="checkbox" name="dates[]" value="' . $currentDate->format('Y-m-d') . '" id="date_' . $currentDate->format('Y_m_d') . '">';
+                        echo '<label class="form-check-label date-label" for="date_' . $currentDate->format('Y_m_d') . '">' . $formatter->format($currentDate->getTimestamp()) . '</label>';
+                        echo '</div>';
+                    }
+                    $currentDate->modify('+1 day');
+                }
+                ?>
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="heure">Heure</label>
-            <input type="time" id="heure" name="heure" class="form-control" step="1800">
+            <label for="heures">Plages horaires</label>
+            <div id="heures" class="d-flex flex-wrap">
+                <?php
+                $start = new DateTime('09:00');
+                $end = new DateTime('19:00');
+                $interval = new DateInterval('PT30M');
+
+                while ($start < $end) {
+                    if ($start->format('H:i') !== '12:00' && $start->format('H:i') !== '12:30') {
+                        echo '<div class="form-check">';
+                        echo '<input class="form-check-input heure-checkbox" type="checkbox" name="heures[]" value="' . $start->format('H:i:s') . '" id="heure_' . $start->format('H_i') . '">';
+                        echo '<label class="form-check-label heure-label" for="heure_' . $start->format('H_i') . '">' . $start->format('H:i') . '</label>';
+                        echo '</div>';
+                    }
+                    $start->add($interval);
+                }
+                ?>
+            </div>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Créer Réservation</button>
+        <button type="submit" class="btn btn-primary mt-3">Créer Réservations</button>
     </form>
 </div>

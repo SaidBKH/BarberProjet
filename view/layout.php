@@ -6,6 +6,17 @@
         <meta name="description" content="<?= $meta_description ?>"> <!-- Fournit une description de la page pour les moteurs de recherche, avec une variable PHP pour la valeur.-->
         <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Spécifie la compatibilité avec Edge/Internet Explorer.-->
 
+
+        <link href='https://unpkg.com/@fullcalendar/core@5.9.0/main.min.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/daygrid@5.9.0/main.min.css' rel='stylesheet' />
+    <script src='https://unpkg.com/@fullcalendar/core@5.9.0/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/daygrid@5.9.0/main.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+
+
+
+
         <!-- Intègre TinyMCE, un éditeur de texte HTML en ligne.-->
         <script src="https://cdn.tiny.cloud/1/zg3mwraazn1b2ezih16je1tc6z7gwp5yd4pod06ae5uai8pa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     
