@@ -182,6 +182,42 @@ class AdminController extends AbstractController {
             ]
         ];
     }
-    
-}
 
+    public function annulerCreneau() {
+        $reservationManager = new ReservationManager();
+        $message = '';
+        $dates = $reservationManager->getAvailableDates();
+        $reservations = [];
+        $selectedDate = null;
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['selected_date'])) {
+            $selectedDate = $_POST['selected_date'];
+            $reservations = $reservationManager->annulerByDate($selectedDate);
+        }
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['annuler_creneau'])) {
+            $creneauId = (int)$_POST['creneau_id'];
+            $reservationManager->delete($creneauId);
+            $message = 'Créneau annulé avec succès';
+            $this->redirectTo("admin", "annulerCreneau");
+        }
+    
+        return [
+            "view" => VIEW_DIR . "admin/annulerCreneau.php",
+            "meta_description" => "Annuler des créneaux",
+            "data" => [
+                "dates" => $dates,
+                "selectedDate" => $selectedDate,
+                "reservations" => $reservations,
+                "message" => $message
+            ]
+        ];
+    }
+    
+    
+    
+    
+    
+    
+
+}

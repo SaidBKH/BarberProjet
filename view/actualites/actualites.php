@@ -12,3 +12,6 @@ $publications = $result["data"]['publications'];
         </div>
     <?php endforeach; ?>
 </div>
+
+
+

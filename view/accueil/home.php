@@ -75,7 +75,7 @@
         <div class="swiper-wrapper">
         <?php foreach ($images as $image) : ?>
             <div class="swiper-slide">
-                <img src="<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
+                <img src="public/img/<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
             </div>
             <?php endforeach; ?>
         </div>

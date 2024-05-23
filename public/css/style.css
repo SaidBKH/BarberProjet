@@ -878,3 +878,7 @@ h2 {
         white-space: nowrap; /* Empêcher le texte de passer à la ligne */
         text-overflow: ellipsis; /* Afficher des points de suspension (...) si le texte dépasse */
     }
+
+    .table td,th {
+        color: white;
+    }

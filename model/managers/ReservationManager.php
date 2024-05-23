@@ -95,8 +95,26 @@ class ReservationManager extends Manager{
         return DAO::select($sql, ['date' => $date]);
     }
     
+    public function getAvailableDates() {
+        $sql = "SELECT DISTINCT date FROM " . $this->tableName . " ORDER BY date ASC";
+        return $this->getMultipleResults(
+            DAO::select($sql), 
+            $this->className
+        );
+    }
 
+    public function annulerByDate($date) {
+        $sql = "SELECT * FROM " . $this->tableName . " WHERE date = :date";
+        return $this->getMultipleResults(
+            DAO::select($sql, ['date' => $date]), 
+            $this->className
+        );
+    }
 
+    public function delete($id) {
+        $sql = "DELETE FROM " . $this->tableName . " WHERE Id_reservation = :id";
+        return DAO::delete($sql, ['id' => $id]);
+    }
     
 
 
