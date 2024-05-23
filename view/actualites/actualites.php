@@ -7,7 +7,7 @@ $publications = $result["data"]['publications'];
     <?php foreach ($publications as $publication) : ?>
         <div class="actualite">
             <h2 class="titre-actualite"><?= $publication->getTitre() ?></h2>
-            <img src="<?= $publication->getPhoto() ?>" alt="<?= $publication->getTitre() ?>" class="image-actualite">
+            <img src="public/img/<?= $publication->getPhoto() ?>" alt="<?= $publication->getTitre() ?>" class="image-actualite">
             <p class="texte-actualite"><?= $publication->getTexte() ?></p>
         </div>
     <?php endforeach; ?>

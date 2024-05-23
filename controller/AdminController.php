@@ -150,48 +150,38 @@ class AdminController extends AbstractController {
     
     public function creerActualite() {
         $actualiteManager = new ActualitesManager();
-        
-
-        // Récupérer la liste de toutes les catégories
-        
-
-        // Traitement du formulaire de création de réservation
+        $message = '';
+    
+        // Traitement du formulaire de création d'actualité
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titre'], $_POST['photo'], $_POST['texte'], $_POST['date'])) {
             $titre = $_POST['titre'];
             $photo = $_POST['photo'];
             $texte = $_POST['texte'];
             $date = $_POST['date'];
-
-            if ($titre && $photo && $texte && date) {
+    
+            if ($titre && $photo && $texte && $date) {
                 $actualiteData = [
                     'titre' => $titre,
                     'photo' => $photo,
                     'texte' => $texte,
-                    'heure' => $heure
-
+                    'date' => $date
                 ];
-
+    
                 $actualiteManager->add($actualiteData);
-                $message = 'Actualite créée avec succès';
-
-                //  var_dump($reservationData);die;
-
-                // Redirection après la création de la réservation
-                $this->redirectTo("admin", "tableau_de_bord");
+                $message = 'Actualité créée avec succès';
             } else {
                 $message = 'Veuillez remplir tous les champs';
             }
         }
-
-
+    
         return [
             "view" => VIEW_DIR . "admin/creerActualite.php",
-            "meta_description" => "Tableau de bord",
+            "meta_description" => "Créer une actualité",
             "data" => [
-                
+                "message" => $message
             ]
         ];
     }
-
+    
 }
 
