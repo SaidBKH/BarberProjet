@@ -13,71 +13,70 @@ use App\Session;
 class SecurityController extends AbstractController {
 
 
- 
     public function register() {
         $clientManager = new ClientManager();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Récupérer les données du formulaire
-
             $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
             $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
             $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
             $confirmPassword = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS); 
             $telephone = filter_input(INPUT_POST, "telephone", FILTER_SANITIZE_SPECIAL_CHARS);
-    
+
+                        
             /*
+            PARTIE CAPTCHA 
 
-            PARTIE CAPTCHA GOOGLE API
-
-                // Valider reCAPTCHA
-
-                $recaptchaResponse = $_POST['g-recaptcha-response']; // Récupération de la réponse reCAPTCHA depuis le formulaire
-                $recaptchaSecret = 'YOUR_SECRET_KEY'; // Clé secrète reCAPTCHA
-                $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify'; // URL de l'API reCAPTCHA
-                $recaptchaData = [
-                    'secret' => $recaptchaSecret, // Clé secrète dans les données envoyées à l'API
-                    'response' => $recaptchaResponse, // Réponse reCAPTCHA dans les données envoyées à l'API
-                    'remoteip' => $_SERVER['REMOTE_ADDR'] // Adresse IP de l'utilisateur dans les données envoyées à l'API
-                ];
-                $options = [
-                    'http' => [
-                        'method' => 'POST', // Méthode HTTP utilisée pour la requête
-                        'header' => 'Content-Type: application/x-www-form-urlencoded', // Type de contenu de la requête
-                        'content' => http_build_query($recaptchaData) // Données envoyées dans le corps de la requête
-                    ]
-                ];
-                $context = stream_context_create($options); // Création du contexte pour la requête HTTP
-                $recaptchaVerify = file_get_contents($recaptchaUrl, false, $context); // Envoi de la requête et récupération de la réponse
-                $recaptchaSuccess = json_decode($recaptchaVerify); // Décodage de la réponse JSON en objet PHP
-
-                if (!$recaptchaSuccess->success) {
-                    // Si la vérification reCAPTCHA échoue, affiche un message et redirige
-                    echo "Veuillez compléter le reCAPTCHA."; // Affichage d'un message d'erreur
-                    $this->redirectTo("security", "register"); // Redirection vers la page d'inscription
-                    return; // Arrêt de l'exécution du code
-                }
-                */
-
-
-
-
+            // Valider reCAPTCHA
+            $recaptchaResponse = $_POST['g-recaptcha-response'];
+            $recaptchaSecret = 'YOUR_SECRET_KEY';
+            $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+            $recaptchaData = [
+                'secret' => $recaptchaSecret,
+                'response' => $recaptchaResponse,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            ];
+            $options = [
+                'http' => [
+                    'method' => 'POST',
+                    'header' => 'Content-Type: application/x-www-form-urlencoded',
+                    'content' => http_build_query($recaptchaData)
+                ]
+            ];
+            $context = stream_context_create($options);
+            $recaptchaVerify = file_get_contents($recaptchaUrl, false, $context);
+            $recaptchaSuccess = json_decode($recaptchaVerify);
     
+            if (!$recaptchaSuccess->success) {
+                echo "Veuillez compléter le reCAPTCHA.";
+                $this->redirectTo("security", "login");
+                return;
+            }
+            */
+
             // Valider la force du mot de passe
             if (!preg_match("/^.{12,}$/", $password)) {
-                echo "Le mot de passe doit contenir au moins 12 caractères.";
+                $this->setFlashMessage("Le mot de passe doit contenir au moins 12 caractères.");
                 $this->redirectTo("security", "register");
                 return;
             }
-    
+
+            // Valider le numéro de téléphone (regex simplifiée pour les exemples)
+            if (!preg_match("/^\+?[1-9]\d{1,14}$/", $telephone)) {
+                $this->setFlashMessage("Veuillez entrer un numéro de téléphone valide.");
+                $this->redirectTo("security", "register");
+                return;
+            }
+
             if ($prenom && $email && $password && $confirmPassword && $telephone) {
                 if ($clientManager->emailExist($email)) {
-                    echo "L'email existe déjà.";
+                    $this->setFlashMessage("L'email existe déjà.");
                     $this->redirectTo("security", "register");
                     return;
                 }
-    
+
                 if ($password === $confirmPassword) {
                     $clientManager->add([
                         "prenom" => $prenom,
@@ -86,17 +85,17 @@ class SecurityController extends AbstractController {
                         "telephone" => $telephone,
                         "role" => "Utilisateur"
                     ]);
-    
-                    echo "Inscription réussie. Vous pouvez maintenant vous connecter.";
+
+                    $this->setFlashMessage("Inscription réussie. Vous pouvez maintenant vous connecter.");
                     $this->redirectTo("security", "login");
                     return;
                 } else {
-                    echo "Les mots de passe ne correspondent pas.";
+                    $this->setFlashMessage("Les mots de passe ne correspondent pas.");
                     $this->redirectTo("security", "register");
                     return;
                 }
             } else {
-                echo "Veuillez remplir tous les champs.";
+                $this->setFlashMessage("Veuillez remplir tous les champs.");
                 $this->redirectTo("security", "register");
                 return;
             }
@@ -256,7 +255,6 @@ class SecurityController extends AbstractController {
                     "meta_description" => "Modification du profil"];
         }
 
-
         
         public function editPassword() {
             $clientManager = new ClientManager();
@@ -296,50 +294,94 @@ class SecurityController extends AbstractController {
             ];
     }
 
-    public function forgotPassword() {
+    public function requestReset() {
+        $clientManager = new ClientManager();
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+            $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
             
             if ($email) {
-                $clientManager = new ClientManager();
-                $user = $clientManager->findByEmail($email);
-                
-                if ($user) {
-                    // Générer un jeton unique
-                    $token = bin2hex(random_bytes(32));
-                    
-                    // Stocker le jeton dans la base de données
-                    $clientManager->setResetToken($user->getId(), $token);
-                    
-                    // Envoyer un e-mail à l'utilisateur avec un lien de réinitialisation contenant le jeton
-                    $resetLink = "http://localhost:8888/BarberProjet/reset_password.php?token=$token";
-                    $subject = "Réinitialisation de mot de passe";
-                    $message = "Bonjour,\n\nPour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant : $resetLink";
-                    
-                    // Envoie de l'e-mail (non implémenté pour l'exercice)
-                    // mail($email, $subject, $message);
+                $client = $clientManager->findByEmail($email);
+                if ($client) {
+                    $token = bin2hex(random_bytes(16)); // Générer un token sécurisé
+                    $clientManager->updateProfile($client->getId(), ['resetToken' => $token]);
     
-                    echo "Un e-mail de réinitialisation a été envoyé à votre adresse.";
+                    // Envoyer l'email de réinitialisation
+                    $resetLink = "http://http://localhost:8888/BarberProjet/index.php?ctrl=security&action=request-password";
+                    $subject = "Réinitialisation de votre mot de passe";
+                    $message = "Cliquez sur le lien suivant pour réinitialiser votre mot de passe : $resetLink";
+                    mail($email, $subject, $message);
+    
+                    $this->setFlashMessage("Un email de réinitialisation de mot de passe a été envoyé.");
+                    $this->redirectTo("security", "login");
                     return;
                 } else {
-                    echo "Aucun utilisateur trouvé avec cette adresse e-mail.";
+                    $this->setFlashMessage("L'email n'existe pas.");
+                    $this->redirectTo("security", "requestReset");
                     return;
                 }
             } else {
-                echo "Veuillez saisir une adresse e-mail valide.";
+                $this->setFlashMessage("Veuillez entrer un email valide.");
+                $this->redirectTo("security", "requestReset");
                 return;
             }
         }
-        
+    
         return [
-            "view" => VIEW_DIR . "security/forgot_password.php",
-            "meta_description" => "Mot de passe oublié"
+            "view" => VIEW_DIR . "security/request_reset.php",
+            "meta_description" => "Demande de réinitialisation de mot de passe"
+        ];
+    }
+
+    
+    public function resetPassword() {
+        $clientManager = new ClientManager();
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $token = filter_input(INPUT_POST, "token", FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+            $confirmPassword = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
+    
+            if ($token && $password && $confirmPassword) {
+                if ($password === $confirmPassword) {
+                    if (preg_match("/^.{12,}$/", $password)) {
+                        $client = $clientManager->findByResetToken($token);
+                        if ($client) {
+                            $clientManager->updatePassword($client->getId(), password_hash($password, PASSWORD_DEFAULT));
+                            $clientManager->updateProfile($client->getId(), ['resetToken' => null]); // Effacer le token après utilisation
+                            
+                            $this->setFlashMessage("Mot de passe mis à jour avec succès.");
+                            $this->redirectTo("security", "login");
+                            return;
+                        } else {
+                            $this->setFlashMessage("Token invalide.");
+                            $this->redirectTo("security", "request_reset");
+                            return;
+                        }
+                    } else {
+                        $this->setFlashMessage("Le mot de passe doit contenir au moins 12 caractères.");
+                        $this->redirectTo("security", "reset_password", ['token' => $token]);
+                        return;
+                    }
+                } else {
+                    $this->setFlashMessage("Les mots de passe ne correspondent pas.");
+                    $this->redirectTo("security", "reset_password", ['token' => $token]);
+                    return;
+                }
+            } else {
+                $this->setFlashMessage("Veuillez remplir tous les champs.");
+                $this->redirectTo("security", "reset_Password", ['token' => $token]);
+                return;
+            }
+        }
+    
+        return [
+            "view" => VIEW_DIR . "security/reset_password.php",
+            "meta_description" => "Réinitialiser votre mot de passe"
         ];
     }
     
-
-
-
+    
 
 }
 

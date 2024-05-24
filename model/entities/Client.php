@@ -148,6 +148,25 @@ final class Client extends Entity{
         return $this;
     }
 
+
+            /**
+     * Get the value of creationDate
+     */ 
+    public function getResetToken(){
+        return $this->resetToken;
+    }
+
+    /**
+     * Set the value of creationDate
+     *
+     * @return  self
+     */ 
+    public function setResetToken($resetToken){
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
     public function __toString()
     {
         return $this;
@@ -158,18 +177,6 @@ final class Client extends Entity{
     }
 
 
-    public function getResetToken(){
-        return $this->resetToken;
-    }
+    
 
-    /**
-     * Set the value of role
-     *
-     * @return  self
-     */ 
-    public function setResetToken($resetToken){
-        $this->resetToken = $resetToken;
-
-        return $this;
-    }
 }

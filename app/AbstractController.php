@@ -30,4 +30,8 @@ abstract class AbstractController{
         header("Location: $url");
         die();
     }
+
+    protected function setFlashMessage($message) {
+        $_SESSION['flash_message'] = $message;
+    }
 }

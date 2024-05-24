@@ -64,14 +64,13 @@ class ClientManager extends Manager{
     }
 
   
+    public function findByResetToken($token) {
+        $sql = "SELECT * FROM ".$this->tableName." WHERE resetToken = :token";
+        return $this->getOneOrNullResult(
+            DAO::select($sql, ['token' => $token], false), 
+            $this->className
+        );
+    }
     
-
-public function setResetToken($userId, $token) {
-    $sql = "UPDATE client SET resetToken = :token WHERE id_client = :id";
-    $params = ['id' => $userId, 'token' => $token];
-    DAO::update($sql, $params);
-}
-
-
 
     }

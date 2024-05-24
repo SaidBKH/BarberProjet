@@ -122,7 +122,9 @@ abstract class Manager{
         );
     }
 
-
+    public function displayMessage($message) {
+        echo "<div class='message'>$message</div>";
+    }
 
 
 
