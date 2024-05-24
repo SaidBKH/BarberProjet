@@ -10,6 +10,10 @@
         <label for="password"></label><br>    
         <input placeholder="Mot de passe" type="password" id="password" name="password" required><br>
         
+        <!-- CAPTCHA -->
+         <!-- il faut ensuite la clé du site sur google captcha entreprise -->
+        <div class="g-recaptcha" data-sitekey=""></div>
+        
         <button type="submit">Se connecter</button>
     </form>
     
@@ -20,8 +24,8 @@
     </button>
 
     <p>Mot de passe oublié ? <a href="index.php?ctrl=security&action=forgotPassword">Réinitialiser le mot de passe</a></p>
-
 </div>
+
 
 
 

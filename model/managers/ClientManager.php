@@ -62,45 +62,15 @@ class ClientManager extends Manager{
 
         return DAO::update($sql, $values);
     }
-    // public function updateEmail($id) {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $email = filter_input( INPUT_POST, "email", FILTER_VALIDATE_EMAIL );
-    //         if ($email !== false) {
-    //             $userManager = new UserManager();
-    //             $userManager->updateMail($id, $mail);
-    //             header("Location: index.php?ctrl=user&action=profile");
-    //         exit();
-    //         }
-    //     }
-    // }
 
-
-    public function generatePasswordResetToken($email, $token) {
-        $sql = "UPDATE client SET reset_token = :token WHERE email = :email";
-        $params = ['token' => $token, 'email' => $email];
-        return DAO::update($sql, $params);
-    }
-    
-    public function sendPasswordResetEmail($email, $token) {
-        $subject = "Réinitialisation de mot de passe";
-        $message = "Bonjour,\n\nVous avez demandé à réinitialiser votre mot de passe. Veuillez cliquer sur le lien suivant pour choisir un nouveau mot de passe :\n\n";
-        $message .= "http://votre-site.com/reset_password.php?email=" . urlencode($email) . "&token=" . urlencode($token);
-        $headers = "From: votre-email@example.com\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    
-        // Envoi de l'e-mail
-        return mail($email, $subject, $message, $headers);
-    }
-
-    
-    public function resetPassword($email, $newPassword) {
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-        $sql = "UPDATE client SET password = :password, reset_token = NULL WHERE email = :email";
-        $params = ['password' => $hashedPassword, 'email' => $email];
-        return DAO::update($sql, $params);
-    }
+  
     
 
+public function setResetToken($userId, $token) {
+    $sql = "UPDATE client SET resetToken = :token WHERE id_client = :id";
+    $params = ['id' => $userId, 'token' => $token];
+    DAO::update($sql, $params);
+}
 
 
 

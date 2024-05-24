@@ -14,7 +14,7 @@
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 
 
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
         <!-- Intègre TinyMCE, un éditeur de texte HTML en ligne.-->

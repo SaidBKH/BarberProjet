@@ -16,6 +16,8 @@ final class Client extends Entity{
     private $password;
     private $creationDate;
     private $role;
+    private $resetToken;
+
 
     public function __construct($data){         
         $this->hydrate($data);        
@@ -155,4 +157,19 @@ final class Client extends Entity{
         return $this->getRole() === $role;
     }
 
+
+    public function getResetToken(){
+        return $this->resetToken;
+    }
+
+    /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function setResetToken($resetToken){
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
 }
