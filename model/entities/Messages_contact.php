@@ -7,14 +7,15 @@ use App\Entity;
     En programmation orientée objet, une classe finale (final class) est une classe que vous ne pouvez pas étendre, c'est-à-dire qu'aucune autre classe ne peut hériter de cette classe. En d'autres termes, une classe finale ne peut pas être utilisée comme classe parente.
 */
 
-final class Message_contact extends Entity{
+final class Messages_contact extends Entity{
 
     private $id;
     private $nom;
     private $email;
-    private $categorie;
     private $message;
-    private $date_creation;
+    private $dateCreation;
+    private $categorieContact;
+
 
     // chaque entité aura le même constructeur grâce à la méthode hydrate (issue de App\Entity)
     public function __construct($data){         
@@ -76,26 +77,7 @@ final class Message_contact extends Entity{
         return $this;
     }
     
-        /**
-     * Get the value of name
-     */ 
-    public function getCategorie(){
-        return $this->categorie;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
-    public function setCategorie($categorie){
-        $this->categorie = $categorie;
-        return $this;
-    }
-
-        /**
-     * Get the value of name
-     */ 
+  
     public function getMessage(){
         return $this->message;
     }
@@ -114,7 +96,7 @@ final class Message_contact extends Entity{
      * Get the value of name
      */ 
     public function getDateCreation(){
-        $date = $this->date_creation->format('d-m H:i');
+        $date = $this->dateCreation->format('d-m H:i');
         return $date;
     }
 
@@ -123,8 +105,26 @@ final class Message_contact extends Entity{
      *
      * @return  self
      */ 
-    public function setDateCreation($date_creation){
-        $this->date_creation =new \DateTime($date_creation);
+    public function setDateCreation($dateCreation){
+        $this->dateCreation =new \DateTime($dateCreation);
+        return $this;
+    }
+ 
+
+            /**
+     * Get the value of name
+     */ 
+    public function getCategorieContact(){
+        return $this->categorieContact;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setCategorieContact($categorieContact){
+        $this->categorieContact = $categorieContact;
         return $this;
     }
 }

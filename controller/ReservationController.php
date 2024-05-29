@@ -116,7 +116,7 @@ class ReservationController extends AbstractController implements ControllerInte
                 $reservationManager = new ReservationManager();
                 $reservationManager->updateReservation($heureSelectionnee, $dateId, $serviceId, $clientId);
                 
-                $this->redirectTo("Reservation", "listServices");
+                $this->redirectTo("Reservation", "confirmationReservation");
             }
             
             //     
@@ -142,6 +142,12 @@ class ReservationController extends AbstractController implements ControllerInte
             }
         }
 
+        public function confirmationReservation() {
+            return [
+                "view" => VIEW_DIR . "reservation/confirmationReservation.php",
+                "meta_description" => "Confirmation de Réservation"
+            ];
+        }
 
        
 

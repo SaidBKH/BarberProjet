@@ -14,4 +14,7 @@ class ContactManager extends Manager{
         parent::connect();
     }
   
+    
 }
+
+

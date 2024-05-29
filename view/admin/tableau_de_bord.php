@@ -15,6 +15,9 @@
         <a href="index.php?ctrl=admin&action=creerActualite">Ajouter une actualité</a>
         <a href="index.php?ctrl=admin&action=annulerCreneau">Annuler créneau</a>
 
+        <h2>Messagerie</h2>
+    <a href="index.php?ctrl=admin&action=listMessages">Voir les messages</a>
+
 
 
 </div>

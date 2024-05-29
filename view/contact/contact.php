@@ -1,6 +1,7 @@
-<div class="PageContact">
+<?php $categories = $result["data"]['categories'];?>
 
-<h1>Contactez-nous</h1>
+<div class="PageContact">
+    <h1>Contactez-nous</h1>
     
     <p>Vous pouvez nous contacter de différentes manières :</p>
     <ul>
@@ -9,7 +10,7 @@
         <li>En remplissant le formulaire ci-dessous</li>
     </ul>
     
-    <form action="submit_contact.php" method="post">
+    <form action="" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required><br><br>
         
@@ -18,9 +19,11 @@
         
         <label for="categorie">Catégorie de Message :</label>
         <select id="categorie" name="categorie" required>
-            <option value="Informations">Demande d'Informations</option>
-            <option value="Réclamations">Réclamations</option>
-            <option value="Autre">Autre</option>
+            <?php foreach($categories as $categorie): ?>
+                <option value="<?= $categorie->getId() ?>">
+                    <?= htmlspecialchars($categorie->getNomCategorie())?>
+                </option>
+            <?php endforeach; ?>
         </select><br><br>
         
         <label for="message">Message :</label><br>
@@ -28,5 +31,4 @@
         
         <input type="submit" value="Envoyer">
     </form>
-
 </div>

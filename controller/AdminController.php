@@ -6,6 +6,8 @@ use Model\Managers\CategorieManager;
 use Model\Managers\ServiceManager;
 use Model\Managers\ReservationManager;
 use Model\Managers\ActualitesManager;
+use Model\Managers\ContactManager;
+
 use App\Session;
 use Model\Entities\Reservation;
 
@@ -216,7 +218,18 @@ class AdminController extends AbstractController {
     
     
     
-    
+    public function listMessages() {
+        $messageManager = new ContactManager();
+        $messages = $messageManager->findAll(["dateCreation", "DESC"]);
+
+        return [
+            "view" => VIEW_DIR . "admin/listMessages.php",
+            "meta_description" => "Liste des Messages de Contact",
+            "data" => [
+                "messages" => $messages
+            ]
+        ];
+    }
     
     
 

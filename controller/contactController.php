@@ -1,31 +1,46 @@
 <?php
 namespace Controller;
-//Un name space est un espace ou sont  grouper un ensemble d'éléments, le but est d'eviter les conflits de noms,
-//si j'aiplusieurs fichiers portant le même nom, tant qu'ils se trouvent dans des sous-dossiers différents, ils ne se confondront pas
 
 use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\ContactManager;
-use Model\Entities\Categories_message_contact;
-use Model\Entities\Message_contact;
+use Model\Managers\CategorieContactManager;
 
-
-
-
-class contactController extends AbstractController implements ControllerInterface {
+class ContactController extends AbstractController implements ControllerInterface {
 
     public function index() {
+        $categorieContactManager = new CategorieContactManager();
+        $categories = $categorieContactManager->findAll();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+            $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+            $categorieContactId = filter_input(INPUT_POST, 'categorie', FILTER_VALIDATE_INT);
+
+            if ($nom && $email && $message && $categorieContactId) {
+                $contactManager = new ContactManager();
+                $contactManager->add([
+                    'nom' => $nom,
+                    'email' => $email,
+                    'message' => $message,
+                    'dateCreation' => date('Y-m-d H:i:s'),
+                    'categorieContact_id' => $categorieContactId,
+                ]);
+
+                // Rediriger ou afficher un message de succès
+                $this->redirectTo('contact', 'index');
+            } else {
+                // Gérer les erreurs de validation
+            }
+        }
+
         return [
-            "view" => VIEW_DIR."contact/contact.php",
-            "meta_description" => "page d'accueil",
-            "data" => [                   
+            'view' => VIEW_DIR . 'contact/contact.php',
+            'meta_description' => 'page de contact',
+            'data' => [
+                'categories' => $categories
             ]
         ];
     }
-   
-
-    }
-  
-
-
-
+}
