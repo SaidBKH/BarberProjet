@@ -5,23 +5,23 @@ namespace Controller;
 
 use App\AbstractController;
 use App\ControllerInterface;
-use Model\Managers\actualitesManager;
+use Model\Managers\newsManager;
 
 
 
 
-class actualitesController extends AbstractController implements ControllerInterface {
+class newsController extends AbstractController implements ControllerInterface {
 
     public function index()
     {
         // Instanciez le GalerieManager
-        $actualitesManager = new actualitesManager();
+        $newsManager = new newsManager();
 
         // Récupérez les images
-        $publications = $actualitesManager->findAll();; 
+        $publications = $newsManager->findAll();; 
         // Transmettez les données à la vue
         return [
-            "view" => VIEW_DIR . "actualites/actualites.php",
+            "view" => VIEW_DIR . "news/news.php",
             "meta_description" => "accueil",
             "data" => [
                 "publications" => $publications,

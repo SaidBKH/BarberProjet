@@ -2,10 +2,10 @@
 namespace Controller;
 
 use App\AbstractController;
-use Model\Managers\CategorieManager;
+use Model\Managers\CategoryManager;
 use Model\Managers\ServiceManager;
 use Model\Managers\ReservationManager;
-use Model\Managers\ActualitesManager;
+use Model\Managers\newsManager;
 use Model\Managers\ContactManager;
 
 use App\Session;
@@ -35,30 +35,22 @@ class AdminController extends AbstractController {
         ];
     }
 
-    public function GestionReservation() {
-     
 
-        return [
-            "view" => VIEW_DIR . "admin/GestionReservation.php",
-            "meta_description" => "Tableau de bord",
-            "data" => [
-                
-            ]
-        ];
-    }
     
+
     public function planning() {
         $reservationManager = new ReservationManager();
         $reservationsByMonth = $reservationManager->findAllGroupedByMonth();
 
         return [
             "view" => VIEW_DIR . "admin/planning.php",
-            "meta_description" => "Tableau de bord",
+            "meta_description" => "planning des disponibilités",
             "data" => [
                 "reservationsByMonth" => $reservationsByMonth
             ]
         ];
     }
+    
 
     public function reservationsByDay($month) {
         $month = $_GET['month'];
@@ -96,20 +88,20 @@ class AdminController extends AbstractController {
     }
 
 
-    public function creerReservation() {
-        $categorieManager = new CategorieManager();
+
+    public function createTimeSlot() {
+        $categoryManager = new CategoryManager();
         $serviceManager = new ServiceManager();
         $reservationManager = new ReservationManager();
     
         // Récupérer la liste de toutes les catégories
-        $categories = $categorieManager->findAll();
+        $categorys = $categoryManager->findAll();
         $services = [];
-        $message = '';
     
         // Si une catégorie est sélectionnée, récupérer les services associés
-        if (isset($_POST['categorie_id'])) {
-            $categorieId = (int)$_POST['categorie_id'];
-            $services = $serviceManager->findServicesByCategory($categorieId);
+        if (isset($_POST['category_id'])) {
+            $categoryId = (int)$_POST['category_id'];
+            $services = $serviceManager->findServicesByCategory($categoryId);
         }
     
         // Traitement du formulaire de création de réservation
@@ -121,69 +113,38 @@ class AdminController extends AbstractController {
             if ($serviceId && $dates && $heures) {
                 foreach ($dates as $date) {
                     foreach ($heures as $heure) {
+
                         $reservationData = [
                             'service_id' => $serviceId,
                             'date' => $date,
                             'heure' => $heure,
                         ];
+
                         $reservationManager->add($reservationData);
                     }
                 }
-                $message = 'Réservations créées avec succès';
-                $this->redirectTo("admin", "tableau_de_bord");
+                $this->setFlashMessage('Réservations créées avec succès');
+                
+                $this->redirectTo("admin", "createTimeSlot");
             } else {
-                $message = 'Veuillez remplir tous les champs';
+                $this->setFlashMessage('Veuillez remplir tous les champs');
+
             }
         }
     
         return [
-            "view" => VIEW_DIR . "admin/creerReservation.php",
+            "view" => VIEW_DIR . "admin/createTimeSlot.php",
             "meta_description" => "Tableau de bord",
             "data" => [
-                "categories" => $categories,
+                "categorys" => $categorys,
                 "services" => $services,
-                "message" => $message
             ]
         ];
     }
     
     
+
     
-    
-    public function creerActualite() {
-        $actualiteManager = new ActualitesManager();
-        $message = '';
-    
-        // Traitement du formulaire de création d'actualité
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titre'], $_POST['photo'], $_POST['texte'], $_POST['date'])) {
-            $titre = $_POST['titre'];
-            $photo = $_POST['photo'];
-            $texte = $_POST['texte'];
-            $date = $_POST['date'];
-    
-            if ($titre && $photo && $texte && $date) {
-                $actualiteData = [
-                    'titre' => $titre,
-                    'photo' => $photo,
-                    'texte' => $texte,
-                    'date' => $date
-                ];
-    
-                $actualiteManager->add($actualiteData);
-                $message = 'Actualité créée avec succès';
-            } else {
-                $message = 'Veuillez remplir tous les champs';
-            }
-        }
-    
-        return [
-            "view" => VIEW_DIR . "admin/creerActualite.php",
-            "meta_description" => "Créer une actualité",
-            "data" => [
-                "message" => $message
-            ]
-        ];
-    }
 
     public function annulerCreneau() {
         $reservationManager = new ReservationManager();
@@ -216,7 +177,41 @@ class AdminController extends AbstractController {
         ];
     }
     
+    public function createNews() {
+        $newsManager = new newsManager();
+        $message = '';
     
+        // Traitement du formulaire de création des news 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'], $_POST['photo'], $_POST['text'], $_POST['date'])) {
+            $title = $_POST['title'];
+            $photo = $_POST['photo'];
+            $text = $_POST['text'];
+            $date = $_POST['date'];
+    
+            if ($title && $photo && $text && $date) {
+                $newsData = [
+                    'title' => $title,
+                    'photo' => $photo,
+                    'text' => $text,
+                    'date' => $date
+                ];
+    
+                $newsManager->add($newsData);
+                $message = 'Actualité créée avec succès';
+            } else {
+                $message = 'Veuillez remplir tous les champs';
+            }
+        }
+    
+        return [
+            "view" => VIEW_DIR . "admin/createNews.php",
+            "meta_description" => "Créer une actualité",
+            "data" => [
+                "message" => $message
+            ]
+        ];
+    }
+
     
     public function listMessages() {
         $messageManager = new ContactManager();

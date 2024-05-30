@@ -9,14 +9,14 @@ use App\ControllerInterface;
 
 
 
-class mentionController extends AbstractController implements ControllerInterface {
+class mentionsController extends AbstractController implements ControllerInterface {
 
 
 
     public function index()
     {
         return [
-            "view" => VIEW_DIR . "accueil/politique_confidentialite.php",
+            "view" => VIEW_DIR . "mentions/politique_confidentialite.php",
             "meta_description" => "politique de confidentialité du site",
             "data" => [
                
@@ -27,7 +27,7 @@ class mentionController extends AbstractController implements ControllerInterfac
     public function mentionLegal()
     {
         return [
-            "view" => VIEW_DIR . "accueil/mention_legal.php",
+            "view" => VIEW_DIR . "mentions/mention_legal.php",
             "meta_description" => "politique de confidentialité du site",
             "data" => [
                

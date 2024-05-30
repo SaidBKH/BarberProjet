@@ -10,9 +10,9 @@
 
         <a href="index.php?ctrl=admin&action=planning">planning</a>
 
-        <a href="index.php?ctrl=admin&action=creerReservation">Créer un crénau</a>
+        <a href="index.php?ctrl=admin&action=createTimeSlot">Créer un crénau</a>
 
-        <a href="index.php?ctrl=admin&action=creerActualite">Ajouter une actualité</a>
+        <a href="index.php?ctrl=admin&action=createNews">Ajouter une actualité</a>
         <a href="index.php?ctrl=admin&action=annulerCreneau">Annuler créneau</a>
 
         <h2>Messagerie</h2>

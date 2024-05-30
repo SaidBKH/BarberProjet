@@ -5,9 +5,8 @@ namespace Controller;
 
 use App\AbstractController;
 use App\ControllerInterface;
-use Model\Managers\CategorieManager;
+use Model\Managers\CategoryManager;
 use Model\Managers\ServiceManager;
-use Model\Managers\ClientManager;
 use Model\Managers\ReservationManager;
 
 
@@ -16,17 +15,17 @@ use Model\Managers\ReservationManager;
 class ReservationController extends AbstractController implements ControllerInterface {
 
         public function index() {
-            $categorieManager = new CategorieManager();
+            $categoryManager = new CategoryManager();
             $serviceManager= new ServiceManager();
             // récupérer la liste de toutes les catégories grâce à la méthode findAll de Manager.php (triés par nom)
-            $categories = $categorieManager->findAll(["nomCategorie", "DESC"]);
-            $services = $serviceManager->findAll(["nom", "DESC"]); 
+            $categorys = $categoryManager->findAll(["categoryName", "DESC"]);
+            $services = $serviceManager->findAll(["name", "DESC"]); 
 
             return [
-                "view" => VIEW_DIR."reservation/listCategories.php",
+                "view" => VIEW_DIR."reservation/listCategorys.php",
                 "meta_description" => "accueil",
                 "data" => [
-                    "categories" => $categories,
+                    "categorys" => $categorys,
                 "services" =>$services, 
                 
 
@@ -37,16 +36,16 @@ class ReservationController extends AbstractController implements ControllerInte
 
         public function listServiceByCategory($id) {
 
-            $categorieManager = new CategorieManager();
+            $categoryManager = new CategoryManager();
             $serviceManager = new ServiceManager();
-            $categorie = $categorieManager->findOneById($id);
+            $category = $categoryManager->findOneById($id);
             $services = $serviceManager->findServicesByCategory($id);
     
             return [
                 "view" => VIEW_DIR."reservation/listServices.php",
                 "meta_description" => "Liste des services ",
                 "data" => [
-                    "categorie" => $categorie,
+                    "category" => $category,
                     "services" => $services
                 ]
             ];

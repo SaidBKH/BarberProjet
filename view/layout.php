@@ -84,17 +84,17 @@
                                         <a href="index.php">ACCUEIL</a>
                                    </li> 
                                     <li>
-                                        <a href="index.php?ctrl=actualites&action=actualites">ACTUALITÉ</a>
+                                        <a href="index.php?ctrl=news&action=news">ACTUALITÉ</a>
                                     </li>
                                     <li>
                                         <a href="index.php?ctrl=reservation&action=listService">RÉSERVATIONS
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=services&action=nos_services">NOS SERVICES</a>
+                                        <a href="index.php?ctrl=ourServices&action=ourServices">NOS SERVICES</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">NOUS REJOINDRE</a>
+                                        <a href="index.php?ctrl=joinUs&action=joinUs">NOUS REJOINDRE</a>
                                     </li>
                                     <li>
                                     <a href="index.php?ctrl=contact&action=contact">CONTACT
@@ -151,7 +151,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=services&action=nos_services">
+                                        <a href="index.php?ctrl=ourServices&action=ourServices">
                                             <i class="fas fa-toolbox"></i>NOS SERVICES
                                         </a>
                                     </li>
@@ -211,7 +211,7 @@
         </div>
     </div>
     <div class="legal">
-        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mention&action=politique_confidentialite">Politique de confidentialité</a> - <a href="index.php?ctrl=mention&action=mention_legal">Mentions légales</a></p>
+        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mentions&action=politique_confidentialite">Politique de confidentialité</a> - <a href="index.php?ctrl=mentionsl&action=mention_legal">Mentions légales</a></p>
     </div>
 </footer>
         </div>

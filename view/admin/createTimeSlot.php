@@ -1,38 +1,43 @@
 <?php
 setlocale(LC_TIME, 'fr_FR.UTF-8');
 
-$categories = $result["data"]['categories'];
+$categorys = $result["data"]['categorys'];
 $services = $result["data"]['services'];
-$message = $result["data"]['message'];
 ?>
 
 <div class="container mt-5">
     <h1 class="text-center mb-4">Créer des créneaux</h1>
-    <?php if ($message): ?>
-        <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
+
+
+    <?php if (isset($_SESSION['flash_message'])): ?>
+        <div class="flash-message"><?php echo $_SESSION['flash_message']; ?></div>
+        <?php unset($_SESSION['flash_message']); ?>
     <?php endif; ?>
+
 
     <form method="post" action="">
         <div class="form-group">
-            <label for="categorie">Catégorie</label>
-            <select id="categorie" name="categorie_id" class="form-control" onchange="this.form.submit()">
+            <label for="category">Catégorie</label>
+            <select id="category" name="category_id" class="form-control" onchange="this.form.submit()">
                 <option value="">Sélectionner une catégorie</option>
-                <?php foreach ($categories as $categorie): ?>
-                    <option value="<?= $categorie->getId() ?>" <?= isset($_POST['categorie_id']) && $_POST['categorie_id'] == $categorie->getId() ? 'selected' : '' ?>><?= htmlspecialchars($categorie->getNomCategorie()) ?></option>
+                <?php foreach ($categorys as $category): ?>
+                    <option value="<?= $category->getId() ?>" <?= isset($_POST['category_id']) && $_POST['category_id'] == $category->getId() ? 'selected' : '' ?>><?= htmlspecialchars($category->getCategoryName()) ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
+
 
         <div class="form-group">
             <label for="service">Service</label>
             <select id="service" name="service_id" class="form-control" <?= empty($services) ? 'disabled' : '' ?>>
                 <option value="">Sélectionner un service</option>
                 <?php foreach ($services as $service): ?>
-                    <option value="<?= $service->getId() ?>"><?= htmlspecialchars($service->getNom()) ?></option>
+                    <option value="<?= $service->getId() ?>"><?= htmlspecialchars($service->getName()) ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
 
+        
         <div class="form-group">
             <label for="dates">Dates</label>
             <div id="dates" class="d-flex flex-wrap">

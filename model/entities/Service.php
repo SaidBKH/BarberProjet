@@ -10,10 +10,10 @@ use App\Entity;
 final class Service extends Entity{
 
     private $id;
-    private $nom;
-    private $prix;
-    private $duree;
-    private $categorie;
+    private $name;
+    private $price;
+    private $duration;
+    private $category;
 
 
 
@@ -46,57 +46,57 @@ final class Service extends Entity{
     /**
      * Get the value of name
      */ 
-    public function getNom(){
-        return $this->nom;
+    public function getName(){
+        return $this->name;
     }
 
     /**
      * Set the value of name
-     *
+     
      * @return  self
      */ 
-    public function setNom($nom){
-        $this->nom = $nom;
+    public function setName($name){
+        $this->name = $name;
         return $this;
     }
 
   /**
-     * Get the value of prix
+     * Get the value of price
      */ 
-    public function getPrix(){
-        return $this->prix;
+    public function getPrice(){
+        return $this->price;
     }
 
     /**
-     * Set the value of prix
+     * Set the value of price
      *
      * @return  self
      */ 
-    public function setPrix($prix){
-        $this->prix = $prix;
+    public function setPrice($price){
+        $this->price = $price;
         return $this;
     }
 
       /**
-     * Get the value of duree
+     * Get the value of duration
      */ 
-    public function getDuree(){
-        $duree = $this->duree->format('i');
-        return $duree;
+    public function getDuration(){
+        $duration = $this->duration->format('i');
+        return $duration;
     }
 
     /**
-     * Set the value of duree
+     * Set the value of duration
      *
      * @return  self
      */ 
-    public function setDuree($duree){
-        $this->duree = new \DateTime($duree);
+    public function setDuration($duration){
+        $this->duration = new \DateTime($duration);
         return $this;
     }
 
-    public function getCategorie(){
-        return $this->categorie;
+    public function getCategory(){
+        return $this->category;
     }
     
     /**
@@ -104,8 +104,8 @@ final class Service extends Entity{
      *
      * @return  self
      */ 
-    public function setCategorie($categorie){
-        $this->categorie = $categorie;
+    public function setCategory($category){
+        $this->category = $category;
         return $this;
     }
 

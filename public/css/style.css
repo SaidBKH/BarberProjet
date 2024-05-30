@@ -553,13 +553,13 @@ button[type="submit"]:hover {
 }
 
 
-/* /////////////////////////////ACTUALITÉ PAGE ////////////////////////////////
+/* /////////////////////////////NEWS PAGE ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
 
-/* Styles pour la page d'actualités */
 
-/* Conteneur principal des actualités */
-.actualites-container {
+
+/* Conteneur principal des NEWS */
+.news-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -567,7 +567,7 @@ button[type="submit"]:hover {
     margin-top: 20px;
 }
 
-.actualite {
+.news {
     max-width: 400px;
     background-color: #222;
     padding: 20px;
@@ -575,20 +575,20 @@ button[type="submit"]:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.titre-actualite {
+.title-news {
     font-size: 24px;
     margin-bottom: 10px;
     color: #ffffff;
 }
 
-.image-actualite {
+.photo-news {
     width: 100%;
     height: auto;
     border-radius: 6px;
     margin-bottom: 10px;
 }
 
-.texte-actualite {
+.texte-news {
     font-size: 16px;
     line-height: 1.5;
     color: #ffffff;

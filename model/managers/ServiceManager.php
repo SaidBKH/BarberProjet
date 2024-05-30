@@ -14,9 +14,9 @@ class ServiceManager extends Manager{
         parent::connect();
     }
     
-    public function addService($nom) {
-        $sql = "INSERT INTO {$this->tableName} (nom) VALUES (:nom)";
-        DAO::insert($sql, ['nom' => $nom]);
+    public function addService($name) {
+        $sql = "INSERT INTO {$this->tableName} (name) VALUES (:name)";
+        DAO::insert($sql, ['name' => $name]);
     }
 
 // récupérer tous les services d'une catégorie spécifique (par son id)
@@ -24,7 +24,7 @@ public function findServicesByCategory($id) {
 
     $sql = "SELECT * 
             FROM ".$this->tableName." t 
-            WHERE t.categorie_id = :id";
+            WHERE t.category_id = :id";
    
     // la requête renvoie plusieurs enregistrements --> getMultipleResults
     return  $this->getMultipleResults(

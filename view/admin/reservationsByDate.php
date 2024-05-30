@@ -21,7 +21,7 @@ $reservations = $result["data"]['reservations'];
                         'Email' => htmlspecialchars($reservation['email']),
                         'Téléphone' => isset($reservation['telephone']) ? htmlspecialchars($reservation['telephone']) : ''
                     ]) ?>'>
-                        <td><?= htmlspecialchars($reservation['service_nom']) ?></td>
+                        <td><?= htmlspecialchars($reservation['service_name']) ?></td>
                         <td><?= htmlspecialchars($reservation['heure']) ?></td>
                         <td>
                             <?= htmlspecialchars($reservation['prenom']) ?><br>

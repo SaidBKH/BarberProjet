@@ -85,7 +85,7 @@ class ReservationManager extends Manager{
     
     
     public function findByDate($date) {
-        $sql = "SELECT reservations.*, client.prenom, client.email, client.telephone, service.nom as service_nom
+        $sql = "SELECT reservations.*, client.prenom, client.email, client.telephone, service.name as service_name
                 FROM " . $this->tableName . "
                 JOIN client ON reservations.client_id = client.id_client
                 JOIN service ON reservations.service_id = service.id_service

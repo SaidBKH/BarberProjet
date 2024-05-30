@@ -3,9 +3,7 @@
 // l'heure selectionnee 
 $heureSelectionnee = ''; 
 
-// je definie  $service avec une valeur par défaut ou récupérer la valeur à partir de $result["data"]['service']
 $service = isset($_GET['id']) ? $_GET['id'] : null;
-// $date = isset($_GET['date']) ? $_GET['date'] : '';
 
 ?>
 
@@ -76,7 +74,7 @@ foreach ($plannings as $planning) {
             <h3>Récapitulatif de la réservation :</h3>
             <p>Date : <span id="recap-date"></span></p>
             <p>Heure : <span id="recap-heure"></span></p>
-            <p>Service : <?= $service->getNom() ?></p>
+            <p>Service : <?= $service->getName() ?></p>
         </div>
 
         <form action="index.php?ctrl=reservation&action=reserve" method="post">
