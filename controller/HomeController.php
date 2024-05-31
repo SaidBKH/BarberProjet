@@ -11,7 +11,7 @@ use Model\Managers\contactManager;
 
 
 
-class accueilController extends AbstractController implements ControllerInterface {
+class HomeController extends AbstractController implements ControllerInterface {
 
 
         // HOME PAGE
@@ -25,7 +25,7 @@ class accueilController extends AbstractController implements ControllerInterfac
         $images = $galerieManager->findAll();; 
         // Transmettez les données à la vue
         return [
-            "view" => VIEW_DIR . "accueil/home.php",
+            "view" => VIEW_DIR . "home/home.php",
             "meta_description" => "accueil",
             "data" => [
                 "images" => $images,

@@ -10,7 +10,7 @@ use Model\Managers\newsManager;
 
 
 
-class newsController extends AbstractController implements ControllerInterface {
+class NewsController extends AbstractController implements ControllerInterface {
 
     public function index()
     {
