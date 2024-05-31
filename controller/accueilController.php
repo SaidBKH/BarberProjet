@@ -6,18 +6,12 @@ namespace Controller;
 use App\AbstractController;
 use App\ControllerInterface;
 use Model\Managers\GalerieManager;
-use Model\Managers\categorieContactManager;
+use Model\Managers\CategoryContactManager;
 use Model\Managers\contactManager;
 
 
 
-
-
-
-
 class accueilController extends AbstractController implements ControllerInterface {
-
-
 
 
         // HOME PAGE
@@ -40,8 +34,6 @@ class accueilController extends AbstractController implements ControllerInterfac
     }
 
 
-
-
     // PAGE NOUS REJOINDRES
     public function joinUs() {
         return [
@@ -55,23 +47,23 @@ class accueilController extends AbstractController implements ControllerInterfac
 //  PAGE CONTACT
 
     public function contact() {
-        $categorieContactManager = new CategorieContactManager();
-        $categories = $categorieContactManager->findAll();
+        $categoryContactManager = new CategoryContactManager();
+        $categorys = $categoryContactManager->findAll();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
             $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
             $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
-            $categorieContactId = filter_input(INPUT_POST, 'categorie', FILTER_VALIDATE_INT);
+            $categoryContactId = filter_input(INPUT_POST, 'category', FILTER_VALIDATE_INT);
 
-            if ($nom && $email && $message && $categorieContactId) {
+            if ($name && $email && $message && $categoryContactId) {
                 $contactManager = new ContactManager();
                 $contactManager->add([
-                    'nom' => $nom,
+                    'name' => $name,
                     'email' => $email,
                     'message' => $message,
                     'dateCreation' => date('Y-m-d H:i:s'),
-                    'categorieContact_id' => $categorieContactId,
+                    'categoryContact_id' => $categoryContactId,
                 ]);
 
                 // Rediriger ou afficher un message de succès
@@ -85,7 +77,7 @@ class accueilController extends AbstractController implements ControllerInterfac
             'view' => VIEW_DIR . 'contact/contact.php',
             'meta_description' => 'page de contact',
             'data' => [
-                'categories' => $categories
+                'categorys' => $categorys
             ]
         ];
     }

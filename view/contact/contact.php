@@ -1,4 +1,4 @@
-<?php $categories = $result["data"]['categories'];?>
+<?php $categorys = $result["data"]['categorys'];?>
 
 <div class="PageContact">
     <h1>Contactez-nous</h1>
@@ -11,17 +11,17 @@
     </ul>
     
     <form action="" method="post">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br><br>
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required><br><br>
         
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" required><br><br>
         
-        <label for="categorie">Catégorie de Message :</label>
-        <select id="categorie" name="categorie" required>
-            <?php foreach($categories as $categorie): ?>
-                <option value="<?= $categorie->getId() ?>">
-                    <?= htmlspecialchars($categorie->getNomCategorie())?>
+        <label for="category">Catégorie de Message :</label>
+        <select id="category" name="category" required>
+            <?php foreach($categorys as $category): ?>
+                <option value="<?= $category->getId() ?>">
+                    <?= htmlspecialchars($category->getNameCategory())?>
                 </option>
             <?php endforeach; ?>
         </select><br><br>
