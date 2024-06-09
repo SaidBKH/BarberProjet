@@ -215,8 +215,10 @@ class AdminController extends AbstractController {
     
     public function listMessages() {
         $messageManager = new ContactManager();
-        $messages = $messageManager->findAll(["dateCreation", "DESC"]);
-
+        $messages = $messageManager->getMessagesWithCategory();
+       
+      
+        
         return [
             "view" => VIEW_DIR . "admin/listMessages.php",
             "meta_description" => "Liste des Messages de Contact",

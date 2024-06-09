@@ -22,7 +22,7 @@ abstract class Manager{
         $sql = "SELECT *
                 FROM ".$this->tableName." a
                 ".$orderQuery;
-
+                
                 
         return $this->getMultipleResults(
             DAO::select($sql), 
