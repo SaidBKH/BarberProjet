@@ -10,6 +10,9 @@ namespace App;
 class Autoloader{
 
 
+
+
+
 //C'est une méthode (une fonction à l'intérieur d'une classe) qui permet d'enregistrer l'autoloader.
 	public static function register(){
 		spl_autoload_register(array(__CLASS__, 'autoload'));
@@ -44,5 +47,11 @@ class Autoloader{
 			require $filepath;
 		}
 	}
+
+
+
+
 }
+
+
 ?>

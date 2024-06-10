@@ -11,6 +11,12 @@ use Model\Managers\CategoryContactManager;
 use App\Session;
 use Model\Entities\Reservation;
 
+require 'libs/PHPMailer/src/Exception.php';
+require 'libs/PHPMailer/src/PHPMailer.php';
+require 'libs/PHPMailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 
 class AdminController extends AbstractController {
@@ -213,23 +219,97 @@ class AdminController extends AbstractController {
     }
 
     
-    public function listMessages() {
-        $messageManager = new ContactManager();
-        $categoryManager = new CategoryContactManager();
-        $messages = $messageManager->getMessagesWithCategory();
-        // $category = $categoryManager->findAll();
 
-        return [
-            "view" => VIEW_DIR . "admin/listMessages.php",
-            "meta_description" => "Liste des Messages de Contact",
-            "data" => [
-                "messages" => $messages,
-                // "category" => $category
-                
-            ]
-        ];
-    }
     
+    public function sendResponse() {
+        // Vérifie si la requête HTTP est une requête POST (c'est-à-dire si le formulaire a été soumis)
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Filtre et valide les entrées du formulaire
+            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); // Valide l'email
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS); // Sanitise le nom
+            $response = filter_input(INPUT_POST, 'response', FILTER_SANITIZE_SPECIAL_CHARS); // Sanitise la réponse
     
+            // Vérifie que toutes les entrées sont valides
+            if ($email && $name && $response) {
+                // Crée une nouvelle instance de PHPMailer
+                $mail = new PHPMailer(true);
+    
+                try {
+                    // Paramètres du serveur
+                    $mail->isSMTP(); // Envoie en utilisant SMTP
+                    $mail->Host       = 'smtp.example.com'; // Définir le serveur SMTP pour envoyer
+                    $mail->SMTPAuth   = true; // Activer l'authentification SMTP
+                    $mail->Username   = 'your-email@example.com'; // Nom d'utilisateur SMTP
+                    $mail->Password   = 'your-email-password'; // Mot de passe SMTP
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Activer le chiffrement TLS; `PHPMailer::ENCRYPTION_SMTPS` est recommandé
+                    $mail->Port       = 587; // Port TCP pour se connecter
+    
+                    // Destinataires
+                    $mail->setFrom('your-email@example.com', 'Admin'); // Adresse de l'expéditeur
+                    $mail->addAddress($email, $name); // Ajouter un destinataire
+    
+                    // Contenu de l'email
+                    $mail->isHTML(true); // Définir le format de l'email en HTML
+                    $mail->Subject = 'Réponse à votre message'; // Sujet de l'email
+                    $mail->Body    = nl2br($response); // Corps de l'email, en convertissant les nouvelles lignes en <br>
+    
+                    // Envoie l'email
+                    $mail->send();
+                    // Définit un message flash de succès
+                    $this->setFlashMessage('Réponse envoyée avec succès.', 'success');
+                } catch (Exception $e) {
+                    // Si l'envoi échoue, définit un message flash d'erreur avec les détails de l'erreur
+                    $this->setFlashMessage("Message could not be sent. Mailer Error: {$mail->ErrorInfo}", 'danger');
+                }
+            } else {
+                // Si les entrées ne sont pas valides, définit un message flash d'erreur
+                $this->setFlashMessage('Veuillez remplir tous les champs.', 'danger');
+            }
+        }
+    
+        // Redirige vers la page de liste des messages après le traitement du formulaire
+        $this->redirectTo('admin', 'listMessages');
+
+}
+
+
+public function listMessages() {
+    $messageManager = new ContactManager();
+    $messages = $messageManager->getMessagesWithCategory();
+ 
+
+    return [
+        "view" => VIEW_DIR . "admin/listMessages.php",
+        "meta_description" => "Liste des Messages de Contact",
+        "data" => [
+            "messages" => $messages,    
+            
+        ]
+    ];
+}
+
+public function ajax($id) {
+
+    //  $message = filter_input(INPUT_GET, 'id_messageContact', FILTER_VALIDATE_INT);
+
+    $messageManager = new ContactManager();
+        
+    $message = $messageManager->findOneById($id);
+
+      return $message;
+
+    // // var_dump($message); exit;
+
+            // return [
+            //     "view" => VIEW_DIR . "admin/messageDetail.php",
+            //     "meta_description" => "Détails du message",
+            //     "data" => [
+            //         "message" => $message
+            //     ]
+            // ];
+        
+    // }
+
+}
 
 }

@@ -61,7 +61,8 @@ public function contact() {
             $this->setFlashMessage("Erreur : Veuillez remplir tous les champs du formulaire.");
         } elseif (!$email) {
             $this->setFlashMessage("Erreur : L'adresse email n'est pas valide.");
-        } 
+        } elseif (!in_array($categoryContactId, [1, 2, 3,4,5])) {
+            $this->setFlashMessage("Erreur : Catégorie de message invalide.");
         } else {
             // Ajout du message si aucune erreur n'est détectée
             $contactManager = new ContactManager();
@@ -112,10 +113,6 @@ public function contact() {
 
 
 }
-
-
-
-
 
 
 

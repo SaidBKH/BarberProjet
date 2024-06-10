@@ -882,3 +882,30 @@ h2 {
     .table td,th {
         color: white;
     }
+
+
+
+    .inbox-container {
+        display: flex;
+    }
+    .message-list {
+        width: 30%;
+        border-right: 1px solid #ccc;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    .message-list ul {
+        list-style: none;
+        padding: 0;
+    }
+    .message-list li {
+        padding: 10px;
+        cursor: pointer;
+    }
+    .message-list li:hover {
+        background-color: #f0f0f0;
+    }
+    .message-detail {
+        width: 70%;
+        padding: 10px;
+    }

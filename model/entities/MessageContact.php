@@ -128,6 +128,10 @@ final class MessageContact extends Entity{
         return $this;
     }
 
+    public function __toString() {
+        return  $this->name."<br>".$this->email . $this->message. $this->name;
+    }
+    
 
 
 }

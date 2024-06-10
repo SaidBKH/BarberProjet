@@ -15,7 +15,7 @@ class ContactManager extends Manager{
     }
   
     public function getMessagesWithCategory() {
-        $sql = "SELECT name, email, message, dateCreation, categoryContact_id 
+        $sql = "SELECT id_messageContact, name, email, message, dateCreation, categoryContact_id 
                 FROM 
                     " . $this->tableName . " 
                 ORDER BY 
