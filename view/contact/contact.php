@@ -1,4 +1,4 @@
-<?php $categorys = $result["data"]['categorys'];?>
+<?php $categorys = $result["data"]['categorys']; ?>
 
 <div class="PageContact">
     <h1>Contactez-nous</h1>
@@ -19,6 +19,7 @@
         
         <label for="category">Catégorie de Message :</label>
         <select id="category" name="category" required>
+            <option value="">Choisissez une catégorie</option>
             <?php foreach($categorys as $category): ?>
                 <option value="<?= $category->getId() ?>">
                     <?= htmlspecialchars($category->getNameCategory())?>
@@ -27,8 +28,10 @@
         </select><br><br>
         
         <label for="message">Message :</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <textarea id="message" name="message" rows="4" required placeholder="Saisissez votre message ici..."></textarea><br><br>
         
         <input type="submit" value="Envoyer">
     </form>
+
+    <p style="font-style: italic; color: #999;">Tous les champs sont obligatoires.</p>
 </div>

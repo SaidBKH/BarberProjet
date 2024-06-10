@@ -46,43 +46,56 @@ class HomeController extends AbstractController implements ControllerInterface {
 
 //  PAGE CONTACT
 
-    public function contact() {
-        $categoryContactManager = new CategoryContactManager();
-        $categorys = $categoryContactManager->findAll();
+public function contact() {
+    $categoryContactManager = new CategoryContactManager();
+    $categorys = $categoryContactManager->findAll();
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-            $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
-            $categoryContactId = filter_input(INPUT_POST, 'category', FILTER_VALIDATE_INT);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+        $categoryContactId = filter_input(INPUT_POST, 'category', FILTER_VALIDATE_INT);
 
-            if ($name && $email && $message && $categoryContactId) {
-                $contactManager = new ContactManager();
-                $contactManager->add([
-                    'name' => $name,
-                    'email' => $email,
-                    'message' => $message,
-                    'dateCreation' => date('Y-m-d H:i:s'),
-                    'categoryContact_id' => $categoryContactId,
-                ]);
+        // Vérification des erreurs
+        if (empty($name) || empty($email) || empty($message) || !$categoryContactId) {
+            $this->setFlashMessage("Erreur : Veuillez remplir tous les champs du formulaire.");
+        } elseif (!$email) {
+            $this->setFlashMessage("Erreur : L'adresse email n'est pas valide.");
+        } 
+        } else {
+            // Ajout du message si aucune erreur n'est détectée
+            $contactManager = new ContactManager();
+            $contactManager->add([
+                'name' => $name,
+                'email' => $email,
+                'message' => $message,
+                'dateCreation' => date('Y-m-d H:i:s'),
+                'categoryContact_id' => $categoryContactId,
+            ]);
 
-                // Rediriger ou afficher un message de succès
-                $this->redirectTo('contact', 'index');
-            } else {
-                // Gérer les erreurs de validation
-            }
+            // Redirection vers la page de confirmation
+            $this->redirectTo('Home', 'confirmationContact');
         }
+    }
 
+    return [
+        'view' => VIEW_DIR . 'contact/contact.php',
+        'meta_description' => 'page de contact',
+        'data' => [
+            'categorys' => $categorys
+        ]
+    ];
+}
+
+    public function confirmationContact() {
         return [
-            'view' => VIEW_DIR . 'contact/contact.php',
-            'meta_description' => 'page de contact',
-            'data' => [
-                'categorys' => $categorys
+            "view" => VIEW_DIR."contact/confirmationContact.php",
+            "meta_description" => "page d'accueil",
+            "data" => [                   
             ]
         ];
     }
-
-
+   
 
 //  PAGE NOS SERVICES
 

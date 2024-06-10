@@ -7,8 +7,8 @@ use App\DAO;
 class CategoryContactManager extends Manager{
 
     // on indique la classe POO et la table correspondante en BDD pour le manager concerné
-    protected $className = "Model\Entities\Category_contact";
-    protected $tableName = "category_contact";
+    protected $className = "Model\Entities\CategoryContact";
+    protected $tableName = "categoryContact";
 
     public function __construct(){
         parent::connect();
