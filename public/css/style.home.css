@@ -1,30 +1,48 @@
 
+/* Importer la police Montserrat depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Styles pour le titre */
-.title {
-    padding-top: 20px;
-    font-size: 3vw; /* Taille de police responsive en fonction de la largeur de l'écran */
-    margin-bottom: 20px; /* Espacement en bas du titre */
+/* Utiliser Montserrat pour le titre */
+
+
+
+.accueil-top {
+    text-align: center; /* Centrer le contenu horizontalement */
+    padding: 50px 20px; /* Réduire l'espace autour du contenu */
+    background: linear-gradient(to bottom, #9871d8, #4a148c); /* Dégradé de violet */
+    color: white; /* Texte blanc */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre portée */
+    height: 50vh; /* Réduire la hauteur de la section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-
+.title {
+    font-size: max(4vw, 20px); /* Taille de police en vw avec une taille minimale de 30px */
+    font-weight: bold; /* Texte en gras */
+    margin-bottom: 1em; /* Espacement en dessous du titre en em */
+}
 
 .btn-rdv {
-    display: inline-block; /* Afficher le bouton en tant que bloc pour occuper toute la largeur disponible */
-    margin: 0 auto 20px; /* Centrer le bouton horizontalement avec un espacement en bas */
-    padding: 10px 20px; /* Espacement intérieur du bouton */
-    font-size: 1.5vw; /* Taille de police du bouton responsive en fonction de la largeur de l'écran */
-    background-color: #333; /* Couleur de fond du bouton */
-    color: #fff; /* Couleur du texte du bouton */
-    border: none; /* Supprimer la bordure du bouton */
-    border-radius: 5px; /* Arrondir les coins du bouton */
-    cursor: pointer; /* Curseur de type pointer au survol */
-    transition: background-color 0.3s ease; /* Animation sur le changement de couleur de fond */
+    font-family: 'Montserrat', sans-serif;
+    padding: max(0.8em, 10px) max(1.5em, 15px); /* Ajouter de l'espace autour du bouton avec une taille minimale */
+    font-size: max(1.1vw, 14px); /* Taille de police du bouton avec une taille minimale */
+    background-color: white; /* Fond blanc */
+    color: #30aed4; /* Texte violet */
+    border: none; /* Supprimer la bordure */
+    border-radius: 25px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointer */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Ajouter une transition au survol */
 }
 
+
 .btn-rdv:hover {
-    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+    background-color: #ffffffcc; /* Fond blanc légèrement transparent au survol */
 }
+
+
 
 .accueil-presentation {
     background-color: #222; /* Couleur de fond */
@@ -45,31 +63,27 @@
 
 .accueil-presentation .texte-presentation {
     font-size: 20px;
-    width: 45%; /* Largeur du conteneur de texte */
-    color: #fff; /* Couleur du texte */
+    width: 45%;
+    font-family: Arial;
 }
 
-/* Styles pour la présentation sur les petits écrans */
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
     .accueil-presentation {
-        flex-direction: column; /* Afficher les enfants en colonne pour les petits écrans */
-        align-items: center; /* Centrer les enfants horizontalement */
+        flex-direction: column; /* Empiler les éléments en colonne */
+        align-items: center; /* Centrer les éléments horizontalement */
+        text-align: center; /* Centrer le texte */
+        padding: 20px; /* Réduire l'espacement intérieur */
     }
 
-    .accueil-presentation figure  {
-        width: 100%; /* Ajuster la largeur de l'image à 100% */
-        margin-bottom: 20px; /* Espacement en bas pour les petits écrans */
-        text-align: center; /* Centrer le contenu horizontalement */
-    }
-
+    .accueil-presentation figure,
     .accueil-presentation .texte-presentation {
-        width: 100%; /* Ajuster la largeur du conteneur de texte à 100% */
-        font-size: 15px; /* Taille de police réduite pour les petits écrans */
-        text-align: justify; /* Justifier le texte */
+        max-width: 100%; /* Largeur maximale de 100% */
+        width: 100%; /* Largeur de 100% */
     }
-    
-    .accueil-presentation h2 {
-        text-align: center; /* Centrer le titre h2 horizontalement */
+
+    .accueil-presentation figure {
+        margin-bottom: 20px; /* Ajouter un espace entre l'image et le texte */
     }
 }
 
@@ -237,7 +251,7 @@
   .newsletter {
     text-align: center;
     padding: 20px;
-    background-color: #44a0ac;
+    background-color: #44c3da;
     margin-top: 30px;
   }
   

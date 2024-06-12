@@ -14,6 +14,9 @@
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
@@ -68,16 +71,25 @@
 
                     <nav class="bureau">
                                 <?php if(App\Session::getUser()): ?> <!--Vérifie si un utilisateur est connecté. -->
-                                    <div class ="nav_bureau_profil">
-                                        <a href="index.php?ctrl=security&action=profil">
-                                            <span class="fas fa-user"></span>
-                                            &nbsp;<?= App\Session::getUser()->getPrenom() ?>
-                                        </a>
-                                        <a href="index.php?ctrl=security&action=logout">DÉCONNEXION</a>
-                                        <?php if(App\Session::isAdmin()): ?>
-                                            <a href="index.php?ctrl=admin&action=tableau_de_bord">TABLEAU DE BORD</a>
-                                        <?php endif; ?>
+                                    
+                                    <div class="nav_bureau_profil">
+                                        <div class="profil_dropdown">
+                                            <button class="profil_button">
+                                                <span class="fas fa-user"></span>
+                                                <span><?= App\Session::getUser()->getPrenom() ?></span>
+                                                <span class="fas fa-caret-down"></span>
+                                            </button>
+                                            <div class="profil_content">
+                                                <a href="index.php?ctrl=security&action=profil">Profil</a>
+                                                <a href="index.php?ctrl=security&action=logout">Déconnexion</a>
+                                                <?php if(App\Session::isAdmin()): ?>
+                                                    <a href="index.php?ctrl=admin&action=tableau_de_bord">Tableau de bord</a>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
                                     </div>
+
+
                                 <?php endif; ?>
                                 <ul class="nav_bureau_menu">
                                     <li>
@@ -141,7 +153,7 @@
                                         </a>
                                     </li> 
                                     <li>
-                                        <a href="index.php?ctrl=actualites&action=actualites">
+                                        <a href="index.php?ctrl=news&action=news">
                                             <i class="fas fa-newspaper"></i>ACTUALITÉ
                                         </a>
                                     </li>
@@ -156,7 +168,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="index.php?ctrl=rejoindre&action=nous_rejoindre">
+                                        <a href="index.php?ctrl=joinUs&action=joinUs">
                                             <i class="fas fa-users"></i>NOUS REJOINDRE
                                         </a>
                                     </li>
@@ -215,50 +227,33 @@
     </div>
 </footer>
         </div>
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous">
-        </script>
-        <script>
-            $(document).ready(function(){
-                $(".message").each(function(){
-                    if($(this).text().length > 0){
-                        $(this).slideDown(500, function(){
-                            $(this).delay(3000).slideUp(500)
-                        })
-                    }
-                })
-                $(".delete-btn").on("click", function(){
-                    return confirm("Etes-vous sûr de vouloir supprimer?")
-                })
-                tinymce.init({
-                    selector: '.post',
-                    menubar: false,
-                    plugins: [
-                        'advlist autolink lists link image charmap print preview anchor',
-                        'searchreplace visualblocks code fullscreen',
-                        'insertdatetime media table paste code help wordcount'
-                    ],
-                    toolbar: 'undo redo | formatselect | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | help',
-                    content_css: '//www.tiny.cloud/css/codepen.min.css'
-                });
-            })
-        </script>   
-        <script src="<?= PUBLIC_DIR ?>/js/script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script>
-            function toggleMenu() {
-                var menu = document.querySelector('.nav_mobile');
-                var overlay = document.querySelector('.mobile-overlay');
-                // Ajoute ou supprime la classe 'active' du menu
-                menu.classList.toggle('active');
-                overlay.classList.toggle('active');  
-            }
-        </script>
+        
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+    const nav_mobile = document.querySelector('.nav_mobile');
+    const mobile_overlay = document.querySelector('.mobile-overlay');
+    const nav_mobile_close = document.querySelector('.nav_mobile_close');
+    const header_mobile = document.querySelector('.header_mobile');
+
+    header_mobile.addEventListener('click', function() {
+        nav_mobile.classList.add('active');
+        mobile_overlay.classList.add('active');
+    });
+
+    nav_mobile_close.addEventListener('click', function() {
+        nav_mobile.classList.remove('active');
+        mobile_overlay.classList.remove('active');
+    });
+
+    mobile_overlay.addEventListener('click', function() {
+        nav_mobile.classList.remove('active');
+        mobile_overlay.classList.remove('active');
+    });
+});
+</script>
+
+
+        
 <!--Lorsque je clique sur les icônes du menu mobile ou de 
 fermeture, la fonction toggleMenu() est activée. Cette fonction 
 s'occupe de montrer ou de cacher le menu mobile en fonction de son état actuel.

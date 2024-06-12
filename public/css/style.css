@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////// HEADER    ///////////////////////////////////////////////////////
+//////////////////////////////////////////////// Main Container /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .main-container {
@@ -27,24 +27,29 @@
     }
 }
 
-.title {
-    font-family: "Open Sans", sans-serif;
-     
-}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// HEADER /////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 .header {
-    height: 50px;
-    width: calc(100% - 20px);
-    border-bottom: 1px solid black;
+    background-color: #1f1f1f;
+    padding: 20px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    background-color: rgb(50, 50, 50);
-    box-shadow: rgb(115, 115, 255);
+    align-items: center;
+    border-bottom: 1px solid #333;
 }
-.header img {
-    max-height: 40px;
+
+header.header figure a img {
+    max-height: 60px;
 }
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// HEADER MOBILE  /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 .header_mobile {
     height: 40px;
     width: 40px;
@@ -54,21 +59,22 @@
     justify-content: center;
     background-color: #111827;
     cursor: pointer;
-    transition: 0.4s; transform: linear;
+    transition: 0.4s transform linear;
 }
-  
+
 .header_mobile:hover {
     transform: rotate(10deg);
 }
 
 .header_mobile svg {
-    align-items: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    stroke: #c4c4c4;
-
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// MOBILE OVERLAY /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .mobile-overlay {
     position: fixed;
@@ -76,7 +82,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0.0.0.0.4);
+    background-color: rgba(0, 0, 0, 0.6); 
     display: none;
     z-index: 1;
 }
@@ -85,27 +91,32 @@
     display: block;
 }
 
-.nav_mobile{
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// NAV MOBILE  ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.nav_mobile {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 2;
-    width: 280px;
-    height: calc(100vh - 60px);
+    width: 300px; /* Adjusted width for better fit */
+    height: 100vh; /* Full viewport height */
     background-color: rgb(50, 50, 50);
     padding: 30px 20px;
-   display: flex;
-   justify-content: space-between;
-   flex-direction: column;
-   transform:translateX(100%);
- transition: 0.4s transform cubic-bezier(0.43,.73,.0,.98);  
-    
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.4s transform cubic-bezier(0.43, 0.73, 0, 0.98);
 }
 
-.nav_mobile.active{
-   transform: initial; 
-    
+.nav_mobile.active {
+    transform: translateX(0); 
 }
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  NAV MOBILE CLOSE /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .nav_mobile_close {
     height: 40px;
@@ -116,27 +127,38 @@
     justify-content: center;
     background-color: #111827;
     cursor: pointer;
-    transition: 0.4s; transform: linear;
+    transition: 0.4s transform linear;
     position: absolute;
     z-index: 3;
     top: 15px;
     right: 15px;
 }
 
-.nav_mobile_profil{
+.nav_mobile_close:hover {
+    transform: rotate(10deg);
+}
+
+.nav_mobile_close svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  NAV MOBILE PROFIL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.nav_mobile_profil {
     font-family: Arial;
     text-align: center;
     font-weight: bold;
     font-size: 20px;
     border-bottom: 1px solid black;
     padding-bottom: 5px;
-
-
 }
 
-
-.nav_mobile_profil a{
-    color: white;
+.nav_mobile_profil a {
+    text-decoration: none;
     font-family: Arial;
     text-align: center;
     font-weight: bold;
@@ -145,24 +167,30 @@
 
 }
 
+.nav_mobile_profil a:hover {
+    text-decoration: none;
+    color: #7f32fa;
+
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  NAV MOBILE MENU /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .nav_mobile_menu {
-    padding: 0;;
+    padding: 0;
     list-style: none;
     margin-top: 32px;
     margin-bottom: 32px;
-
 }
 
 .nav_mobile_menu li {
     position: relative;   
-    margin-bottom: 24px
-
+    margin-bottom: 24px;
 }
 
-.nav_mobile_menu li:last-of-type{
+.nav_mobile_menu li:last-of-type {
     margin-bottom: initial;
-
 }
 
 .nav_mobile_menu li a {
@@ -174,44 +202,46 @@
     font-weight: bold;
     font-size: 18px;
     position: relative; 
-
 }
 
-
 .nav_mobile_menu li a:after {
-    content:'';
-    height: 1px;
+
+    content: '';
+    height: 2px;
     width: 0px;
-    background-color: white;
     position: absolute;
     bottom: -6px;
     right: 0;
     transition: 0.3s width ease-in-out;
-}
+    background-color: #7f32fa;
 
+}
 
 .nav_mobile_menu li a:hover:after {
-   width: 100%;
+    
+    width: 100%;
     left: 0;
-   
 }
 
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  NAV MOBILE SOCIAL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-.nav_mobile_social{
+.nav_mobile_social {
     padding: 0;
     margin: 0;
     list-style: none;
-    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-wrap: wrap; /* Wraps items to prevent overflow */
 }
-.nav_mobile_social li{
+
+.nav_mobile_social li {
     margin: 0px 8px;
-
 }
-.nav_mobile_social li a{
+
+.nav_mobile_social li a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 12px;
@@ -219,55 +249,33 @@
     text-transform: uppercase;
     font-family: "Arial";
     transition: 0.3s opacity ease-in;
-
 }
 
 .nav_mobile_social li a:hover {
     opacity: 1;
-
+    color: #7f32fa;
 }
 
-
-
-
-/* icone du menu  */
+/* Icon Styles */
 .nav_mobile_menu a i,
 .nav_mobile_social a i {
     margin-right: 10px; 
     font-size: 15px;
+    color: #ffffff;
 }
-
-
-.nav_mobile_menu a i,
-.nav_mobile_social a i {
-    color: #ffffff; 
-}
-
 
 .nav_mobile_menu a:hover i,
 .nav_mobile_social a:hover i {
-    color: #007bff; 
+    color: #7f32fa;
 }
 
-
-.nav_mobile_close:hover {
-    transform: rotate(10deg);
-}
-
-.nav_mobile_close svg {
-    width: 20px;
-    height: 20px;
-    stroke: #ffff;
-
-} 
-
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  NAV BUREAU MENU /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .nav_bureau_menu li {
     margin-right: 20px;
-    
 }
-
-
 
 .nav_bureau_menu {
     display: flex;
@@ -277,28 +285,112 @@
     padding: 0;
 }
 
-.nav_bureau_menu a {
+.nav_bureau_menu li a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease; /* Ajout d'une transition pour le changement de couleur */
+    font-family: 'Roboto', sans-serif; /* Utilisation de la police Roboto */
+}
+
+
+
+.nav_bureau_menu li a:hover {
+    color: #7f32fa; /* Changement de couleur au survol */
+}
+
+/* Responsive Header */
+@media screen and (max-width: 768px) {
+    .bureau {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .header_mobile {
+        display: none;
+    }
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  NAV BUREAU PROFIL /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+button.profil_button {
+background-color: rgb(0, 165, 194);
+margin-bottom: 5px;
+
+}
+
+.nav_bureau_profil {
+    display: flex;
+    justify-content: end;
+}
+
+.profil_dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profil_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.profil_button span {
+    margin-right: 5px;
+}
+
+.profil_content {
+    display: none;
+    position: absolute;
+    background-color: #2a2b2e;
+    min-width: 140px;
+    z-index: 1;
+}
+
+.profil_content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profil_content a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(0, 165, 194);
+}
+
+.profil_dropdown:hover .profil_content {
+    display: block;
 }
 
 
 
 
-@media screen and (max-width: 768px) {
-    .bureau {
-        display: none;
-    }}
 
-    @media screen and (min-width: 769px) {
-        .header_mobile {
-            display: none;
-        }}
-
-/* //////////////////// NOS SERVICES /////////////////////
-////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  lIEN STYLE /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
+/* Link Styles */
+
+
+/* Styles pour le titre */
+.title {
+    padding-top: 20px;
+    font-size: 3vw; /* Taille de police responsive en fonction de la largeur de l'écran */
+    margin-bottom: 20px; /* Espacement en bas du titre */
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////  PAGE NOS SERVICE /////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .container {
     max-width: 1200px;
@@ -372,9 +464,6 @@ h1 {
         width: calc(50% - 20px);
     }
 }
-
-
-
 
 
 
@@ -599,13 +688,6 @@ button[type="submit"]:hover {
 ///////////////////////////////////////////////////////////////////// */
 
 
-footer {
-    background-color: #222;
-    color: #fff;
-    padding: 40px;
-    font-family: Arial, sans-serif;
-}
-
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -784,11 +866,6 @@ h2 {
     color: #666666;
     margin-bottom: 20px;
 }
-
-
-
-
-
 
 
 
