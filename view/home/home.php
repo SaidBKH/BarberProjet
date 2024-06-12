@@ -16,41 +16,44 @@
                 Imaginer comme une thérapie de bien être, ou l'on vient vivre un moment régénérateur et repartir avec d'avantage d'assurance et un style des plus adapté à sa personnalité.</p>
         </div>
     </div>
+<br>
 
-    <div class="list-services">
-        <figure>
-            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services1.jpeg" alt="coupe de cheveux">
-                <div class="image-overlay">
-                    <p class="overlay-text">CHEVEUX</p>
-                </div>
-            </a>
-        </figure>
-        <figure>
-            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services2.jpeg" alt="barbe">
-                <div class="image-overlay">
-                    <p class="overlay-text">BARBE</p>
-                </div>
-            </a>
-        </figure>
-        <figure>
-            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services3.jpeg" alt="Soins du visage">
-                <div class="image-overlay">
-                    <p class="overlay-text">SOINS</p>
-                </div>
-            </a>
-        </figure>
-        <figure>
-            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services4.jpeg" alt="coloration de cheveux">
-                <div class="image-overlay">
-                    <p class="overlay-text">COULEUR</p>
-                </div>
-            </a>
-        </figure>
-    </div>
+<h2 class="services-title">Nos Services</h2>
+<div class="list-services">
+    <figure>
+        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+            <img class="services" src="public/img/nos_services1.jpeg" alt="coupe de cheveux">
+            <div class="image-overlay">
+                <p class="overlay-text">CHEVEUX <br><i class="fas fa-cut"></i></p>
+            </div>
+        </a>
+    </figure>
+    <figure>
+        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+            <img class="services" src="public/img/nos_services2.jpeg" alt="barbe">
+            <div class="image-overlay">
+                <p class="overlay-text">BARBE <br><i class="fas fa-spa"></i>
+                </p>
+            </div>
+        </a>
+    </figure>
+    <figure>
+        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+            <img class="services" src="public/img/nos_services3.jpeg" alt="Soins du visage">
+            <div class="image-overlay">
+                <p class="overlay-text">SOINS <br><i class="fas fa-shower"></i></p>
+            </div>
+        </a>
+    </figure>
+    <figure>
+        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+            <img class="services" src="public/img/nos_services4.jpeg" alt="coloration de cheveux">
+            <div class="image-overlay">
+                <p class="overlay-text">COULEUR <br><i class="fas fa-paint-brush"></i></p>
+            </div>
+        </a>
+    </figure>
+</div>
 
 
 
@@ -71,49 +74,58 @@
         $images = $result["data"]['images']; 
     ?>
 
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-        <?php foreach ($images as $image) : ?>
-            <div class="swiper-slide">
-                <img src="public/img/<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
-            </div>
-            <?php endforeach; ?>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+    <?php foreach ($images as $image) : ?>
+        <div class="swiper-slide">
+            <img src="public/img/<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
         </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+    <?php endforeach; ?>
     </div>
 
-        <script>
-        // Initialiser Swiper.js avec les options souhaitées
-        const swiper = new Swiper('.swiper-container', {
-        slidesPerView: 3, // Nombre de diapositives visibles par défaut
-        spaceBetween: 10, // Espacement entre les diapositives
-        loop: true, // Boucle infinie
-        autoplay: {
-            delay: 3000, // Délai entre les transitions automatiques
-        },
-        navigation: {
-            nextEl: '.swiper-button-next', // Sélecteur du bouton suivant
-            prevEl: '.swiper-button-prev', // Sélecteur du bouton précédent
-        },
-        });
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
 
-        </script>
+
+<script>
+// Initialiser Swiper.js avec les options souhaitées
+const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1, // Nombre de diapositives visibles par défaut
+    spaceBetween: 10, // Espacement entre les diapositives
+    loop: true, // Boucle infinie
+    autoplay: {
+        delay: 3000, // Délai entre les transitions automatiques
+    },
+    navigation: {
+        nextEl: '.swiper-button-next', // Sélecteur du bouton suivant
+        prevEl: '.swiper-button-prev', // Sélecteur du bouton précédent
+    },
+    breakpoints: {
+        // Pour les écrans plus petits que 768px de largeur
+        768: {
+            slidesPerView: 3, // Afficher une seule diapositive
+        }
+    }
+});
+</script>
 
 
     
-
-    <div class="newletter">
-
-        <div class="newsletter">
-        <h2>Abonnez-vous à notre newsletter</h2>
-        <form action="traitement-newsletter.php" method="POST">
-            <input type="email" name="email" placeholder="Votre adresse e-mail" required>
-            <button type="submit">S'abonner</button>
+<div class="newsletter-container">
+    <div class="newsletter">
+        <h2>Ne manquez aucune offre spéciale !</h2>
+        <p>Inscrivez-vous à notre newsletter pour être informé en avant-première de nos offres exclusives.</p>
+        <form action="traitement-newsletter.php" method="POST" class="subscribe-form">
+            <div class="input-container">
+                <input type="email" name="email" placeholder="Votre adresse e-mail" required>
+                <button type="submit">S'abonner</button>
+            </div>
         </form>
-        </div>
+    </div>
+</div>
+
 
 </div>
 

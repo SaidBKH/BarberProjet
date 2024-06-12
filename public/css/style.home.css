@@ -1,35 +1,33 @@
-
-/* Importer la police Montserrat depuis Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-/* Utiliser Montserrat pour le titre */
-
+/* /////////////////////////////// ACCUEIL TOP //////////////////////////////////////////////// */
 
 
 .accueil-top {
+    width: 100%;
     text-align: center; /* Centrer le contenu horizontalement */
     padding: 50px 20px; /* Réduire l'espace autour du contenu */
-    background: linear-gradient(to bottom, #9871d8, #4a148c); /* Dégradé de violet */
+    background: linear-gradient(to bottom ,#f45dffae, #4a148cd6); /* Dégradé de violet */
     color: white; /* Texte blanc */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre portée */
-    height: 50vh; /* Réduire la hauteur de la section */
+    height: 25vh; /* Réduire la hauteur de la section */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .title {
-    font-size: max(4vw, 20px); /* Taille de police en vw avec une taille minimale de 30px */
+    font-size: max(2.5vw, 20px); /* Taille de police en vw avec une taille minimale de 20px */
     font-weight: bold; /* Texte en gras */
     margin-bottom: 1em; /* Espacement en dessous du titre en em */
 }
 
 .btn-rdv {
+
     font-family: 'Montserrat', sans-serif;
-    padding: max(0.8em, 10px) max(1.5em, 15px); /* Ajouter de l'espace autour du bouton avec une taille minimale */
+    padding: max(0.1em, 2px) max(0.8em, 2px); /* Ajouter de l'espace autour du bouton avec une taille minimale */
+
     font-size: max(1.1vw, 14px); /* Taille de police du bouton avec une taille minimale */
-    background-color: white; /* Fond blanc */
-    color: #30aed4; /* Texte violet */
+    background-color: rgb(255, 255, 255); /* Fond blanc */
+    color: #000000; /* Texte violet */
     border: none; /* Supprimer la bordure */
     border-radius: 25px; /* Coins arrondis */
     cursor: pointer; /* Curseur pointer */
@@ -39,57 +37,104 @@
 
 
 .btn-rdv:hover {
-    background-color: #ffffffcc; /* Fond blanc légèrement transparent au survol */
+    background-color: #32d3cbf7; /* Fond blanc légèrement transparent au survol */
 }
 
+/* /////////////////////////////// ACCUEIL PRESENTATION //////////////////////////////////////////////// */
 
 
 .accueil-presentation {
-    background-color: #222; /* Couleur de fond */
-    display: flex; /* Utilisation du modèle de boîte flexible */
-    justify-content: space-between; /* Répartir l'espace entre les enfants */
-    align-items: center; /* Centrer les enfants verticalement */
-    padding: 40px; /* Espacement intérieur */
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    flex-wrap: wrap;
 }
 
 .accueil-presentation figure {
-    max-width: 50%; /* Largeur maximale de l'image */
+    max-width: 50%;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .accueil-presentation img {
-    width: 100%; /* Ajuster la largeur de l'image à 100% du conteneur parent */
-    height: auto; /* Hauteur automatique pour conserver les proportions */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.accueil-presentation img:hover {
+    transform: scale(1.05);
 }
 
 .accueil-presentation .texte-presentation {
-    font-size: 20px;
+    font-size: 1.2rem;
     width: 45%;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-left: 20px;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
+    .main-container {
+        padding: 0 20px;
+    }
+
     .accueil-presentation {
-        flex-direction: column; /* Empiler les éléments en colonne */
-        align-items: center; /* Centrer les éléments horizontalement */
-        text-align: center; /* Centrer le texte */
-        padding: 20px; /* Réduire l'espacement intérieur */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
     }
 
     .accueil-presentation figure,
     .accueil-presentation .texte-presentation {
-        max-width: 100%; /* Largeur maximale de 100% */
-        width: 100%; /* Largeur de 100% */
+        max-width: 100%;
+        width: 100%;
     }
 
     .accueil-presentation figure {
-        margin-bottom: 20px; /* Ajouter un espace entre l'image et le texte */
+        margin-bottom: 20px;
+    }
+
+    .accueil-presentation .texte-presentation {
+        padding-left: 0;
+        font-size: 1rem; /* Adjust text size */
+    }
+
+    .accueil-presentation h2 {
+        font-size: 1.5rem; /* Adjust title size */
+    }
+
+    .accueil-presentation p {
+        font-size: 0.9rem; /* Adjust paragraph text size */
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 
 /* /////////////////////////////// LIST SERVICES //////////////////////////////////////////////// */
 
+.services-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
 
 .list-services {
     display: flex;
@@ -107,12 +152,22 @@
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.list-services figure:hover {
+    transform: scale(1.05);
 }
 
 .list-services img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.list-services figure:hover img {
+    transform: scale(1.1);
 }
 
 .image-overlay {
@@ -124,14 +179,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(66, 171, 179, 0.437);
+    transition: opacity 0.3s ease;
+}
+
+.list-services figure:hover .image-overlay {
+    opacity: 0;
 }
 
 .overlay-text {
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-text i {
+    margin-left: 10px;
+}
+
+.service-lien {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
 }
 
 .service-lien::before {
@@ -141,60 +215,85 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(45, 45, 45, 0.7); /* Filtre rouge (70% d'opacité) */
+    background-color: rgba(57, 212, 255, 0.847);
     z-index: 0;
+    transition: opacity 0.3s ease;
 }
 
 .service-lien:hover::before {
-    opacity: 0.5; /* baisse opacité au survol */
+    opacity: 0.1;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .main-container {
+        padding: 0 20px;
+    }
+
+    .list-services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-services figure {
+        width: 80%;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    .overlay-text {
+        font-size: 14px;
+    }
 }
 
 /* //////////////////////////////INSTAGRAM //////////////////////////// */
 
 .instagram {
-    background-color: #222; /* Couleur de fond */
-    padding: 40px 0; /* Espacement intérieur */
+    background-color: #222;
+    padding: 20px 20px;
+    text-align: center;
 }
 
 .instagram-contenu {
-    max-width: 600px; /* Largeur maximale du contenu */
-    margin: 0 auto; /* Centrer le contenu horizontalement */
-    text-align: center; /* Centrer le texte */
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.instagram-contenu h2 {
-    font-size: 24px; /* Taille de police du titre */
-    margin-bottom: 10px; /* Espacement en bas du titre */
+.instagram h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
 }
 
-.instagram-contennu p {
-    font-size: 16px; /* Taille de police du paragraphe */
-    margin-bottom: 20px; /* Espacement en bas du paragraphe */
+.instagram p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 40px;
 }
 
 .instagram-lien {
-    display: inline-block; /* Afficher en tant que bloc */
-    background-color: #405de6; /* Couleur de fond */
-    color: #fff; /* Couleur du texte */
-    padding: 10px 20px; /* Espacement intérieur */
-    border-radius: 5px; /* Coins arrondis */
-    text-decoration: none; /* Supprimer soulignement */
-    transition: background-color 0.3s ease; /* Animation sur le changement de couleur de fond */
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #7f32fa; /* Couleur de fond */
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
 }
 
 .instagram-lien:hover {
-    background-color: #3b5998; /* Couleur de fond au survol */
-}
-
-.instagram-lien i {
-    margin-right: 5px; /* Espacement à droite de l'icône */
+    background-color: rgba(57, 212, 255, 0.847); /* Fond légèrement plus sombre au survol */
 }
 
 
-/* Styles pour le conteneur du slider */
+/* //////////////////////////////SWIPPER //////////////////////////// */
+
+
 .swiper-container {
+ 
     width: 80%; /* Largeur du slider (par exemple, 80% de la largeur du conteneur parent) */
     margin: 0 auto; /* Centrage horizontal */
+    margin-top: 20px;
     overflow: hidden; /* Masquer le débordement du contenu */
     position: relative; /* Position relative pour les éléments enfants positionnés absolument */
   }
@@ -207,12 +306,19 @@
     padding: 5px; /* Espacement intérieur autour de chaque diapositive */
   }
   
-  /* Styles pour les images à l'intérieur des diapositives */
-  .swiper-slide img {
+ /* Styles pour les images à l'intérieur des diapositives */
+.swiper-slide img {
     width: 100%; /* Largeur maximale de l'image (remplit la diapositive) */
     height: auto; /* Hauteur automatique pour conserver le ratio */
     border-radius: 8px; /* Coins arrondis pour les images */
-  }
+    transition: transform 0.3s ease; /* Ajouter une transition à la transformation */
+}
+
+/* Au survol, agrandir l'image */
+.swiper-slide img:hover {
+    transform: scale(1.2);
+    border-radius: 8px; /* Agrandir l'image de 10% */
+}
   
   /* Styles pour les boutons de navigation (précédent/suivant) */
   .swiper-button-next,
@@ -248,6 +354,8 @@
   }
   
 
+
+  
   .newsletter {
     text-align: center;
     padding: 20px;
@@ -286,6 +394,8 @@
   .inbox-container {
     display: flex;
 }
+
+
 .message-list {
     width: 30%;
     border-right: 1px solid #ccc;

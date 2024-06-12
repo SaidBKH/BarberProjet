@@ -13,8 +13,11 @@
     <script src='https://unpkg.com/@fullcalendar/daygrid@5.9.0/main.min.js'></script>
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+ 
 
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

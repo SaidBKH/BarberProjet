@@ -4,13 +4,14 @@
     font-family: 'Segoe UI';
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// Main Container /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
+
 .main-container {
+    width: 100%; /* Utiliser 100% pour la largeur pour qu'elle soit responsive */
     background-color: rgb(59, 59, 59);
     margin: 0 auto; /* Centre la div principale horizontalement */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour de la div principale */
@@ -23,19 +24,20 @@
 /* Ajout de la marge sur les écrans de taille ordinateur */
 @media screen and (min-width: 992px) {
     .main-container {
-        padding: 20px 40px; /* Espacement intérieur de la div principale avec marge sur les côtés */
+        padding: 0px 200px /* Espacement intérieur de la div principale avec marge sur les côtés */
     }
 }
-
-
-
+@media screen and (max-width: 768px) {
+    .main-container {
+        padding: 0px 50px; /* Espacement intérieur de la div principale avec une marge réduite sur les côtés */
+    }
+}
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// HEADER /////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .header {
     background-color: #1f1f1f;
-    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -689,6 +691,7 @@ button[type="submit"]:hover {
 
 
 .footer-container {
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
