@@ -86,8 +86,6 @@
 </div>
 
 
-
-
     <?php
         $images = $result["data"]['images']; 
     ?>

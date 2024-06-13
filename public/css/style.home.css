@@ -5,7 +5,7 @@
     text-align: center; /* Centrer le contenu horizontalement */
     padding: 50px 20px; /* Réduire l'espace autour du contenu */
     position: relative; /* Position relative pour le conteneur */
-    height: 30vh; /* Réduire la hauteur de la section */
+    height: 25vh; /* Réduire la hauteur de la section */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,9 +46,9 @@
 .btn-rdv {
     font-family: 'Montserrat', sans-serif;
     padding: max(0.1em, 2px) max(0.8em, 2px); /* Ajouter de l'espace autour du bouton avec une taille minimale */
+    background-color: #7F32FA;
     font-size: max(1.1vw, 12px); /* Taille de police du bouton avec une taille minimale */
-    background-color: rgb(255, 255, 255); /* Fond blanc */
-    color: #000000; /* Texte violet */
+    color: white;
     border: none; /* Supprimer la bordure */
     border-radius: 25px; /* Coins arrondis */
     cursor: pointer; /* Curseur pointer */
@@ -61,70 +61,36 @@
     background-color: #32d3cbf7; /* Fond blanc légèrement transparent au survol */
 }
 
-/* Styles pour les petits écrans */
-@media screen and (max-width: 767px) {
-    .main-container {
-        padding: 20px; /* Ajouter du padding sur les petits écrans */
-    }
-}
+
 
 /* /////////////////////////////// ACCUEIL PRESENTATION //////////////////////////////////////////////// */
-
+/* Accueil Présentation */
 
 .accueil-presentation {
-    height: calc(100vh - 40vh);
-    background-color: #222;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-    flex-wrap: wrap;
+    height: auto;
+    background-color: #252529;
+    padding: 20px;
+    text-align: center;
 }
 
-.accueil-presentation figure {
-    max-width: 50%;
-    margin: 0;
-    padding: 0;
-    animation: fadeIn 2s ease-in-out;
+.texte-presentation h2 {
+    font-size: 2rem;
 }
 
-.accueil-presentation img {
-    width: 70%;
-    height: 70%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.accueil-presentation img:hover {
-    transform: scale(1.05);
-}
-
-.accueil-presentation .texte-presentation {
+.texte-presentation p {
     font-size: 1.2rem;
-    width: 45%;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding-left: 20px;
 }
 
-/* Responsive Styles */
+.devanture {
+    padding-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
-    .main-container {
-        padding: 0 20px;
-    }
-
     .accueil-presentation {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
         padding: 20px;
-    }
-
-    .accueil-presentation figure,
-    .accueil-presentation .texte-presentation {
-        max-width: 100%;
-        width: 100%;
     }
 
     .accueil-presentation figure {
@@ -132,7 +98,6 @@
     }
 
     .accueil-presentation .texte-presentation {
-        padding-left: 0;
         font-size: 1rem; 
     }
 
@@ -143,48 +108,48 @@
     .accueil-presentation p {
         font-size: 1rem; 
     }
+
+    .devanture {
+        width: 90%;
+        max-width: none;
+    }
 }
 
-/* Animation Keyframes */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 
 /* /////////////////////////////// LIST SERVICES //////////////////////////////////////////////// */
 
-.gradientServices {
-    height: 15px; 
+.gradientAccueil, .gradientServices, .gradientInstagram {
+    background: linear-gradient(180deg, rgba(127, 50, 250, 0.5), rgba(25, 25, 29, 1));
+    height: 20px; /* Ajuster la hauteur si nécessaire */
     width: 100%;
-    background: linear-gradient(to bottom, rgb(29, 29, 29), rgba(127, 50, 250, 0.822)); /* Dégradé vertical de couleur */
 }
 
 .gradientAccueil {
-    height: 20px; 
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(34, 34, 34, 10), rgba(34, 34, 34, 0.247)); /* Dégradé vertical de couleur */
+    margin-top: -10px; /* Ajuster pour superposer correctement */
+}
+
+.gradientServices {
+    margin-top: -10px; /* Ajuster pour superposer correctement */
 }
 
 .gradientInstagram {
-    height: 15px; 
-    width: 100%;
-    background: linear-gradient(to bottom, rgb(127, 50, 250, 0.87), rgba(29, 29, 29)); /* Dégradé vertical de couleur */
+    margin-top: -10px; /* Ajuster pour superposer correctement */
 }
 
-.services{
 
-    padding: 20px 0 20px;
-    background-color: #7f32fa7e;
+.services{
+    background-color: #1A1A1D;
 } 
+
+.services img {
+    width: 100%;
+    height: 100%;
+}
 .services-title {
     font-size: 2rem;
+    padding-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -194,6 +159,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin-top: 40px;
+    padding-bottom: 20px;
 }
 
 .list-services figure {
@@ -203,7 +169,6 @@
     margin-bottom: 20px;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -223,6 +188,8 @@
 }
 
 .image-overlay {
+    border-radius: 10px;
+    border: solid 1px #39D4FF;;
     position: absolute;
     top: 0;
     left: 0;
@@ -231,7 +198,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #696969;
+    background: #252529;
     transition: opacity 0.3s ease;
 }
 
@@ -240,7 +207,7 @@
 }
 
 .overlay-text {
-    color: white;
+    color: #39D4FF;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -267,43 +234,33 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(57, 212, 255, 0.847);
     z-index: 0;
     transition: opacity 0.3s ease;
 }
 
-.service-lien:hover::before {
-    opacity: 0.1;
-}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-    .main-container {
-        padding: 0 20px;
-    }
-
-    .list-services {
-        flex-direction: column;
-        align-items: center;
+    .services-title {
+        font-size: 1.5rem; 
     }
 
     .list-services figure {
-        width: 80%;
-        height: 100px;
-        margin-bottom: 20px;
+        width: 150px;
+        height: 150px;
     }
 
     .overlay-text {
-        font-size: 14px;
+        font-size: 0.9rem;
     }
 }
-
 /* //////////////////////////////INSTAGRAM //////////////////////////// */
 
 
 .instagram {
-    background-color: #222;
-    padding: 30px 0 30px;
+    background-color: #252529;
+    padding: 30px 0;
     text-align: center;
 }
 
@@ -314,13 +271,11 @@
 
 .instagram h2 {
     font-size: 1.5rem;
-    color: #ffffff;
     margin-bottom: 20px;
 }
 
 .instagram p {
     font-size: 1.1rem;
-    color: #ffffff;
     margin-bottom: 40px;
 }
 
@@ -328,30 +283,47 @@
     display: inline-block;
     text-decoration: none;
     color: #fff;
-    background-color: #7f32fa; /* Couleur de fond */
+    background-color: #7F32FA;
     padding: 10px 20px;
     border-radius: 30px;
     transition: background-color 0.3s ease;
 }
 
 .instagram-lien:hover {
-    color: white;
+    color : white;
     text-decoration: none;
-
-    background-color: rgba(57, 212, 255, 0.847); /* Fond légèrement plus sombre au survol */
+    background-color: #39D4FF;
 }
 
 .instagram .logo {
-    padding: 10px 10px 10px 10px;
-    margin: 0 auto; /* Centre l'élément horizontalement */
-    max-width: 150px; /* Taille maximale du logo */
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 150px;
 }
 
 .instagram .logo img {
-    width: 100%; /* Ajuste la largeur de l'image à 100% de l'espace disponible */
-    max-width: 100%; /* Garantit que le logo ne dépasse pas sa taille maximale définie */
-    display: block; /* Permet de gérer l'espacement autour de l'image */
-    margin: 0 auto; /* Centre l'image à l'intérieur de son conteneur */
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .instagram h2 {
+        font-size: 1.3rem;
+    }
+
+    .instagram p {
+        font-size: 1rem;
+    }
+
+    .instagram .logo img {
+        width: 100px;
+    }
+
+    .instagram-lien {
+        font-size: 0.9rem;
+    }
 }
 
 /* //////////////////////////////SWIPPER //////////////////////////// */
@@ -359,7 +331,7 @@
 
 .swiper-container {
  
-    width: 80%; /* Largeur du slider (par exemple, 80% de la largeur du conteneur parent) */
+    width: 100%; /* Largeur du slider (par exemple, 80% de la largeur du conteneur parent) */
     margin: 0 auto; /* Centrage horizontal */
     margin-top: 20px;
     overflow: hidden; /* Masquer le débordement du contenu */
@@ -376,16 +348,16 @@
   
  /* Styles pour les images à l'intérieur des diapositives */
 .swiper-slide img {
-    width: 100%; /* Largeur maximale de l'image (remplit la diapositive) */
-    height: auto; /* Hauteur automatique pour conserver le ratio */
-    border-radius: 8px; /* Coins arrondis pour les images */
+    width: 100%;
+    height: 250px; /* Fixer la hauteur pour uniformiser les images */
+    object-fit: cover;/* Hauteur automatique pour conserver le ratio */
+    border-radius: 10px; /* Coins arrondis pour les images */
     transition: transform 0.3s ease; /* Ajouter une transition à la transformation */
 }
 
 /* Au survol, agrandir l'image */
 .swiper-slide img:hover {
-    transform: scale(1.2);
-    border-radius: 8px; /* Agrandir l'image de 10% */
+    transform: scale(1.1);
 }
   
   /* Styles pour les boutons de navigation (précédent/suivant) */
@@ -418,70 +390,97 @@
   /* Styles pour l'effet de survol des boutons de navigation */
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Couleur de fond au survol */
+    background-color: rgba(51, 51, 51, 1); /* Couleur de fond au survol */
   }
   
+  @media screen and (max-width: 768px) {
+    .swiper-slide {
+        width: 100%;
+    }
+
+    .swiper-container {
+        width: 100%;
+    }
+}
 
 
-  
+
+
+.newsletter-container {
+    background-color: #252529;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+
   .newsletter {
     text-align: center;
     padding: 20px;
-    background-color: #44c3da;
+    background-color: #252529;
     margin-top: 30px;
-  }
-  
-  .newsletter h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .newsletter input[type="email"] {
-    background-color: white;
+}
+
+.newsletter h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.subscribe-form .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscribe-form input[type="email"] {
     width: 250px;
     padding: 10px;
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .newsletter button {
+}
+
+.subscribe-form button {
     padding: 10px 20px;
     background-color: #5f5f5f;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .newsletter button:hover {
-    background-color: #0056b3;
-  }
-  
-
-  .inbox-container {
-    display: flex;
 }
 
+.subscribe-form button:hover {
+    background-color: #39D4FF;;
+}
+
+
+@media screen and (max-width: 768px) {
+
+.newsletter h2 {
+    font-size: 20px;
+}
+
+.newsletter input[type="email"] {
+    width: 200px;
+    padding: 8px;
+}
+
+.newsletter button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
 
 .message-list {
-    width: 30%;
-    border-right: 1px solid #ccc;
-    padding: 10px;
-    overflow-y: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
 }
-.message-list ul {
-    list-style: none;
-    padding: 0;
-}
-.message-list li {
-    padding: 10px;
-    cursor: pointer;
-}
-.message-list li:hover {
-    background-color: #f0f0f0;
-}
+
 .message-detail {
-    width: 70%;
-    padding: 10px;
+    width: 100%;
+    padding: 8px;
+}
+
+.inbox-container {
+    flex-direction: column;
+}
 }

@@ -211,24 +211,25 @@
                 </main>
             </div>
             <footer>
-    <div class="footer-container">
-        <div class="contact-info">
-            <h3>Informations de contact</h3>
-            <p>Téléphone : 04.50.75.03.39</p>
-            <p>Email : <a href="mailto:jesuispassechezsouf@gmail.com">jesuispassechezsouf@gmail.com</a></p>
-            <p>Adresse : 1 Allée Francois Truffaut, 74100 Annemasse</p>
-        </div>
-        <div class="horaires">
-            <h3>Horaires de rendez-vous</h3>
-            <p>Lundi - Vendredi : 09h00 - 18h00</p>
-            <p>Samedi : 09h00 - 12h00</p>
-            <p>Dimanche : Fermé</p>
-        </div>
-    </div>
-    <div class="legal">
-        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mentions&action=politique_confidentialite">Politique de confidentialité</a> - <a href="index.php?ctrl=mentionsl&action=mention_legal">Mentions légales</a></p>
-    </div>
-</footer>
+                    <div class="footer-container">
+                        <div class="contact-info">
+                            <h3>Informations de contact</h3>
+                            <p>Téléphone : 04.50.75.03.39</p>
+                            <p>Email : <a href="mailto:jesuispassechezsouf@gmail.com">jesuispassechezsouf@gmail.com</a></p>
+                            <p>Adresse : 1 Allée Francois Truffaut, 74100 Annemasse</p>
+                        </div>
+                        <div class="horaires">
+                            <h3>Horaires de rendez-vous</h3>
+                            <p>Lundi - Vendredi : 09h00 - 18h00</p>
+                            <p>Samedi : 09h00 - 12h00</p>
+                            <p>Dimanche : Fermé</p>
+                        </div>
+                    </div>
+                    <div class="legal">
+                        <p>&copy; <?= date_create("now")->format("Y") ?> - <a href="index.php?ctrl=mentions&action=politique_confidentialite">Politique de confidentialité</a> - <a href="index.php?ctrl=mentionsl&action=mention_legal">Mentions légales</a></p>
+                    </div>
+            </footer>
+
         </div>
         
 
