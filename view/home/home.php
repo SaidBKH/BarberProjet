@@ -1,72 +1,90 @@
 <div class="main-container">
 
+
     <div class="accueil-top">
-        <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
-        <a href="index.php?ctrl=reservation&action=listService"><button class="btn-rdv">Prendre rendez-vous</button></a>
+        <video autoplay muted loop id="background-video">
+            <source src="public/img/salon.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content">
+            <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
+            <a href="index.php?ctrl=reservation&action=listService"><button class="btn-rdv">Prendre rendez-vous</button></a>
+        </div>
     </div>
 
+    <div class="gradientAccueil"></div>
+
+
     <div class="accueil-presentation">
-        <figure>
-            <img class="devanture" src="public/img/devanture.jpeg" alt="Devanture du salon de coiffure">
-        </figure>
+        
         <div class="texte-presentation">
             <h2>Salon de Coiffure à Annemasse !</h2>
             <br>
             <p>Jesuispasséchezsouf est la concrétisation d'un concept du barber idéal perçu par son créateur, un lieu où l'on revient sans hésiter !
                 Imaginer comme une thérapie de bien être, ou l'on vient vivre un moment régénérateur et repartir avec d'avantage d'assurance et un style des plus adapté à sa personnalité.</p>
         </div>
+        <figure>
+            <img class="devanture" src="public/img/devanture.jpeg" alt="Devanture du salon de coiffure">
+        </figure>
     </div>
-<br>
 
-<h2 class="services-title">Nos Services</h2>
-<div class="list-services">
-    <figure>
-        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-            <img class="services" src="public/img/nos_services1.jpeg" alt="coupe de cheveux">
-            <div class="image-overlay">
-                <p class="overlay-text">CHEVEUX <br><i class="fas fa-cut"></i></p>
-            </div>
-        </a>
-    </figure>
-    <figure>
-        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-            <img class="services" src="public/img/nos_services2.jpeg" alt="barbe">
-            <div class="image-overlay">
-                <p class="overlay-text">BARBE <br><i class="fas fa-spa"></i>
-                </p>
-            </div>
-        </a>
-    </figure>
-    <figure>
-        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-            <img class="services" src="public/img/nos_services3.jpeg" alt="Soins du visage">
-            <div class="image-overlay">
-                <p class="overlay-text">SOINS <br><i class="fas fa-shower"></i></p>
-            </div>
-        </a>
-    </figure>
-    <figure>
-        <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-            <img class="services" src="public/img/nos_services4.jpeg" alt="coloration de cheveux">
-            <div class="image-overlay">
-                <p class="overlay-text">COULEUR <br><i class="fas fa-paint-brush"></i></p>
-            </div>
-        </a>
-    </figure>
+    <div class="gradientServices"></div>
+
+<div class="services" id="services">
+    <h2 class="services-title">Nos Services</h2>
+    <div class="list-services">
+        <figure>
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services1.jpeg" alt="coupe de cheveux">
+                <div class="image-overlay">
+                    <p class="overlay-text">CHEVEUX <br><i class="fas fa-cut"></i></p>
+                </div>
+            </a>
+        </figure>
+        <figure>
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services2.jpeg" alt="barbe">
+                <div class="image-overlay">
+                    <p class="overlay-text">BARBE <br><i class="fas fa-spa"></i>
+                    </p>
+                </div>
+            </a>
+        </figure>
+        <figure>
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services3.jpeg" alt="Soins du visage">
+                <div class="image-overlay">
+                    <p class="overlay-text">SOINS <br><i class="fas fa-shower"></i></p>
+                </div>
+            </a>
+        </figure>
+        <figure>
+            <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
+                <img class="services" src="public/img/nos_services4.jpeg" alt="coloration de cheveux">
+                <div class="image-overlay">
+                    <p class="overlay-text">COULEUR <br><i class="fas fa-paint-brush"></i></p>
+                </div>
+            </a>
+        </figure>
+    </div>
 </div>
 
+<div class="gradientInstagram"></div>
 
-
-    <div class="instagram">
-        <div class="instagram-contenu">
-            <h2>Suivez-nous sur Instagram</h2>
-            <p>Découvrez nos dernières créations et inspirations en nous suivant sur Instagram.</p>
-            <a href="https://www.instagram.com/jesuispassechezsouf/" class="instagram-lien">
-                <i class="fab fa-instagram"></i>
-                <span>@jesuispassechezsouf</span>
-            </a>
-        </div>
+<div class="instagram">
+    <div class="instagram-contenu">
+        <h2>Suivez-nous sur Instagram</h2>
+        <figure class="logo">
+            <a href="index.php"><img src="public/img/logo.png" alt="logo jesuispassechezsouf"></a>
+        </figure>
+        <p>Découvrez nos dernières créations et inspirations en nous suivant sur Instagram.</p>
+        <a href="https://www.instagram.com/jesuispassechezsouf/" class="instagram-lien">
+            <i class="fab fa-instagram"></i>
+            <span>@jesuispassechezsouf</span>
+        </a>
     </div>
+</div>
+
 
 
 

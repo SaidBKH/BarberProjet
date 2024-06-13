@@ -1,31 +1,52 @@
 /* /////////////////////////////// ACCUEIL TOP //////////////////////////////////////////////// */
 
-
 .accueil-top {
     width: 100%;
     text-align: center; /* Centrer le contenu horizontalement */
     padding: 50px 20px; /* Réduire l'espace autour du contenu */
-    background: linear-gradient(to bottom ,#f45dffae, #4a148cd6); /* Dégradé de violet */
-    color: white; /* Texte blanc */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre portée */
-    height: 25vh; /* Réduire la hauteur de la section */
+    position: relative; /* Position relative pour le conteneur */
+    height: 30vh; /* Réduire la hauteur de la section */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+@media screen and (max-width: 767px) {
+    .accueil-top {
+        height: 15vh; /* Réduire la hauteur sur les petits écrans */
+        border-radius: 20px;
+    }
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* Mettre la vidéo en arrière-plan */
+    filter: brightness(100%); /* Ajouter un filtre de luminosité si nécessaire */
+}
+
+
+.content {
+    
+    position: relative;
+    z-index: 1; /* Mettre le contenu au-dessus de la vidéo */
+}
+
 .title {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     font-size: max(2.5vw, 20px); /* Taille de police en vw avec une taille minimale de 20px */
     font-weight: bold; /* Texte en gras */
     margin-bottom: 1em; /* Espacement en dessous du titre en em */
 }
 
 .btn-rdv {
-
     font-family: 'Montserrat', sans-serif;
     padding: max(0.1em, 2px) max(0.8em, 2px); /* Ajouter de l'espace autour du bouton avec une taille minimale */
-
-    font-size: max(1.1vw, 14px); /* Taille de police du bouton avec une taille minimale */
+    font-size: max(1.1vw, 12px); /* Taille de police du bouton avec une taille minimale */
     background-color: rgb(255, 255, 255); /* Fond blanc */
     color: #000000; /* Texte violet */
     border: none; /* Supprimer la bordure */
@@ -35,15 +56,23 @@
     transition: background-color 0.3s ease; /* Ajouter une transition au survol */
 }
 
-
 .btn-rdv:hover {
+     transform: scale(1.05); /* Légère agrandissement au survol */
     background-color: #32d3cbf7; /* Fond blanc légèrement transparent au survol */
+}
+
+/* Styles pour les petits écrans */
+@media screen and (max-width: 767px) {
+    .main-container {
+        padding: 20px; /* Ajouter du padding sur les petits écrans */
+    }
 }
 
 /* /////////////////////////////// ACCUEIL PRESENTATION //////////////////////////////////////////////// */
 
 
 .accueil-presentation {
+    height: calc(100vh - 40vh);
     background-color: #222;
     display: flex;
     justify-content: space-between;
@@ -60,8 +89,8 @@
 }
 
 .accueil-presentation img {
-    width: 100%;
-    height: auto;
+    width: 70%;
+    height: 70%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -104,15 +133,15 @@
 
     .accueil-presentation .texte-presentation {
         padding-left: 0;
-        font-size: 1rem; /* Adjust text size */
+        font-size: 1rem; 
     }
 
     .accueil-presentation h2 {
-        font-size: 1.5rem; /* Adjust title size */
+        font-size: 1.3rem; 
     }
 
     .accueil-presentation p {
-        font-size: 0.9rem; /* Adjust paragraph text size */
+        font-size: 1rem; 
     }
 }
 
@@ -131,6 +160,29 @@
 
 /* /////////////////////////////// LIST SERVICES //////////////////////////////////////////////// */
 
+.gradientServices {
+    height: 15px; 
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(29, 29, 29), rgba(127, 50, 250, 0.822)); /* Dégradé vertical de couleur */
+}
+
+.gradientAccueil {
+    height: 20px; 
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(34, 34, 34, 10), rgba(34, 34, 34, 0.247)); /* Dégradé vertical de couleur */
+}
+
+.gradientInstagram {
+    height: 15px; 
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(127, 50, 250, 0.87), rgba(29, 29, 29)); /* Dégradé vertical de couleur */
+}
+
+.services{
+
+    padding: 20px 0 20px;
+    background-color: #7f32fa7e;
+} 
 .services-title {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -179,7 +231,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(66, 171, 179, 0.437);
+    background: #696969;
     transition: opacity 0.3s ease;
 }
 
@@ -248,9 +300,10 @@
 
 /* //////////////////////////////INSTAGRAM //////////////////////////// */
 
+
 .instagram {
     background-color: #222;
-    padding: 20px 20px;
+    padding: 30px 0 30px;
     text-align: center;
 }
 
@@ -282,9 +335,24 @@
 }
 
 .instagram-lien:hover {
+    color: white;
+    text-decoration: none;
+
     background-color: rgba(57, 212, 255, 0.847); /* Fond légèrement plus sombre au survol */
 }
 
+.instagram .logo {
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto; /* Centre l'élément horizontalement */
+    max-width: 150px; /* Taille maximale du logo */
+}
+
+.instagram .logo img {
+    width: 100%; /* Ajuste la largeur de l'image à 100% de l'espace disponible */
+    max-width: 100%; /* Garantit que le logo ne dépasse pas sa taille maximale définie */
+    display: block; /* Permet de gérer l'espacement autour de l'image */
+    margin: 0 auto; /* Centre l'image à l'intérieur de son conteneur */
+}
 
 /* //////////////////////////////SWIPPER //////////////////////////// */
 
