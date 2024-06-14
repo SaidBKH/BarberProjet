@@ -52,7 +52,7 @@
         <title>Jesuispassechezsouf</title>   <!--Définit le titre de la page. --> <!-- -->
     
     </head>
-    <body>
+<body>
         <div id="wrapper">  <!-- Conteneur principal de la page.-->
             <div id="mainpage">  <!-- Conteneur principal de la partie visible de la page.-->
 

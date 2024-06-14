@@ -1,13 +1,14 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Segoe UI';
+    font-family: 'Montserrat', sans-serif;
 }
 
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// Main Container /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 
 /* Styles par défaut */
 .main-container {
@@ -18,7 +19,6 @@
     text-align: center;
     align-items: center;
     color: #EAEAEA;;
-    font-family: Arial, sans-serif;
     padding: 0 20px; /* Padding par défaut pour les mobiles */
 }
 
@@ -44,29 +44,30 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .header {
-    background-color: #1f1f1f;
+    background-color: #0c0c0c;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
+    padding: 10px 25px 0px;
 }
 
 header.header figure a img {
-    max-height: 60px;
+    max-height: 80px;
 }
+
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// HEADER MOBILE  /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .header_mobile {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #111827;
+    background-color: #7f32facb;
     cursor: pointer;
     transition: 0.4s transform linear;
 }
@@ -76,6 +77,7 @@ header.header figure a img {
 }
 
 .header_mobile svg {
+    stroke: #fff;
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -91,7 +93,6 @@ header.header figure a img {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6); 
     display: none;
     z-index: 1;
 }
@@ -111,7 +112,7 @@ header.header figure a img {
     z-index: 2;
     width: 300px; /* Adjusted width for better fit */
     height: 100vh; /* Full viewport height */
-    background-color: rgb(50, 50, 50);
+    background-color: #0c0c0c;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -134,13 +135,13 @@ header.header figure a img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #111827;
+    background-color: #7f32facb;
     cursor: pointer;
     transition: 0.4s transform linear;
     position: absolute;
     z-index: 3;
-    top: 15px;
-    right: 15px;
+    top: 45px;
+    right: 25px;
 }
 
 .nav_mobile_close:hover {
@@ -148,9 +149,10 @@ header.header figure a img {
 }
 
 .nav_mobile_close svg {
+    stroke: #fff;
     width: 20px;
     height: 20px;
-    stroke: #fff;
+    
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,17 +160,17 @@ header.header figure a img {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .nav_mobile_profil {
-    font-family: Arial;
     text-align: center;
     font-weight: bold;
     font-size: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     padding-bottom: 5px;
+    padding-top: 80px;
+    color: #ffffff;
 }
 
 .nav_mobile_profil a {
     text-decoration: none;
-    font-family: Arial;
     text-align: center;
     font-weight: bold;
     font-size: 18px;
@@ -203,12 +205,13 @@ header.header figure a img {
 }
 
 .nav_mobile_menu li a {
+    font-family: 'Montserrat', sans-serif;
+    
     color: white;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    font-family: Arial;
-    font-weight: bold;
+    
     font-size: 18px;
     position: relative; 
 }
@@ -222,7 +225,7 @@ header.header figure a img {
     bottom: -6px;
     right: 0;
     transition: 0.3s width ease-in-out;
-    background-color: #7f32fa;
+    background-color: #7F32FA;
 
 }
 
@@ -262,7 +265,7 @@ header.header figure a img {
 
 .nav_mobile_social li a:hover {
     opacity: 1;
-    color: #7f32fa;
+    color: #7F32FA;
 }
 
 /* Icon Styles */
@@ -275,7 +278,11 @@ header.header figure a img {
 
 .nav_mobile_menu a:hover i,
 .nav_mobile_social a:hover i {
-    color: #7f32fa;
+    color: #7f32facb;
+}
+
+.nav_mobile_menu a:hover {
+    color: #7f32facb;
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -289,12 +296,13 @@ header.header figure a img {
 .nav_bureau_menu {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Ajout de la justification */
+    justify-content: space-between; 
     list-style: none;
-    padding: 0;
+    padding: 30px;
 }
 
 .nav_bureau_menu li a {
+    padding : 10px;
     text-decoration: none;
     color: white;
     transition: color 0.3s ease; /* Ajout d'une transition pour le changement de couleur */
@@ -480,11 +488,9 @@ h1 {
 
 /* Styles améliorés pour la mise en page */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #fff;
-    margin: 0;
-    padding: 0;
+   
+    background-color: #0c0c0c;
+    
 }
 
 .container {
@@ -655,27 +661,42 @@ button[type="submit"]:hover {
 ///////////////////////////////////////////////////////////////////// */
 
 
+
+  
+
+.page-header {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background: linear-gradient(180deg, #8b47f9cb, #25252934);
+    color: white;
+    }   
+
+    .page-header p {
+        text-align: center;
+        padding-bottom: 30px;
+        color: white;
+        }   
+
 .news-container {
+
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 50px;
     justify-content: center;
-    margin-top: 20px;
-    padding: 20px;
-    background: linear-gradient(180deg, #1a1a1d, #252529);
 }
 
 .news {
-    max-width: 400px;
-    background-color: #222;
+    background-color: #252529;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #cfcfcf0f;
+    max-width: 400px;
+    margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
 .news:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
 }
 
 .title-news {
@@ -694,8 +715,74 @@ button[type="submit"]:hover {
 .text-news {
     font-size: 16px;
     line-height: 1.5;
-    color: #ffffff;
+    color: #cccccc;
+    margin-bottom: 10px;
 }
+
+.date-news {
+    font-size: 14px;
+    color: #999999;
+}
+
+
+
+/* /////////////////////////////join US////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+
+
+.container.join-us {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.join-title {
+    text-align: center;
+    color: #7f32fa;
+    margin-bottom: 20px;
+}
+
+.join-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.join-paragraph {
+    color: #cccccc;
+}
+
+.join-subtitle {
+    color: #7f32fa;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.reasons-list, .profile-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.reason-item, .profile-item {
+    background-color: #252529;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: #cccccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.join-link {
+    color: #7f32fa;
+    text-decoration: none;
+}
+
+.join-link:hover {
+    text-decoration: underline;
+}
+
 
 
 /* /////////////////////////////footer ////////////////////////////////

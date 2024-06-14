@@ -14,7 +14,7 @@ class NewsController extends AbstractController implements ControllerInterface {
 
     public function index()
     {
-        // Instanciez le GalerieManager
+        
         $newsManager = new newsManager();
 
         // Récupérez les images

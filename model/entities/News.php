@@ -53,7 +53,7 @@ final class News extends Entity{
      *
      * @return  self
      */ 
-    public function setTitre($title){
+    public function setTitle($title){
         $this->title = $title;
         return $this;
     }

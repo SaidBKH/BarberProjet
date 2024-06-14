@@ -69,7 +69,7 @@
 .accueil-presentation {
     height: auto;
     background-color: #252529;
-    padding: 20px;
+    padding: 40px 0 50px;
     text-align: center;
 }
 
@@ -90,7 +90,7 @@
 
 @media screen and (max-width: 768px) {
     .accueil-presentation {
-        padding: 20px;
+        padding: 40px;
     }
 
     .accueil-presentation figure {

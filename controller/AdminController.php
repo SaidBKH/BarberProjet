@@ -198,7 +198,7 @@ class AdminController extends AbstractController {
                 $newsData = [
                     'title' => $title,
                     'photo' => $photo,
-                    'text' => $text,
+                    'text' => nl2br($text),
                     'date' => $date
                 ];
     
