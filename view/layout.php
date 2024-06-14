@@ -62,7 +62,7 @@
                 
                 <header class="header"><!--En-tête de la page. -->
                   <figure>
-                 <a href="index.php">  <img src="public/img/logo.png" alt ="logo jesuispassechezsouf"></a>  <!-- le logo---->
+                 <a href="index.php">  <img src="public/img/logo.webp" alt ="logo jesuispassechezsouf"></a>  <!-- le logo---->
                   </figure>
                     <div class="header_mobile" onclick="toggleMenu()"> 
                     <!-- Définition de l'icône pour ouvrir le menu -->

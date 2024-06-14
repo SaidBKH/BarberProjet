@@ -12,10 +12,6 @@ $plannings = $result["data"]['planning'];
 $service = $result["data"]['service']; 
 
 
-
-
-
-
 // Tableau pour regrouper les plannings par date
 $planningsParDate = [];
 

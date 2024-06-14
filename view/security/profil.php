@@ -49,7 +49,7 @@
                     <li>
                         <strong>Date :</strong> <?= htmlspecialchars($reservation->getDate()) ?><br>
                         <strong>Heure :</strong> <?= htmlspecialchars($reservation->getHeure()) ?><br>
-                        <strong>Service :</strong> <?= htmlspecialchars($reservation->getService()->getNom()) ?>
+                        <strong>Service :</strong> <?= htmlspecialchars($reservation->getService()->getName()) ?>
                         <form method="post" action="index.php?ctrl=reservation&action=AnnulerReservation">
                             <input type="hidden" name="reservation_id" value="<?= $reservation->getId() ?>">
                             <button type="submit">Annuler</button>

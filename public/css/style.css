@@ -163,7 +163,7 @@ header.header figure a img {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid #7f32facb;
     padding-bottom: 5px;
     padding-top: 80px;
     color: #ffffff;
@@ -281,9 +281,9 @@ header.header figure a img {
     color: #7f32facb;
 }
 
-.nav_mobile_menu a:hover {
+/* .nav_mobile_menu a:hover {
     color: #7f32facb;
-}
+} */
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////  NAV BUREAU MENU /////////////////////////////////////////////////////
@@ -466,7 +466,7 @@ h1 {
     font-size: 16px;
     text-decoration: none;
     color: #fff;
-    background-color: #007bff; /* Couleur de fond du bouton */
+    background-color: #39D4FF;; /* Couleur de fond du bouton */
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
@@ -661,37 +661,38 @@ button[type="submit"]:hover {
 ///////////////////////////////////////////////////////////////////// */
 
 
-
-  
-
+/* Header Styles */
 .page-header {
-    padding-top: 20px;
-    padding-bottom: 30px;
-    background: linear-gradient(180deg, #8b47f9cb, #25252934);
+    background-color: #1A1A1D;
     color: white;
-    }   
+    padding: 30px 20px;
+    text-align: center;
+}   
 
-    .page-header p {
-        text-align: center;
-        padding-bottom: 30px;
-        color: white;
-        }   
+.page-header p {
+    padding-bottom: 30px;
+}   
 
-.news-container {
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
+.page-header h1 {
+    padding-bottom: 10px;
 }
 
-.news {
+/* News Container Styles */
+.list-new {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    justify-content: center;
+    padding: 20px;
     background-color: #252529;
+}
+
+/* News Item Styles */
+.news {
+    background-color: #1F1F1F;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px #cfcfcf0f;
-    max-width: 400px;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
     transition: transform 0.3s ease;
 }
 
@@ -717,6 +718,11 @@ button[type="submit"]:hover {
     line-height: 1.5;
     color: #cccccc;
     margin-bottom: 10px;
+    white-space: pre-wrap; 
+}
+
+#barber{
+    background-color:#1F1F1F;
 }
 
 .date-news {
@@ -724,6 +730,19 @@ button[type="submit"]:hover {
     color: #999999;
 }
 
+/* Responsive Design */
+@media screen and (min-width: 576px) {
+    .list-new {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .list-new {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 20px 180px; /* Padding for desktops */
+    }
+}
 
 
 /* /////////////////////////////join US////////////////////////////////
@@ -791,7 +810,7 @@ button[type="submit"]:hover {
 
 /* Footer */
 footer {
-    background-color: #1A1A1D;
+    background-color:#0c0c0c;
     color: #EAEAEA;
     padding: 40px 20px;
     text-align: center;
@@ -846,234 +865,125 @@ footer {
 /* /////////////////////////////RESERVATIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
 
+h1.reservation-header, h2.category-title, h2.service-title, h2.date-header {
+    color: #ffffff;
+    text-decoration: none;
+}
 
+p.reservation-description, p.category-description, p.service-duration {
 
-.container-reservation {
-    max-width: 800px;
-    margin: 0 auto;
+    color: #cccccc;
+    text-decoration: none;
+}
+
+.container-reservation, .category-list, .listService {
     padding: 20px;
-    font-family: Arial, sans-serif;
+    background-color: #252529;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
 }
 
-.tableau-disponibilite {
-    font-size: 24px;
-    color: #333;
+/* Button Styles */
+.btn {
+    background-color: #87CEEB;
+    color: #1A1A1D;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00BFFF;
+}
+
+/* Category Styles */
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category-item {
+    background-color: #1A1A1D;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    flex: 1 1 calc(33.333% - 40px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+     background-color: #39D4FF;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+/* Service Styles */
+.service-item {
+    background-color: #1A1A1D;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Planning Styles */
 .heure-grid {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    overflow-x: auto; /* Permet de faire défiler horizontalement si nécessaire */
+    flex-wrap: wrap;
+    gap: 10px; /* Reduced gap */
 }
 
 .colonne-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.jour-de-semaine {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.heures {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex: 1 1 calc(20% - 20px); /* Reduced size */
+    background-color: #252529;
+    color: white;
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 10px; /* Reduced margin */
 }
 
 .cellule-heure {
+    background-color: #1A1A1D;
+    color: #87CEEB;
     padding: 10px;
-    background-color: #747474;
-    border-radius: 5px;
+    margin: 5px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.cellule-heure.selectionnee {
-    background-color: #3498db;
-    color: #fff;
-}
-
 .cellule-heure:hover {
-    background-color: #dcdcdc;
+    background-color: #00BFFF;
 }
 
-form {
-    margin-top: 20px;
+.cellule-heure.selectionnee {
+    background-color: #87CEEB;
+    color: #1A1A1D;
 }
 
-h2 {
-    padding-bottom: 5px;
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .category-item, .colonne-date {
+        flex: 1 1 100%;
+    }
+}
+
+.recapitulatif {
+    background-color: #252529;
     color: white;
-}
-
-/* Style général de la liste des catégories */
-.category-list {
-    padding: 50px;
-    text-align: center;
-}
-
-/* Conteneur pour les catégories */
-.category-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-/* Style d'un élément de catégorie */
-.category-item {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Effet de survol */
-.category-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Titre de la catégorie */
-.category-item h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333333;
-}
-
-/* Paragraphe descriptif */
-.category-item p {
-    font-size: 16px;
-    color: #666666;
-    margin-bottom: 20px;
-}
-
-
-
-
-
-/* Style général */
-.planning-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .planning-date {
-    margin-bottom: 20px;
-  }
-  
-  .planning-date h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .planning-date ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .planning-item {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f2f2f2;
     padding: 10px;
-    margin-bottom: 5px;
-  }
-  
-  .planning-item span {
-    flex: 1;
-  }
-  
-  .planning-item span:first-child {
-    margin-right: 10px;
-  }
-  
-
-
-     /* Style pour les cases à cocher */
-     .form-check-input.date-checkbox,
-     .form-check-input.heure-checkbox {
-         display: none; /* Masquer les cases à cocher */
-     }
- 
-     /* Style pour les étiquettes associées */
-     .form-check-label.date-label,
-     .form-check-label.heure-label {
-         display: block;
-         cursor: pointer;
-         padding: 10px;
-         margin-bottom: 5px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-         background-color: #fff;
-         color: #000; /* Couleur du texte noir */
-         text-align: center; /* Centrage du texte */
-     }
- 
-     /* Changement de couleur au survol */
-     .form-check-label.date-label:hover,
-     .form-check-label.heure-label:hover {
-         background-color: #f0f0f0;
-     }
- 
-     /* Style pour les étiquettes associées sélectionnées */
-     .form-check-input.date-checkbox:checked + .form-check-label.date-label,
-     .form-check-input.heure-checkbox:checked + .form-check-label.heure-label {
-         background-color: #007bff;
-         color: #fff;
-     }
-
-     
-     form-check-label.date-label {
-        width: 150px; /* Largeur fixe pour toutes les étiquettes de date */
-        height: 40px; /* Hauteur fixe pour toutes les étiquettes de date */
-        line-height: 40px; /* Ajuster la hauteur de ligne pour centrer le texte verticalement */
-        text-align: center; /* Centrage du texte horizontalement */
-        overflow: hidden; /* Masquer le texte qui dépasse */
-        white-space: nowrap; /* Empêcher le texte de passer à la ligne */
-        text-overflow: ellipsis; /* Afficher des points de suspension (...) si le texte dépasse */
-    }
-
-    .table td,th {
-        color: white;
-    }
-
-
-
-    .inbox-container {
-        display: flex;
-    }
-    .message-list {
-        width: 30%;
-        border-right: 1px solid #ccc;
-        padding: 10px;
-        overflow-y: auto;
-    }
-    .message-list ul {
-        list-style: none;
-        padding: 0;
-    }
-    .message-list li {
-        padding: 10px;
-        cursor: pointer;
-    }
-    .message-list li:hover {
-        background-color: #f0f0f0;
-    }
-    .message-detail {
-        width: 70%;
-        padding: 10px;
-    }
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
