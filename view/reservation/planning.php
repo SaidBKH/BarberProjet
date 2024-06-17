@@ -1,16 +1,18 @@
-
 <?php
-// l'heure selectionnee 
-$heureSelectionnee = ''; 
+use App\Manager;
+
+// Configuration de la localisation en français
+date_default_timezone_set('Europe/Paris');
+setlocale(LC_TIME, 'fr_FR.UTF-8');
+
+$heureSelectionnee = '';
 
 $service = isset($_GET['id']) ? $_GET['id'] : null;
-
 ?>
 
 <?php
-$plannings = $result["data"]['planning']; 
-$service = $result["data"]['service']; 
-
+$plannings = $result["data"]['planning'];
+$service = $result["data"]['service'];
 
 // Tableau pour regrouper les plannings par date
 $planningsParDate = [];
@@ -20,21 +22,11 @@ foreach ($plannings as $planning) {
     $date = $planning->getDate();
     $heure = $planning->getHeure();
 
-    // Convertir la date en objet DateTime pour obtenir le jour de la semaine et le jour du mois
-    $dateTime = new DateTime($date);
-    $jourSemaine = $dateTime->format('l'); // 'l' pour le jour de la semaine complet
-    $jourMois = $dateTime->format('j F'); // 'j' pour le jour sans zéro, 'F' pour le mois complet en lettres
-
-    // Formatage du jour au format "Jour de la semaine, Jour Mois"
-    $jourFormate = $jourSemaine . '<br> ' . $jourMois;
-
-    // Si la date n'existe pas dans le tableau, l'initialiser avec un tableau vide
-    if (!isset($planningsParDate[$jourFormate])) {
-        $planningsParDate[$jourFormate] = [];
+    if (!isset($planningsParDate[$date])) {
+        $planningsParDate[$date] = [];
     }
 
-    // Ajouter l'heure à la liste des horaires pour cette date
-    $planningsParDate[$jourFormate][] = $heure;
+    $planningsParDate[$date][] = $heure;
 }
 ?>
 
@@ -45,34 +37,26 @@ foreach ($plannings as $planning) {
         <p>Aucune disponibilité pour ce service.</p>
     <?php else : ?>
         <div class="heure-grid">
-            <?php foreach ($planningsParDate as $jourFormate => $heures) : ?>
-                <?php
-                    $fullDate = new \DateTime(str_replace("<br>"," ", $jourFormate));
-                    $fullDateFormat = $fullDate->format("Y-m-d");
-                ?>
+            <?php foreach ($planningsParDate as $date => $heures) : ?>
                 <div class="colonne-date">
-                    <h2><?= $jourFormate ?></h2>
+                    <h2><?= Manager::formaterDateEnFrancais($date) ?></h2>
                     <div class="heures">
                         <?php foreach ($heures as $heure) : ?>
-
-                            <!-- utilisation de DataSet en JS -->
-                            
-                            <div class="cellule-heure" data-heure="<?= $heure ?>" data-jour="<?= $fullDateFormat ?>" onclick="selectionnerHeure(this)">
+                            <div class="cellule-heure" data-heure="<?= $heure ?>" data-jour="<?= $date ?>" onclick="selectionnerHeure(this)">
                                 <?= $heure ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </div>
 
         <div class="recapitulatif">
             <h3>Récapitulatif de la réservation :</h3>
             <p>Date : <span id="recap-date"></span></p>
             <p>Heure : <span id="recap-heure"></span></p>
-            <p>Service : <?= $service->getName() ?></p>
+            <p>Service : <?= htmlspecialchars($service->getName()) ?></p>
         </div>
-
         <form action="index.php?ctrl=reservation&action=reserve" method="post">
             <input id="horaire" type="hidden" name="heure_selectionnee">
             <input type="hidden" name="service_id" value="<?= $service->getId() ?>">
@@ -82,38 +66,27 @@ foreach ($plannings as $planning) {
     <?php endif; ?>
 </div>
 
-
-
 <script>
-
 function selectionnerHeure(celluleHeure) {
+    const toutesLesHeures = document.querySelectorAll('.cellule-heure');
+    toutesLesHeures.forEach(cellule => {
+        cellule.classList.remove('selectionnee');
+    });
 
-// Réinitialiser la classe pour toutes les heures
-const toutesLesHeures = document.querySelectorAll('.cellule-heure');
-toutesLesHeures.forEach(cellule => {
-    cellule.classList.remove('selectionnee');
-});
+    celluleHeure.classList.add('selectionnee');
 
-// Appliquer la classe 'selectionnee' à la cellule cliquée
-celluleHeure.classList.add('selectionnee');
+    const horaire = document.querySelector("#horaire");
+    horaire.value = celluleHeure.dataset.heure;
 
-const horaire = document.querySelector("#horaire");
-// Mettre à jour la valeur de l'input caché avec l'heure sélectionnée
-horaire.value = celluleHeure.dataset.heure;
+    const date = document.querySelector("#date");
+    date.value = celluleHeure.dataset.jour;
 
-const date = document.querySelector("#date");
-date.value = celluleHeure.dataset.jour;
+    const recapDate = document.querySelector("#recap-date");
+    const recapHeure = document.querySelector("#recap-heure");
 
-// Mettre à jour la section récapitulatif avec la date et l'heure sélectionnées
-const recapDate = document.querySelector("#recap-date");
-const recapHeure = document.querySelector("#recap-heure");
-
-recapDate.textContent = celluleHeure.dataset.jour;
-recapHeure.textContent = celluleHeure.dataset.heure;
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateObj = new Date(celluleHeure.dataset.jour);
+    recapDate.textContent = dateObj.toLocaleDateString('fr-FR', options);
+    recapHeure.textContent = celluleHeure.dataset.heure;
 }
-
-
-
-
 </script>
-

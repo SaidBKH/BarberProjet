@@ -8,8 +8,6 @@ use App\ControllerInterface;
 use Model\Managers\newsManager;
 
 
-
-
 class NewsController extends AbstractController implements ControllerInterface {
 
     public function index()
@@ -28,4 +26,5 @@ class NewsController extends AbstractController implements ControllerInterface {
             ]
         ];
     }
+    
 }

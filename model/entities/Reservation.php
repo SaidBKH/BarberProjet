@@ -15,10 +15,6 @@ final class Reservation extends Entity{
     private $service;
     private $client;
 
-
-
-
-
     // chaque entité aura le même constructeur grâce à la méthode hydrate (issue de App\Entity)
     public function __construct($data){         
         $this->hydrate($data);        

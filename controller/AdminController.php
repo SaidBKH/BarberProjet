@@ -29,10 +29,8 @@ class AdminController extends AbstractController {
         }
     }
 
-
     public function index() {
         
-
         return [
             "view" => VIEW_DIR . "admin/tableau_de_bord.php",
             "meta_description" => "Tableau de bord",
@@ -41,8 +39,6 @@ class AdminController extends AbstractController {
         ];
     }
 
-
-    
 
     public function planning() {
         $reservationManager = new ReservationManager();
@@ -273,43 +269,45 @@ class AdminController extends AbstractController {
 }
 
 
-public function listMessages() {
-    $messageManager = new ContactManager();
-    $messages = $messageManager->getMessagesWithCategory();
- 
+    public function listMessages() {
+        $messageManager = new ContactManager();
+        $messages = $messageManager->getMessagesWithCategory();
 
-    return [
-        "view" => VIEW_DIR . "admin/listMessages.php",
-        "meta_description" => "Liste des Messages de Contact",
-        "data" => [
-            "messages" => $messages,    
-            
-        ]
-    ];
+        return [
+            "view" => VIEW_DIR . "admin/listMessages.php",
+            "meta_description" => "Liste des Messages de Contact",
+            "data" => [
+                "messages" => $messages,
+            ]
+        ];
+    }
+
+    public function ajax($id) {
+        $messageManager = new ContactManager();
+        $message = $messageManager->findOneById($id);
+
+        // Inclure la vue partielle et passer la variable $message
+        include(VIEW_DIR . "admin/messageDetail.php");
+    }
+
+    public function deleteMessages() {
+        $messageIds = filter_input(INPUT_POST, 'messageIds', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+    
+        if ($messageIds) {
+            $messageManager = new ContactManager();
+            foreach ($messageIds as $id) {
+                $messageManager->delete($id);
+            }
+            $_SESSION['flash_message'] = ['message' => 'Messages supprimés avec succès.'];
+        } else {
+            $_SESSION['flash_message'] = ['message' => 'Aucun message sélectionné.'];
+        }
+    
+        // Rediriger vers la page des messages après suppression
+        header('Location: ?ctrl=admin&action=listMessages');
+        exit();
+    }
+
+
 }
 
-public function ajax($id) {
-
-    //  $message = filter_input(INPUT_GET, 'id_messageContact', FILTER_VALIDATE_INT);
-
-    $messageManager = new ContactManager();
-        
-    $message = $messageManager->findOneById($id);
-
-      return $message;
-
-    // // var_dump($message); exit;
-
-            // return [
-            //     "view" => VIEW_DIR . "admin/messageDetail.php",
-            //     "meta_description" => "Détails du message",
-            //     "data" => [
-            //         "message" => $message
-            //     ]
-            // ];
-        
-    // }
-
-}
-
-}

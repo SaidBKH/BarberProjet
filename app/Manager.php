@@ -121,11 +121,32 @@ abstract class Manager{
             $this->className
         );
     }
+    
 
     public function displayMessage($message) {
         echo "<div class='message'>$message</div>";
     }
 
-
+    public static function formaterDateEnFrancais($date) {
+        // Convertir la date en objet DateTime
+        $dateTime = new \DateTime($date); // Utilisation de DateTime native de PHP
+    
+        // Formater la date en français
+        $mois = [
+            1 => 'janvier', 2 => 'février', 3 => 'mars', 4 => 'avril',
+            5 => 'mai', 6 => 'juin', 7 => 'juillet', 8 => 'août',
+            9 => 'septembre', 10 => 'octobre', 11 => 'novembre', 12 => 'décembre'
+        ];
+        $jourSemaine = [
+            'dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'
+        ];
+        $jour = $jourSemaine[$dateTime->format('w')];
+        $numJour = $dateTime->format('j');
+        $mois = $mois[$dateTime->format('n')];
+        $annee = $dateTime->format('Y');
+    
+        return ucfirst("$jour $numJour $mois $annee");
+    }
+    
 
 }

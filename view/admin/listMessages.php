@@ -9,27 +9,26 @@ $messages = $result["data"]['messages'];
     <?php unset($_SESSION['flash_message']); ?>
 <?php endif; ?>
 
-<div class="inbox-container">
-    <div class="message-list">
-        <ul>
-            <?php foreach ($messages as $message): ?>
-                <li data-messageid="<?= $message->getId() ?>" class="message-item">
-                    <?= htmlspecialchars($message->getCategoryContact()->getNameCategory()) ?><br>
-                    <?= htmlspecialchars($message->getEmail()) ?><br>
-                    <?= htmlspecialchars($message->getDateCreation()) ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+<form method="post" action="?ctrl=admin&action=deleteMessages" id="deleteForm">
+    <div class="inbox-container">
+        <div class="message-list">
+            <ul>
+                <?php foreach ($messages as $message): ?>
+                    <li data-messageid="<?= $message->getId() ?>" class="message-item">
+                        <input type="checkbox" name="messageIds[]" value="<?= $message->getId() ?>">
+                        <?= htmlspecialchars($message->getCategoryContact()->getNameCategory()) ?><br>
+                        <?= htmlspecialchars($message->getEmail()) ?><br>
+                        <?= htmlspecialchars($message->getDateCreation()) ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="message-detail"></div>
     </div>
-    <div class="message-detail">
-
-    </div>
-</div>
-
+    <button type="submit">Supprimer les messages sélectionnés</button>
+</form>
 
 <script>
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const messageItems = document.querySelectorAll('.message-item');
     messageItems.forEach(item => {
@@ -44,14 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
 </script>
-
-
-
-
-
-
 
 
 
