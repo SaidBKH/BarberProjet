@@ -1,13 +1,17 @@
 <div class="main-container">
 
 
-    <div class="accueil-top">
+<div class="accueil-top">
         <video autoplay muted loop id="background-video">
             <source src="public/img/salon.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="content">
-            <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
+        <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
+        <figure> <img src="public/img/logo.webp" alt="logo jesuispassechezsouf"></figure>
+            <p>Je suis passé chez souf  vous accueille à Annemasse dans le centre ville au sein d'un salon de coiffure et barber shop dédié aux hommes soucieux de leur apparence.</p>
+            <p>Ouvert du lundi au samedi de 9h à 18h
+            1 Allée Francois Truffaut, Annemasse</p>
             <a href="index.php?ctrl=reservation&action=listService"><button class="btn-rdv">Prendre rendez-vous</button></a>
         </div>
     </div>

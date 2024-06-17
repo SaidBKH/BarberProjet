@@ -1,21 +1,16 @@
 /* /////////////////////////////// ACCUEIL TOP //////////////////////////////////////////////// */
 
+
 .accueil-top {
     width: 100%;
-    text-align: center; /* Centrer le contenu horizontalement */
-    padding: 50px 20px; /* Réduire l'espace autour du contenu */
-    position: relative; /* Position relative pour le conteneur */
-    height: 25vh; /* Réduire la hauteur de la section */
+    text-align: center;
+    position: relative;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-@media screen and (max-width: 767px) {
-    .accueil-top {
-        height: 15vh; /* Réduire la hauteur sur les petits écrans */
-        border-radius: 20px;
-    }
+    align-items: center;
+    overflow: hidden;
 }
 
 #background-video {
@@ -25,40 +20,81 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0; /* Mettre la vidéo en arrière-plan */
-    filter: brightness(100%); /* Ajouter un filtre de luminosité si nécessaire */
+    z-index: 0;
+    filter: brightness(50%);
 }
 
-
 .content {
-    
     position: relative;
-    z-index: 1; /* Mettre le contenu au-dessus de la vidéo */
+    z-index: 1;
+    padding: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.content img {
+    height: 20vh;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.content p {
+    margin: 20px 0;
 }
 
 .title {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    font-size: max(2.5vw, 20px); /* Taille de police en vw avec une taille minimale de 20px */
-    font-weight: bold; /* Texte en gras */
-    margin-bottom: 1em; /* Espacement en dessous du titre en em */
+    font-size: 2.5vw;
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
 .btn-rdv {
     font-family: 'Montserrat', sans-serif;
-    padding: max(0.1em, 2px) max(0.8em, 2px); /* Ajouter de l'espace autour du bouton avec une taille minimale */
-    background-color: #7F32FA;
-    font-size: max(1.1vw, 12px); /* Taille de police du bouton avec une taille minimale */
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid white;
+    font-size: 1.1vw;
     color: white;
-    border: none; /* Supprimer la bordure */
-    border-radius: 25px; /* Coins arrondis */
-    cursor: pointer; /* Curseur pointer */
+    border-radius: 25px;
+    cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease; /* Ajouter une transition au survol */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-rdv:hover {
-     transform: scale(1.05); /* Légère agrandissement au survol */
-    background-color: #32d3cbf7; /* Fond blanc légèrement transparent au survol */
+    transform: scale(1.05);
+    background-color: rgba(50, 211, 203, 0.97);
+}
+
+@media screen and (max-width: 767px) {
+    .accueil-top {
+        height: 100vh;
+    }
+
+    .content {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .content img {
+        height: 15vh;
+    }
+
+    .content p {
+        
+        margin: 10px 0;
+    }
+
+    .title {
+        font-size: 5vw;
+    }
+
+    .btn-rdv {
+        padding: 5px 10px;
+        font-size: 3vw;
+    }
 }
 
 
