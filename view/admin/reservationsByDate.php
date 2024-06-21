@@ -15,7 +15,7 @@ $reservations = $result["data"]['reservations'];
             <tbody>
                 <?php foreach ($reservations as $reservation): ?>
                     <tr class="reservation-row" data-toggle="modal" data-target="#reservationDetailsModal" data-details='<?= json_encode([
-                        'Service' => htmlspecialchars($reservation['service_nom']),
+                        'Service' => htmlspecialchars($reservation['service_name']),
                         'Heure' => htmlspecialchars($reservation['heure']),
                         'Prénom' => htmlspecialchars($reservation['prenom']),
                         'Email' => htmlspecialchars($reservation['email']),

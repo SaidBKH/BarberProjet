@@ -1,4 +1,4 @@
-<div class="page_profil">
+<div class=" Page page_profil">
 
 <div class="nom">
         <p>

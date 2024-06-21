@@ -10,8 +10,8 @@
         <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
         <figure> <img src="public/img/logo.webp" alt="logo jesuispassechezsouf"></figure>
             <p>Je suis passé chez souf  vous accueille à Annemasse dans le centre ville au sein d'un salon de coiffure et barber shop dédié aux hommes soucieux de leur apparence.</p>
-            <p>Ouvert du lundi au samedi de 9h à 18h
-            1 Allée Francois Truffaut, Annemasse</p>
+            <p>Ouvert du lundi au samedi de 9h à 18h ! </p>
+            <p> 1 Allée Francois Truffaut, Annemasse</p>
             <a href="index.php?ctrl=reservation&action=listService"><button class="btn-rdv">Prendre rendez-vous</button></a>
         </div>
     </div>
@@ -24,8 +24,8 @@
         <div class="texte-presentation">
             <h2>Salon de Coiffure à Annemasse !</h2>
             <br>
-            <p>Jesuispasséchezsouf est la concrétisation d'un concept du barber idéal perçu par son créateur, un lieu où l'on revient sans hésiter !
-                Imaginer comme une thérapie de bien être, ou l'on vient vivre un moment régénérateur et repartir avec d'avantage d'assurance et un style des plus adapté à sa personnalité.</p>
+            <p>Jesuispasséchezsouf est la concrétisation d'un concept du barber idéal perçu par son créateur, un lieu où l'on revient sans hésiter !</p>
+            <p>Imaginer comme une thérapie de bien être, ou l'on vient vivre un moment régénérateur et repartir avec d'avantage d'assurance et un style des plus adapté à sa personnalité</p>
         </div>
         <figure>
             <img class="devanture" src="public/img/devanture.webp" alt="Devanture du salon de coiffure">

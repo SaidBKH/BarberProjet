@@ -30,16 +30,16 @@ foreach ($plannings as $planning) {
 }
 ?>
 
-<div class="container-reservation">
-    <h1 class="tableau-disponibilite">Liste des disponibilités</h1>
+<div class="Page container-reservation">
+    <h1 class = "Titre">Liste des disponibilités</h1>
 
     <?php if (empty($planningsParDate)) : ?>
-        <p>Aucune disponibilité pour ce service.</p>
+        <p class="texte">Aucune disponibilité pour ce service.</p>
     <?php else : ?>
         <div class="heure-grid">
             <?php foreach ($planningsParDate as $date => $heures) : ?>
                 <div class="colonne-date">
-                    <h2><?= Manager::formaterDateEnFrancais($date) ?></h2>
+                    <h2 class="date-dispo"><?= Manager::formaterDateEnFrancais($date) ?></h2>
                     <div class="heures">
                         <?php foreach ($heures as $heure) : ?>
                             <div class="cellule-heure" data-heure="<?= $heure ?>" data-jour="<?= $date ?>" onclick="selectionnerHeure(this)">
@@ -61,7 +61,12 @@ foreach ($plannings as $planning) {
             <input id="horaire" type="hidden" name="heure_selectionnee">
             <input type="hidden" name="service_id" value="<?= $service->getId() ?>">
             <input id="date" type="hidden" name="date">
-            <button type="submit">Réserver</button>
+            <div class = boutons-planning>
+            <button class="btn-reservation-planning" type="submit">Réserver</button>
+            <button class="btn-annuler-planning" type="submit">Retour</button>
+            </div>
+            <p class="warning-message">Attention : En cliquant sur "Réserver", votre réservation sera confirmée.</p>
+
         </form>
     <?php endif; ?>
 </div>

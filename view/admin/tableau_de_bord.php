@@ -1,5 +1,5 @@
 
-<div class="tableau_de_bord" >
+<div class=" Page tableau_de_bord" >
 
     <h1>tableau de bord</h1>
 

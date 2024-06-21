@@ -1,6 +1,5 @@
 /* /////////////////////////////// ACCUEIL TOP //////////////////////////////////////////////// */
 
-
 .accueil-top {
     width: 100%;
     text-align: center;
@@ -21,7 +20,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    filter: brightness(50%);
+    filter: brightness(40%);
 }
 
 .content {
@@ -34,9 +33,16 @@
 }
 
 .content img {
-    height: 20vh;
+    animation: rotation 5s linear;
+    height: 10vh;
     width: auto;
     margin-bottom: 20px;
+}
+
+@keyframes rotation {
+    100% {
+        transform: rotate3d(1, 2, -1, 360deg);
+    }
 }
 
 .content p {
@@ -44,10 +50,11 @@
 }
 
 .title {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    font-size: 2.5vw;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Augmente l'ombre du texte */
+    font-size: 3vw; /* Augmente la taille du titre */
     font-weight: bold;
     margin-bottom: 1em;
+    animation: fadeIn 2s ease-in; /* Animation d'apparition */
 }
 
 .btn-rdv {
@@ -55,7 +62,7 @@
     padding: 10px 20px;
     background: transparent;
     border: 2px solid white;
-    font-size: 1.1vw;
+    font-size: 1.5vw; /* Augmente la taille du bouton */
     color: white;
     border-radius: 25px;
     cursor: pointer;
@@ -66,6 +73,15 @@
 .btn-rdv:hover {
     transform: scale(1.05);
     background-color: rgba(50, 211, 203, 0.97);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -79,11 +95,10 @@
     }
 
     .content img {
-        height: 15vh;
+        height: 10vh;
     }
 
     .content p {
-        
         margin: 10px 0;
     }
 
@@ -104,45 +119,60 @@
 
 .accueil-presentation {
     height: auto;
-    background-color: #252529;
-    padding: 40px 0 50px;
+
+    padding: 40px 20px 50px;
     text-align: center;
+    border-radius: 15px; /* Ajoute des coins arrondis */
+    max-width: 1000px; /* Limite la largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    
+}
+
+.texte-presentation {
+
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px; /* Ajoute des coins arrondis au fond du texte */
 }
 
 .texte-presentation h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Augmente la taille du titre */
+    margin-bottom: 20px;
+    
 }
 
 .texte-presentation p {
+    
     font-size: 1.2rem;
+    line-height: 1.8; /* Augmente l'espacement des lignes pour une meilleure lisibilité */
+    
+    margin-bottom: 20px; /* Ajoute de l'espace entre les paragraphes */
 }
 
 .devanture {
-    padding-top: 10px;
+
     width: 100%;
     max-width: 300px;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
     .accueil-presentation {
-        padding: 40px;
+        padding: 40px 20px;
     }
 
     .accueil-presentation figure {
         margin-bottom: 20px;
     }
 
-    .accueil-presentation .texte-presentation {
-        font-size: 1rem; 
+    .texte-presentation h2 {
+        font-size: 1.8rem;
     }
 
-    .accueil-presentation h2 {
-        font-size: 1.3rem; 
-    }
-
-    .accueil-presentation p {
-        font-size: 1rem; 
+    .texte-presentation p {
+        font-size: 1rem;
     }
 
     .devanture {

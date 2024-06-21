@@ -1,7 +1,7 @@
 <?php $categorys = $result["data"]['categorys']; ?>
 
-<div class="PageContact">
-    <h1>Contactez-nous</h1>
+<div class="Page page-contact">
+    <h1 class="Titre">Contactez-nous</h1>
     
     <p>Vous pouvez nous contacter de différentes manières :</p>
     <ul>
@@ -10,28 +10,37 @@
         <li>En remplissant le formulaire ci-dessous</li>
     </ul>
     
-    <form action="" method="post">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <form action="" method="post" class="contact-form">
+        <div class="form-group">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+        </div>
         
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
+        </div>
         
-        <label for="category">Catégorie de Message :</label>
-        <select id="category" name="category" required>
-            <option value="">Choisissez une catégorie</option>
-            <?php foreach($categorys as $category): ?>
-                <option value="<?= $category->getId() ?>">
-                    <?= htmlspecialchars($category->getNameCategory())?>
-                </option>
-            <?php endforeach; ?>
-        </select><br><br>
+        <div class="form-group">
+            <label for="category">Catégorie de Message :</label>
+            <select id="category" name="category" required>
+                <option value="">Choisissez une catégorie</option>
+                <?php foreach($categorys as $category): ?>
+                    <option value="<?= $category->getId() ?>">
+                        <?= htmlspecialchars($category->getNameCategory())?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
         
-        <label for="message">Message :</label><br>
-        <textarea id="message" name="message" rows="4" required placeholder="Saisissez votre message ici..."></textarea><br><br>
+        <div class="form-group">
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" placeholder="Saisissez votre message ici..." required></textarea>
+        </div>
         
-        <input type="submit" value="Envoyer">
+        <input type="submit" value="Envoyer" class="btn-submit">
     </form>
 
-    <p style="font-style: italic; color: #999;">Tous les champs sont obligatoires.</p>
+    <p> Tous les champs sont obligatoires.</p>
 </div>
+

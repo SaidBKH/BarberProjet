@@ -72,6 +72,18 @@
                     </svg>
                 </div>
                 <nav class="bureau">
+                    
+                    <ul class="nav_bureau_menu">
+                        <li><a href="index.php">ACCUEIL</a></li>
+                        <li><a href="index.php?ctrl=news&action=news">ACTUALITÉ</a></li>
+                        <li><a href="index.php?ctrl=reservation&action=listService">RÉSERVATIONS</a></li>
+                        <li><a href="index.php?ctrl=ourServices&action=ourServices">NOS SERVICES</a></li>
+                        <li><a href="index.php?ctrl=joinUs&action=joinUs">NOUS REJOINDRE</a></li>
+                        <li><a href="index.php?ctrl=contact&action=contact">CONTACT</a></li>
+                        <?php if(!App\Session::getUser()): ?>
+                            <li><a href="index.php?ctrl=security&action=login"><i class="fas fa-sign-in-alt"></i>CONNEXION</a></li>
+                        <?php endif; ?>
+                    </ul>
                     <?php if(App\Session::getUser()): ?>
                         <div class="nav_bureau_profil">
                             <div class="profil_dropdown">
@@ -90,17 +102,6 @@
                             </div>
                         </div>
                     <?php endif; ?>
-                    <ul class="nav_bureau_menu">
-                        <li><a href="index.php">ACCUEIL</a></li>
-                        <li><a href="index.php?ctrl=news&action=news">ACTUALITÉ</a></li>
-                        <li><a href="index.php?ctrl=reservation&action=listService">RÉSERVATIONS</a></li>
-                        <li><a href="index.php?ctrl=ourServices&action=ourServices">NOS SERVICES</a></li>
-                        <li><a href="index.php?ctrl=joinUs&action=joinUs">NOUS REJOINDRE</a></li>
-                        <li><a href="index.php?ctrl=contact&action=contact">CONTACT</a></li>
-                        <?php if(!App\Session::getUser()): ?>
-                            <li><a href="index.php?ctrl=security&action=login"><i class="fas fa-sign-in-alt"></i>CONNEXION</a></li>
-                        <?php endif; ?>
-                    </ul>
                 </nav>
             </header>
 

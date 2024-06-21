@@ -1,5 +1,5 @@
-<div class="container join-us">
-    <h1 class="join-title">Nous Rejoindre</h1>
+<div class=" Page container join-us">
+    <h1 class = "Titre">Nous Rejoindre</h1>
     <div class="join-intro">
         <p class="join-paragraph">Rejoignez Notre Équipe de Barbiers</p>
         <p class="join-paragraph">Êtes-vous passionné par l'art de la coiffure et du rasage ? Rejoignez notre équipe dynamique et contribuez à offrir des expériences exceptionnelles à nos clients.</p>

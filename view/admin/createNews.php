@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class=" Page container mt-5">
     <h1 class="text-center mb-4">Créer une actualité</h1>
     <form method="post" action="">
         <div class="form-group">

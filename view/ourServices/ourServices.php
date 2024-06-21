@@ -1,6 +1,9 @@
-<div class="page-service">
-    <h1>Nos Services</h1>
+
+
+<div class=" Page pages-services">
+    <h1 class = "Titre">Nos Services</h1>
     <div class="services-container">
+        
         <div class="service-item">
             <div class="service-content">
                 <h2>CHEVEUX</h2>
