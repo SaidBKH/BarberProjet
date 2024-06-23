@@ -5,8 +5,8 @@ $reservations = $result["data"]['reservations'];
 $message = $result["data"]['message'];
 ?>
 
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Annuler des créneaux</h1>
+<div class="Page container mt-5">
+    <h1 class="Titre text-center mb-4">Annuler des créneaux</h1>
     <?php if ($message): ?>
         <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
     <?php endif; ?>
@@ -43,7 +43,7 @@ $message = $result["data"]['message'];
                     <tbody>
                         <?php foreach ($reservations as $reservation): ?>
                             <tr>
-                                <td><?= htmlspecialchars($reservation->getService()->getNom()) ?></td>
+                                <td><?= htmlspecialchars($reservation->getService()->getName()) ?></td>
                                 <td><?= (new DateTime($reservation->getDate()))->format('d/m/Y') ?></td>
                                 <td><?= htmlspecialchars($reservation->getHeure()) ?></td>
                                 <td>
