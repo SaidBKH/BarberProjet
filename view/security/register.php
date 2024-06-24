@@ -1,6 +1,6 @@
-<div class="registerPage">
+<div class="Page registerPage">
     <figure class="logoContainer">
-        <img src="public/img/logo.png" alt="Logo" class="logo">
+        <img src="public/img/logo.wep" alt="Logo" class="logo">
     </figure>
 
     <h1>INSCRIPTION</h1>

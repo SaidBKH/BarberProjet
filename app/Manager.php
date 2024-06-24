@@ -149,4 +149,28 @@ abstract class Manager{
     }
     
 
+
+    public static function formaterMoisEnFrancais($date) {
+        if (!$date) {
+            return '';
+        }
+        
+        $dateTime = new \DateTime($date);
+        $mois = [
+            1 => 'janvier', 2 => 'février', 3 => 'mars', 4 => 'avril',
+            5 => 'mai', 6 => 'juin', 7 => 'juillet', 8 => 'août',
+            9 => 'septembre', 10 => 'octobre', 11 => 'novembre', 12 => 'décembre'
+        ];
+
+        $numMois = $dateTime->format('n');
+
+        return $mois[$numMois] ?? '';
+    }
+
+
+
+
+
+
+
 }

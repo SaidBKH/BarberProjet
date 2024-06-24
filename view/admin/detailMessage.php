@@ -1,5 +1,5 @@
 <?php if (isset($message)): ?>
-    <h2>Détails du message</h2>
+    <h2 class = Titre-message>Détails du message</h2>
     <p><strong>Catégorie :</strong> <?= htmlspecialchars($message->getCategoryContact()->getNameCategory()) ?></p>
     <p><strong>Email :</strong> <?= htmlspecialchars($message->getEmail()) ?></p>
     <p><strong>Date de création :</strong> <?= htmlspecialchars($message->getDateCreation()) ?></p>

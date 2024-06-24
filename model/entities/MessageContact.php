@@ -129,7 +129,6 @@ final class MessageContact extends Entity{
     }
 
   
-    
 
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>   <!-- Indique au navigateur que le document est écrit en HTML-->
-<html lang="en"> <!-- Indique au navigateur que le document est écrit en HTML-->
+<html lang="fr"> <!-- Indique au navigateur que le document est écrit en HTML-->
     <head>
         <meta charset="UTF-8">   <!-- Spécifie l'encodage des caractères comme UTF-8.-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configure la vue du port de l'appareil pour s'adapter à la largeur de l'écran.-->
@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
  
+
+            <!-- les cookies avec tarte au citron -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.9.6/tarteaucitron.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.9.6/tarteaucitron.js"></script>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -52,11 +62,7 @@
         <title>Jesuispassechezsouf</title>   <!--Définit le titre de la page. --> <!-- -->
     
     </head>
-
-
-
-
-    
+  
 <body>
     <div id="wrapper">
         <div id="mainpage">
@@ -174,6 +180,7 @@
     </div>
 
     <script>
+
         function toggleMenu() {
             const nav_mobile = document.querySelector('.nav_mobile');
             const mobile_overlay = document.querySelector('.mobile-overlay');
@@ -191,8 +198,72 @@
                 }
             });
         });
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://player.vimeo.com/api/player.js"></script>
+   
+</script>
+
+<script type="text/javascript">
+    tarteaucitron.init({
+        "privacyUrl": "index.php?ctrl=mentions&action=politique_confidentialite", // Lien vers la politique de confidentialité
+        "hashtag": "#tarteaucitron", // Ouvre le panneau avec ce hashtag
+        "cookieName": "tarteaucitron", // Nom du cookie
+        "orientation": "bottom", // Position de la bannière (top - bottom)
+        "showAlertSmall": false, // Affiche la petite bannière en bas à droite
+        "cookieslist": true, // Affiche la liste des cookies
+        "adblocker": false, // Affiche un avertissement si un adblocker est détecté
+        "AcceptAllCta": true, // Affiche le bouton accepter tout lorsque highPrivacy est activé
+        "highPrivacy": true, // Désactive le consentement automatique
+        "handleBrowserDNTRequest": false, // Si Do Not Track == 1, désactive tout
+        "removeCredit": true, // Supprime le lien de crédit
+        "moreInfoLink": true, // Affiche le lien plus d'infos
+        "useExternalCss": false, // Si faux, le fichier tarteaucitron.css sera chargé
+        "useExternalJs": false, // Si faux, le fichier tarteaucitron.js sera chargé
+        "mandatory": true, // Affiche un message sur les cookies obligatoires
+        "lang": "fr" // Langue du bandeau (français)
+    });
+
+    tarteaucitron.user.analyticsUa = 'UA-XXXXXXX-X'; // Remplacez par votre ID Google Analytics
+    (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
+
+    tarteaucitron.services.analytics = {
+        "key": "analytics",
+        "type": "analytic",
+        "name": "Google Analytics",
+        "uri": "https://analytics.google.com",
+        "needConsent": true,
+        "cookies": ['_ga', '_gat', '_gid'],
+        "js": function () {
+            "use strict";
+            if (tarteaucitron.user.analyticsUa === undefined) {
+                return;
+            }
+            tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=' + tarteaucitron.user.analyticsUa, '', function () {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', tarteaucitron.user.analyticsUa);
+            });
+        }
+    };
+
+    tarteaucitron.user.bookingWidgetUrl = 'https://yourbookingwidgeturl.com';
+    (tarteaucitron.job = tarteaucitron.job || []).push('bookingWidget');
+
+    tarteaucitron.services.bookingWidget = {
+        "key": "bookingWidget",
+        "type": "other",
+        "name": "Widget de Réservation",
+        "uri": "https://yourbookingwidgeturl.com",
+        "needConsent": true,
+        "cookies": ['booking_widget_cookie'],
+        "js": function () {
+            "use strict";
+            tarteaucitron.addScript('https://yourbookingwidgeturl.com/widget.js');
+        }
+    };
+</script>
+
+
+
+
 </body>
 </html>

@@ -2,14 +2,19 @@
 $reservationsByMonth = $result["data"]['reservationsByMonth'];
 ?>
 
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Planning des Réservations</h1>
+<div class="container-planning">
+    <h1 class="Titre">Planning des Réservations</h1>
     <div class="list-group">
         <?php if (!empty($reservationsByMonth)): ?>
             <?php foreach ($reservationsByMonth as $row): ?>
-                <?php $month = $row['month']; $count = $row['count']; ?>
+                <?php 
+                    $month = $row['month']; 
+                    $count = $row['count']; 
+                    // Utilisation de la fonction formaterDateEnFrancais pour convertir la date
+                    $formattedDate = \App\Manager::formaterDateEnFrancais($month);
+                ?>
                 <a href="index.php?ctrl=admin&action=reservationsByDay&month=<?= $month ?>" class="list-group-item list-group-item-action">
-                    <?= date("F Y", strtotime($month)) ?> (<?= $count ?> réservations)
+                    <?= $formattedDate ?> (<?= $count ?> réservations)
                 </a>
             <?php endforeach; ?>
         <?php else: ?>
@@ -17,5 +22,3 @@ $reservationsByMonth = $result["data"]['reservationsByMonth'];
         <?php endif; ?>
     </div>
 </div>
-
-

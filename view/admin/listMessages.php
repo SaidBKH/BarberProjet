@@ -2,7 +2,7 @@
 $messages = $result["data"]['messages'];
 ?>
 
-<h1>Boîte de réception</h1>
+<h1 class ="Titre Messagerie">Boîte de réception</h1>
 
 <?php if (isset($_SESSION['flash_message'])): ?>
     <div class="flash-message"><?php echo $_SESSION['flash_message']['message']; ?></div>
@@ -10,7 +10,7 @@ $messages = $result["data"]['messages'];
 <?php endif; ?>
 
 <form method="post" action="?ctrl=admin&action=deleteMessages" id="deleteForm">
-    <div class="inbox-container">
+    <div class="inbox-container-message">
         <div class="message-list">
             <ul>
                 <?php foreach ($messages as $message): ?>
@@ -25,7 +25,7 @@ $messages = $result["data"]['messages'];
         </div>
         <div class="message-detail"></div>
     </div>
-    <button type="submit">Supprimer les messages sélectionnés</button>
+    <button type="submit" class ="submit-message">Supprimer les messages sélectionnés</button>
 </form>
 
 <script>
@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,36 +1,26 @@
 <?php 
+use App\Manager;
+
 $reservations = $result["data"]['reservations']; 
 ?>
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Réservations du <?= date("d F Y", strtotime($reservations[0]['date'])) ?></h1>
-    <div class="table-responsive">
-        <table class="table table-bordered table-dark">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Service</th>
-                    <th>Heure</th>
-                    <th>Client</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($reservations as $reservation): ?>
-                    <tr class="reservation-row" data-toggle="modal" data-target="#reservationDetailsModal" data-details='<?= json_encode([
-                        'Service' => htmlspecialchars($reservation['service_name']),
-                        'Heure' => htmlspecialchars($reservation['heure']),
-                        'Prénom' => htmlspecialchars($reservation['prenom']),
-                        'Email' => htmlspecialchars($reservation['email']),
-                        'Téléphone' => isset($reservation['telephone']) ? htmlspecialchars($reservation['telephone']) : ''
-                    ]) ?>'>
-                        <td><?= htmlspecialchars($reservation['service_name']) ?></td>
-                        <td><?= htmlspecialchars($reservation['heure']) ?></td>
-                        <td>
-                            <?= htmlspecialchars($reservation['prenom']) ?><br>
-                            <?= htmlspecialchars($reservation['email']) ?><br>
-                            <?= isset($reservation['telephone']) ? htmlspecialchars($reservation['telephone']) : '' ?>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+
+<div class="Page container-planning-jour">
+    <h1 class="Titre">Réservations du <?= Manager::formaterDateEnFrancais($reservations[0]['date']) ?></h1>
+    <div class="list-group-by-date">
+        <?php foreach ($reservations as $reservation): ?>
+            <div class="list-item-by-date">
+                <div class="list-item-header">
+                    <?= htmlspecialchars($reservation['heure']) ?>
+                </div>
+                <div class="list-item-body">
+                    <h5 class="list-item-title"><?= htmlspecialchars($reservation['service_name']) ?></h5>
+                    <p class="list-item-text">
+                        <strong>Client:</strong> <?= htmlspecialchars($reservation['prenom']) ?><br>
+                        <strong>Email:</strong> <?= htmlspecialchars($reservation['email']) ?><br>
+                        <?= isset($reservation['telephone']) ? '<strong>Téléphone:</strong> ' . htmlspecialchars($reservation['telephone']) : '' ?>
+                    </p>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>

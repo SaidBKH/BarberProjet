@@ -1,6 +1,6 @@
-<div class="loginPage">
+<div class="Page loginPage">
     <figure class="logoContainer">
-        <img src="public/img/logo.png" alt="Logo" class="logo">
+        <img src="public/img/logo.webp" alt="Logo" class="logo">
     </figure>
         
     <form action="index.php?ctrl=security&action=login" method="post">

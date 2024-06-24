@@ -8,7 +8,9 @@
         </video>
         <div class="content">
         <h1 class="title">JE SUIS PASSÉ CHEZ SOUF</h1>
-        <figure> <img src="public/img/logo.webp" alt="logo jesuispassechezsouf"></figure>
+        <figure>
+            <img src="public/img/logo.webp" alt="logo jesuispassechezsouf" width="640" height="360">
+        </figure>
             <p>Je suis passé chez souf  vous accueille à Annemasse dans le centre ville au sein d'un salon de coiffure et barber shop dédié aux hommes soucieux de leur apparence.</p>
             <p>Ouvert du lundi au samedi de 9h à 18h ! </p>
             <p> 1 Allée Francois Truffaut, Annemasse</p>
@@ -28,7 +30,7 @@
             <p>Imaginer comme une thérapie de bien être, ou l'on vient vivre un moment régénérateur et repartir avec d'avantage d'assurance et un style des plus adapté à sa personnalité</p>
         </div>
         <figure>
-            <img class="devanture" src="public/img/devanture.webp" alt="Devanture du salon de coiffure">
+            <img class="devanture" src="public/img/devanture.webp" alt="Devanture du salon de coiffure" width="300" height="276" >
         </figure>
     </div>
 
@@ -39,7 +41,9 @@
     <div class="list-services">
         <figure>
             <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services1.webp" alt="coupe de cheveux">
+                <figure>
+                    <img class="services" src="public/img/nos_services1.webp" alt="coupe de cheveux" width="200" height="200">
+                </figure>
                 <div class="image-overlay">
                     <p class="overlay-text">CHEVEUX <br><i class="fas fa-cut"></i></p>
                 </div>
@@ -47,7 +51,9 @@
         </figure>
         <figure>
             <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services2.webp" alt="barbe">
+                <figure>
+                    <img class="services" src="public/img/nos_services2.webp" alt="barbe" width="200" height="200">
+                </figure>
                 <div class="image-overlay">
                     <p class="overlay-text">BARBE <br><i class="fas fa-spa"></i>
                     </p>
@@ -56,7 +62,9 @@
         </figure>
         <figure>
             <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services3.webp" alt="Soins du visage">
+                <figure>
+                    <img class="services" src="public/img/nos_services3.webp" alt="Soins du visage" width="200" height="200">
+                </figure>
                 <div class="image-overlay">
                     <p class="overlay-text">SOINS <br><i class="fas fa-shower"></i></p>
                 </div>
@@ -64,7 +72,9 @@
         </figure>
         <figure>
             <a href="index.php?ctrl=services&action=nos_services" class="service-lien">
-                <img class="services" src="public/img/nos_services4.webp" alt="coloration de cheveux">
+                <figure>
+                        <img class="services" src="public/img/nos_services4.webp" alt="coloration de cheveux" width="200" height="200">
+                </figure>
                 <div class="image-overlay">
                     <p class="overlay-text">COULEUR <br><i class="fas fa-paint-brush"></i></p>
                 </div>
@@ -79,7 +89,7 @@
     <div class="instagram-contenu">
         <h2>Suivez-nous sur Instagram</h2>
         <figure class="logo">
-            <a href="index.php"><img src="public/img/logo.webp" alt="logo jesuispassechezsouf"></a>
+            <a href="index.php"><img src="public/img/logo.webp" alt="logo jesuispassechezsouf"width="80" height="76"></a>
         </figure>
         <p>Découvrez nos dernières créations et inspirations en nous suivant sur Instagram.</p>
         <a href="https://www.instagram.com/jesuispassechezsouf/" class="instagram-lien">
@@ -98,7 +108,7 @@
     <div class="swiper-wrapper">
     <?php foreach ($images as $image) : ?>
         <div class="swiper-slide">
-            <img src="public/img/<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>">
+            <img src="public/img/<?= $image->getImageUrl() ?>" alt="<?= $image->getTitre() ?>" width="412" height="250">
         </div>
     <?php endforeach; ?>
     </div>

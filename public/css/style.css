@@ -45,7 +45,8 @@ body, html {
     }
 }
 
-
+/* ///////////////////////////HEADER //////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////// */
 
 header {
     
@@ -57,8 +58,6 @@ header {
     transition: all 0.3s ease;
     background: transparent;
 }
-
-
 
 .header .bureau {
     margin-right: 100px;
@@ -127,12 +126,6 @@ header {
     cursor: pointer;
 }
 
-
-
-
-
-/* ////////////////////////////////////////////////////////////////////////////// */
-/* /////////////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////// */
 
@@ -149,7 +142,6 @@ header {
 .mobile-overlay.active {
     display: block;
 }
-
 
 .nav_mobile {
     position: fixed;
@@ -230,7 +222,6 @@ header {
 
 }
 
-
 /* Responsive l'equivalent d'une tablette en mode paysage */
 @media (max-width: 1024px) {
 
@@ -309,10 +300,6 @@ header {
     left: 0;
 }
 
-
-
-
-
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// Main Container /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -327,8 +314,6 @@ header {
     align-items: center;
     color: #EAEAEA;;
 }
-
-
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// HEADER /////////////////////////////////////////////////////////////
@@ -349,7 +334,6 @@ header.header figure a img {
        
 }
 }
-
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////  NAV MOBILE SOCIAL /////////////////////////////////////////////////////
@@ -401,13 +385,9 @@ header.header figure a img {
     color: #7f32facb;
 } */
 
-
-
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////  NAV BUREAU MENU /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-
-
 
 .nav_bureau_menu li a:hover {
     color: #7f32fa; /* Changement de couleur au survol */
@@ -563,9 +543,6 @@ margin-top: 20px;}
     background-color: #7f32fa60;
 }
 
-
-
-
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -700,13 +677,8 @@ input[type="tel"] {
     box-sizing: border-box;
 }
 
-
-
-
 /* /////////////////////////////NEWS PAGE ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
-
-
 
 .page-header p {
 
@@ -781,8 +753,6 @@ input[type="tel"] {
     flex-direction: column;
     justify-content: center;
 }
-
-
 
 .join-intro {
     text-align: center;
@@ -898,10 +868,7 @@ footer {
     min-width: 200px;
 }
 
-.footer-container h3 {
-    color: #7F32FA;
-    margin-bottom: 15px;
-}
+
 
 .footer-container p {
     margin: 5px 0;
@@ -920,17 +887,11 @@ footer {
     margin-top: 20px;
 }
 
-.legal a {
-    color: #7F32FA;
-    text-decoration: none;
-}
+
 
 .legal a:hover {
     text-decoration: underline;
 }
-
-
-
 
 /* /////////////////////////////RESERVATIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
@@ -999,7 +960,6 @@ footer {
         max-width: calc(100% - 20px);
     }
 }
-
 
 
 .listServices {
@@ -1274,7 +1234,7 @@ form.contact-form {
     margin-top: 20px;
 }
 
-/* Responsive Styles */
+
 @media screen and (max-width: 768px) {
     .Page {
         padding: 10px;
@@ -1302,3 +1262,314 @@ form.contact-form {
         padding: 6px 12px;
     }
 }
+
+
+/* ///////////////////////////// Tableau de bord ////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+.dashboard-container {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Ajouter un peu de padding pour l'esthétique */
+}
+
+
+.dashboard-container h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 20px;
+    border-bottom: 2px solid #7F32FA;
+    padding-bottom: 10px;
+}
+
+.dashboard-container a {
+    display: block;
+    margin: 10px auto; /* Centrer horizontalement avec auto */
+    padding: 10px 15px;
+    background-color: #7F32FA;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    max-width: 300px; /* Définir une largeur maximale */
+}
+
+.dashboard-container a:hover {
+    background-color: #711bfc;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container a {
+        max-width: 100%; /* Utiliser la pleine largeur sur les appareils mobiles */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-planning {
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    display: block;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px auto; /* Centrer l'élément horizontalement avec une marge autour */
+    width: 70%; /* Largeur fixe pour limiter la largeur des éléments */
+    max-width: 500px; /* Largeur maximale pour s'adapter aux écrans plus larges */
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Centrer le texte à l'intérieur de chaque élément */
+}
+
+.list-group-item:hover {
+    color: white;
+    background-color: #711bfc;
+}
+
+.text-center {
+    text-align: center;
+    color: #888;
+    margin-top: 20px;
+}
+
+
+
+
+
+/* /////////////////////////////planning par jour ////////////////////////////////
+///////////////////////////////////////////////////////////////////// */
+
+
+
+.Page.container-planning-jour {
+    display: flex;
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+    flex-direction: column; /* Aligner les éléments verticalement */
+    padding: 20px; /* Espacement interne pour le conteneur principal */
+}
+
+.list-group-by-date {
+    display: grid;
+    gap: 20px;
+    justify-items: center; /* Centrer les éléments horizontalement dans la grille */
+}
+
+.list-item-header {
+    background-color: #7F32FA; /* Couleur de fond pour l'heure */
+    color: #fff; /* Couleur du texte */
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.list-item-body {
+    padding: 10px;
+    max-width: calc(100% - 60px); /* Réduire la largeur maximale */
+}
+
+@media (max-width: 768px) {
+    .list-item-body {
+        max-width: 80%; /* Sur les appareils mobiles, utiliser la pleine largeur */
+    }
+}
+
+.list-item-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #7F32FA; /* Couleur du titre */
+}
+
+.list-item-text {
+    margin: 0;
+    color: #555; /* Couleur du texte */
+}
+
+.list-item-by-date {
+    background-color: white;
+
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    width: 100%; /* Utilise la largeur maximale disponible */
+    max-width: 400px; /* Limite la largeur maximale à 400px */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .list-item-by-date {
+        max-width: 100%; /* Utilise la pleine largeur sur les appareils mobiles */
+    }
+}
+
+
+
+
+
+
+.Messagerie {
+    padding-top: 40px;
+}
+
+/* Container principal */
+.inbox-container-message { 
+    display: flex;
+     width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Liste des messages */
+.message-list {
+    width: 100%;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.message-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.message-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.message-item div {
+    flex: 1;
+}
+
+.message-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.message-item-category {
+    font-weight: bold;
+    color: #555;
+}
+
+.message-item-email {
+    color: #888;
+}
+
+.message-item-date {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.message-item-message {
+    color: #333;
+}
+
+/* Détail du message */
+.message-detail {
+    width: 100%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message-detail h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.message-detail p {
+    margin: 10px 0;
+}
+
+.message-detail strong {
+    color: #555;
+}
+
+/* Bouton de suppression */
+button[class="submit-message"] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[class="submit-message"]:hover {
+    background-color: #c9302c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .message-item {
+        align-items: flex-start;
+    }
+
+    .message-content {
+        gap: 15px;
+        font-size: 10px;
+    }
+    .message-detail H2{
+        font-size: 15px;
+
+
+    }
+    .inbox-container-message {
+        font-size: 10px;
+
+        display: flex;
+        flex-direction: row;       
+    }
+    button[type="submit-message"] {
+       height: auto;
+       width: 60%;
+       font-size: 70%;
+
+    }
+    
+}
+

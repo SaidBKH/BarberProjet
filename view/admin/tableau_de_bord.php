@@ -1,23 +1,17 @@
+<div class="Page dashboard-container">
+    <h1 class="Titre">Tableau de Bord</h1>
 
-<div class=" Page tableau_de_bord" >
+    <h2>Gestion des Réservations</h2>
+    <a href="index.php?ctrl=admin&action=planning">Planning</a>
+    <a href="index.php?ctrl=admin&action=createTimeSlot">Créer un Créneau</a>
+    <a href="index.php?ctrl=admin&action=annulerCreneau">Annuler un Créneau</a>
 
-    <h1>tableau de bord</h1>
-
-
-    <h2>reservation</h2>
-    <a href="index.php?ctrl=admin&action=gestionReservation">gestion des reservations</a>
-
-
-        <a href="index.php?ctrl=admin&action=planning">planning</a>
-
-        <a href="index.php?ctrl=admin&action=createTimeSlot">Créer un crénau</a>
-
-        <a href="index.php?ctrl=admin&action=createNews">Ajouter une actualité</a>
-        <a href="index.php?ctrl=admin&action=annulerCreneau">Annuler créneau</a>
-
-        <h2>Messagerie</h2>
-    <a href="index.php?ctrl=admin&action=listMessages">Voir les messages</a>
+    <h2>Messagerie</h2>
+    <a href="index.php?ctrl=admin&action=listMessages">Voir les Messages</a>
 
 
+    <h2>Actualité</h2>
+<a href="index.php?ctrl=admin&action=createNews">Ajouter une Actualité</a>
 
 </div>
+
