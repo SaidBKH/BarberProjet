@@ -14,15 +14,16 @@
          <!-- il faut ensuite la clé du site sur google captcha entreprise -->
         <div class="g-recaptcha" data-sitekey=""></div>
         
-        <button type="submit">Se connecter</button>
+        <button type="submit" class="btn-reservation">Se connecter</button>
     </form>
     
     <p>Vous n'avez pas encore de compte ?</p>
     <br>
     <button name="register">
-        <a href="index.php?ctrl=security&action=register">JE M'INSCRIS</a>
+        <a href="index.php?ctrl=security&action=register" class="btn-reservation">JE M'INSCRIS</a>
     </button>
-
+    <br>
+    <br>
     <p>Mot de passe oublié ? <a href="index.php?ctrl=security&action=request_password">Réinitialiser le mot de passe</a></p>
 </div>
 

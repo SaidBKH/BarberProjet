@@ -1,5 +1,5 @@
 <div class="page_edit_profile">
-    <h2>Modifier mon profil</h2>
+    <h2 class = "Titre">Modifier mon profil</h2>
     <form action="index.php?ctrl=security&action=editProfile" method="post">
         <div class="form-group">
             <label for="prenom">Prénom :</label>
@@ -13,6 +13,6 @@
             <label for="telephone">Téléphone :</label>
             <input type="text" id="telephone" name="telephone" value="<?= htmlspecialchars(App\Session::getUser()->getTelephone()) ?>" required>
         </div>
-        <button type="submit">Enregistrer</button>
+        <button type="submit" class ="btn-reservation">Enregistrer</button>
     </form>
 </div>

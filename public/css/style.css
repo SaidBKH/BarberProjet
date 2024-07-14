@@ -1573,3 +1573,104 @@ button[class="submit-message"]:hover {
     
 }
 
+.flash-message{color: white;}
+
+.form-check-label {
+    margin-left: 30px;
+}
+
+.table tbody tr td, 
+    .table thead tr th {
+        color: white; 
+    }
+
+
+    Page.page_profil {
+        padding: 20px;
+        margin: auto;
+        max-width: 800px;
+    }
+    
+    /* Sections spécifiques du profil */
+    .Page.page_profil .nom,
+    .Page.page_profil .email,
+    .Page.page_profil .telephone,
+    .Page.page_profil .dateInscription,
+    .Page.page_profil .listeReservationClient {
+        margin-bottom: 20px;
+    }
+    
+    .Page.page_profil .nom strong,
+    .Page.page_profil .email strong,
+    .Page.page_profil .telephone strong,
+    .Page.page_profil .dateInscription strong {
+        margin-right: 10px;
+    }
+    
+    /* Style des liens de modification */
+    .Page.page_profil a,
+    .page_edit_profile a {
+        color: rgb(255, 255, 255); /* Couleur du lien */
+        text-decoration: none;
+    }
+    
+    .Page.page_profil a:hover,
+    .page_edit_profile a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Liste des réservations */
+    .Page.page_profil .listeReservationClient ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .Page.page_profil .listeReservationClient li {
+        margin-bottom: 10px;
+    }
+    
+    /* Bouton d'annulation de réservation */
+    .Page.page_profil .listeReservationClient button {
+        background-color: #d9534f;
+        color: #ffffff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .Page.page_profil .listeReservationClient button:hover {
+        background-color: #c9302c;
+    }
+    
+    /* Page de modification du profil */
+    .page_edit_profile {
+        padding: 20px;
+        margin: auto;
+        max-width: 800px;
+    }
+    
+    .page_edit_profile h2 {
+        margin-bottom: 20px;
+    }
+    
+    .page_edit_profile .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .page_edit_profile label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .page_edit_profile input[type="text"],
+    .page_edit_profile input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+ 

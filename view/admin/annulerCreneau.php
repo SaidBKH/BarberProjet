@@ -1,12 +1,17 @@
 <?php
+// Récupération des données nécessaires depuis le tableau $result
 $dates = $result["data"]['dates'];
 $selectedDate = $result["data"]['selectedDate'];
 $reservations = $result["data"]['reservations'];
 $message = $result["data"]['message'];
 ?>
 
+<!-- Conteneur principal avec marges supérieures -->
 <div class="Page container mt-5">
-    <h1 class="Titre text-center mb-4">Annuler des créneaux</h1>
+    <!-- Titre principal de la page -->
+    <h1 class="Titre">Annuler des créneaux</h1>
+
+    <!-- Affichage du message d'information s'il existe -->
     <?php if ($message): ?>
         <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
     <?php endif; ?>
@@ -17,6 +22,7 @@ $message = $result["data"]['message'];
             <label for="selected_date">Sélectionner une date</label>
             <select id="selected_date" name="selected_date" class="form-control" onchange="this.form.submit()">
                 <option value="">Sélectionner une date</option>
+                <!-- Boucle sur les dates pour créer les options du menu déroulant -->
                 <?php foreach ($dates as $date): ?>
                     <option value="<?= htmlspecialchars($date->getDate()) ?>" <?= $selectedDate === $date->getDate() ? 'selected' : '' ?>>
                         <?= (new DateTime($date->getDate()))->format('d/m/Y') ?>
@@ -26,12 +32,13 @@ $message = $result["data"]['message'];
         </div>
     </form>
 
+    <!-- Affichage du formulaire d'annulation de créneaux si une date est sélectionnée et qu'il y a des réservations -->
     <?php if ($selectedDate && $reservations): ?>
-        <!-- Formulaire d'annulation de créneaux -->
         <form method="post" action="">
             <div class="form-group">
                 <label for="creneaux">Sélectionner un créneau à annuler pour la date <?= (new DateTime($selectedDate))->format('d/m/Y') ?></label>
-                <table class="table table-bordered">
+                <!-- Tableau des créneaux -->
+                <table class="table table-bordered text-white">
                     <thead>
                         <tr>
                             <th>Service</th>
@@ -41,6 +48,7 @@ $message = $result["data"]['message'];
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Boucle sur les réservations pour créer les lignes du tableau -->
                         <?php foreach ($reservations as $reservation): ?>
                             <tr>
                                 <td><?= htmlspecialchars($reservation->getService()->getName()) ?></td>
@@ -57,6 +65,7 @@ $message = $result["data"]['message'];
             </div>
         </form>
     <?php elseif ($selectedDate): ?>
+        <!-- Message affiché si aucune réservation n'est trouvée pour la date sélectionnée -->
         <p class="text-center">Aucun créneau trouvé pour cette date.</p>
     <?php endif; ?>
 </div>

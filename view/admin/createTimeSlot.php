@@ -1,21 +1,24 @@
 <?php
 setlocale(LC_TIME, 'fr_FR.UTF-8');
 
+// Récupération des catégories et services depuis le résultat
 $categorys = $result["data"]['categorys'];
 $services = $result["data"]['services'];
 ?>
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Créer des créneaux</h1>
+    <!-- Titre principal -->
+    <h1 class="Titre">Créer des créneaux</h1>
 
-
+    <!-- Message flash en cas de succès/échec -->
     <?php if (isset($_SESSION['flash_message'])): ?>
         <div class="flash-message"><?php echo $_SESSION['flash_message']; ?></div>
         <?php unset($_SESSION['flash_message']); ?>
     <?php endif; ?>
 
-
+    <!-- Formulaire principal -->
     <form method="post" action="">
+        <!-- Sélection de la catégorie -->
         <div class="form-group">
             <label for="category">Catégorie</label>
             <select id="category" name="category_id" class="form-control" onchange="this.form.submit()">
@@ -26,7 +29,7 @@ $services = $result["data"]['services'];
             </select>
         </div>
 
-
+        <!-- Sélection du service -->
         <div class="form-group">
             <label for="service">Service</label>
             <select id="service" name="service_id" class="form-control" <?= empty($services) ? 'disabled' : '' ?>>
@@ -37,7 +40,7 @@ $services = $result["data"]['services'];
             </select>
         </div>
 
-        
+        <!-- Sélection des dates -->
         <div class="form-group">
             <label for="dates">Dates</label>
             <div id="dates" class="d-flex flex-wrap">
@@ -50,7 +53,7 @@ $services = $result["data"]['services'];
                     // Ne pas afficher les dimanches
                     if ($currentDate->format('N') != 7) {
                         $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-                        echo '<div class="form-check">';
+                        echo '<div class="form-check mr-3">';  // Ajout de 'mr-3' pour l'espacement
                         echo '<input class="form-check-input date-checkbox" type="checkbox" name="dates[]" value="' . $currentDate->format('Y-m-d') . '" id="date_' . $currentDate->format('Y_m_d') . '">';
                         echo '<label class="form-check-label date-label" for="date_' . $currentDate->format('Y_m_d') . '">' . $formatter->format($currentDate->getTimestamp()) . '</label>';
                         echo '</div>';
@@ -61,6 +64,7 @@ $services = $result["data"]['services'];
             </div>
         </div>
 
+        <!-- Sélection des plages horaires -->
         <div class="form-group">
             <label for="heures">Plages horaires</label>
             <div id="heures" class="d-flex flex-wrap">
@@ -71,7 +75,7 @@ $services = $result["data"]['services'];
 
                 while ($start < $end) {
                     if ($start->format('H:i') !== '12:00' && $start->format('H:i') !== '12:30') {
-                        echo '<div class="form-check">';
+                        echo '<div class="form-check mr-3">';  // Ajout de 'mr-3' pour l'espacement
                         echo '<input class="form-check-input heure-checkbox" type="checkbox" name="heures[]" value="' . $start->format('H:i:s') . '" id="heure_' . $start->format('H_i') . '">';
                         echo '<label class="form-check-label heure-label" for="heure_' . $start->format('H_i') . '">' . $start->format('H:i') . '</label>';
                         echo '</div>';
@@ -82,6 +86,7 @@ $services = $result["data"]['services'];
             </div>
         </div>
 
+        <!-- Bouton de soumission -->
         <button type="submit" class="btn btn-primary mt-3">Créer Réservations</button>
     </form>
 </div>

@@ -10,11 +10,11 @@ $reservationsByMonth = $result["data"]['reservationsByMonth'];
                 <?php 
                     $month = $row['month']; 
                     $count = $row['count']; 
-                    // Utilisation de la fonction formaterDateEnFrancais pour convertir la date
-                    $formattedDate = \App\Manager::formaterDateEnFrancais($month);
+                    // Utilisation de la fonction formaterDateEnFrancais pour convertir la date en mois
+                    $formattedMonth = \App\Manager::formaterMoisEnFrancais($month);
                 ?>
                 <a href="index.php?ctrl=admin&action=reservationsByDay&month=<?= $month ?>" class="list-group-item list-group-item-action">
-                    <?= $formattedDate ?> (<?= $count ?> réservations)
+                    <?= $formattedMonth ?> (<?= $count ?> réservations)
                 </a>
             <?php endforeach; ?>
         <?php else: ?>

@@ -7,62 +7,64 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Spécifie la compatibilité avec Edge/Internet Explorer.-->
 
 
-        <link href='https://unpkg.com/@fullcalendar/core@5.9.0/main.min.css' rel='stylesheet' />
+    <!-- FullCalendar CSS -->
+    <link href='https://unpkg.com/@fullcalendar/core@5.9.0/main.min.css' rel='stylesheet' />
     <link href='https://unpkg.com/@fullcalendar/daygrid@5.9.0/main.min.css' rel='stylesheet' />
+    
+    <!-- FullCalendar JS -->
     <script src='https://unpkg.com/@fullcalendar/core@5.9.0/main.min.js'></script>
     <script src='https://unpkg.com/@fullcalendar/daygrid@5.9.0/main.min.js'></script>
+    
+    <!-- jQuery -->
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
- 
-
-            <!-- les cookies avec tarte au citron -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.9.6/tarteaucitron.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.9.6/tarteaucitron.js"></script>
-
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Vimeo Player API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
-
-
+    
+    <!-- reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-
-        <!-- Intègre TinyMCE, un éditeur de texte HTML en ligne.-->
-        <script src="https://cdn.tiny.cloud/1/zg3mwraazn1b2ezih16je1tc6z7gwp5yd4pod06ae5uai8pa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/zg3mwraazn1b2ezih16je1tc6z7gwp5yd4pod06ae5uai8pa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-       <!-- Intègre Font Awesome, une bibliothèque d'icônes.-->
-       <!-- Inclure Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<!-- Inclure Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
+    <!-- International Telephone Input CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
+    <!-- International Telephone Input JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
+    <!-- Tarteaucitron (Cookies) CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.9.6/tarteaucitron.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tarteaucitronjs@1.9.6/tarteaucitron.js"></script>
 
-        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css"> <!--  Lie le fichier CSS de style à la page.-->
-        <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.home.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
 
-        <title>Jesuispassechezsouf</title>   <!--Définit le titre de la page. --> <!-- -->
-    
-    </head>
-  
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css">
+    <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.home.css">
+
+    <title>Jesuispassechezsouf</title>
+</head>
+
 <body>
     <div id="wrapper">
         <div id="mainpage">
@@ -78,7 +80,6 @@
                     </svg>
                 </div>
                 <nav class="bureau">
-                    
                     <ul class="nav_bureau_menu">
                         <li><a href="index.php">ACCUEIL</a></li>
                         <li><a href="index.php?ctrl=news&action=news">ACTUALITÉ</a></li>
@@ -174,13 +175,12 @@
                 </div>
             </div>
             <div class="legal">
-                <p>&copy; <?= date("Y") ?> - <a href="index.php?ctrl=mentions&action=politique_confidentialite">Politique de confidentialité</a> - <a href="index.php?ctrl=mentions&action=mention_legal">Mentions légales</a></p>
+                <p>&copy; <?= date("Y") ?> - <a href="index.php?ctrl=mentions&action=politique_confidentialite">Politique de confidentialité</a></p>
             </div>
         </footer>
     </div>
 
     <script>
-
         function toggleMenu() {
             const nav_mobile = document.querySelector('.nav_mobile');
             const mobile_overlay = document.querySelector('.mobile-overlay');
@@ -198,72 +198,68 @@
                 }
             });
         });
-   
-</script>
+    </script>
 
-<script type="text/javascript">
-    tarteaucitron.init({
-        "privacyUrl": "index.php?ctrl=mentions&action=politique_confidentialite", // Lien vers la politique de confidentialité
-        "hashtag": "#tarteaucitron", // Ouvre le panneau avec ce hashtag
-        "cookieName": "tarteaucitron", // Nom du cookie
-        "orientation": "bottom", // Position de la bannière (top - bottom)
-        "showAlertSmall": false, // Affiche la petite bannière en bas à droite
-        "cookieslist": true, // Affiche la liste des cookies
-        "adblocker": false, // Affiche un avertissement si un adblocker est détecté
-        "AcceptAllCta": true, // Affiche le bouton accepter tout lorsque highPrivacy est activé
-        "highPrivacy": true, // Désactive le consentement automatique
-        "handleBrowserDNTRequest": false, // Si Do Not Track == 1, désactive tout
-        "removeCredit": true, // Supprime le lien de crédit
-        "moreInfoLink": true, // Affiche le lien plus d'infos
-        "useExternalCss": false, // Si faux, le fichier tarteaucitron.css sera chargé
-        "useExternalJs": false, // Si faux, le fichier tarteaucitron.js sera chargé
-        "mandatory": true, // Affiche un message sur les cookies obligatoires
-        "lang": "fr" // Langue du bandeau (français)
-    });
+    <script type="text/javascript">
+        tarteaucitron.init({
+            "privacyUrl": "index.php?ctrl=mentions&action=politique_confidentialite",
+            "hashtag": "#tarteaucitron",
+            "cookieName": "tarteaucitron",
+            "orientation": "bottom",
+            "showAlertSmall": false,
+            "cookieslist": true,
+            "adblocker": false,
+            "AcceptAllCta": true,
+            "highPrivacy": true,
+            "handleBrowserDNTRequest": false,
+            "removeCredit": true,
+            "moreInfoLink": true,
+            "useExternalCss": false,
+            "useExternalJs": false,
+            "mandatory": true,
+            "lang": "fr"
+        });
 
-    tarteaucitron.user.analyticsUa = 'UA-XXXXXXX-X'; // Remplacez par votre ID Google Analytics
-    (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
+        tarteaucitron.user.analyticsUa = 'UA-XXXXXXX-X';
+        (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
 
-    tarteaucitron.services.analytics = {
-        "key": "analytics",
-        "type": "analytic",
-        "name": "Google Analytics",
-        "uri": "https://analytics.google.com",
-        "needConsent": true,
-        "cookies": ['_ga', '_gat', '_gid'],
-        "js": function () {
-            "use strict";
-            if (tarteaucitron.user.analyticsUa === undefined) {
-                return;
+        tarteaucitron.services.analytics = {
+            "key": "analytics",
+            "type": "analytic",
+            "name": "Google Analytics",
+            "uri": "https://analytics.google.com",
+            "needConsent": true,
+            "cookies": ['_ga', '_gat', '_gid'],
+            "js": function () {
+                "use strict";
+                if (tarteaucitron.user.analyticsUa === undefined) {
+                    return;
+                }
+                tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=' + tarteaucitron.user.analyticsUa, '', function () {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag() { dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', tarteaucitron.user.analyticsUa);
+                });
             }
-            tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=' + tarteaucitron.user.analyticsUa, '', function () {
-                window.dataLayer = window.dataLayer || [];
-                function gtag() { dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', tarteaucitron.user.analyticsUa);
-            });
-        }
-    };
+        };
 
-    tarteaucitron.user.bookingWidgetUrl = 'https://yourbookingwidgeturl.com';
-    (tarteaucitron.job = tarteaucitron.job || []).push('bookingWidget');
+        tarteaucitron.user.bookingWidgetUrl = 'https://yourbookingwidgeturl.com';
+        (tarteaucitron.job = tarteaucitron.job || []).push('bookingWidget');
 
-    tarteaucitron.services.bookingWidget = {
-        "key": "bookingWidget",
-        "type": "other",
-        "name": "Widget de Réservation",
-        "uri": "https://yourbookingwidgeturl.com",
-        "needConsent": true,
-        "cookies": ['booking_widget_cookie'],
-        "js": function () {
-            "use strict";
-            tarteaucitron.addScript('https://yourbookingwidgeturl.com/widget.js');
-        }
-    };
-</script>
-
-
-
-
+        tarteaucitron.services.bookingWidget = {
+            "key": "bookingWidget",
+            "type": "other",
+            "name": "Widget de Réservation",
+            "uri": "https://yourbookingwidgeturl.com",
+            "needConsent": true,
+            "cookies": ['booking_widget_cookie'],
+            "js": function () {
+                "use strict";
+                tarteaucitron.addScript('https://yourbookingwidgeturl.com/widget.js');
+            }
+        };
+    </script>
 </body>
+
 </html>
