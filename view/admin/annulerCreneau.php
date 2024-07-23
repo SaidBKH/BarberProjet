@@ -1,9 +1,9 @@
 <?php
 // Récupération des données nécessaires depuis le tableau $result
-$dates = $result["data"]['dates'];
-$selectedDate = $result["data"]['selectedDate'];
-$reservations = $result["data"]['reservations'];
-$message = $result["data"]['message'];
+$dates = $result["data"]['dates']; // Liste des dates disponibles
+$selectedDate = $result["data"]['selectedDate']; // Date actuellement sélectionnée
+$reservations = $result["data"]['reservations']; // Réservations pour la date sélectionnée
+$message = $result["data"]['message']; // Message d'information ou d'erreur
 ?>
 
 <!-- Conteneur principal avec marges supérieures -->
@@ -20,6 +20,7 @@ $message = $result["data"]['message'];
     <form method="post" action="">
         <div class="form-group">
             <label for="selected_date">Sélectionner une date</label>
+            <!-- Menu déroulant pour choisir une date -->
             <select id="selected_date" name="selected_date" class="form-control" onchange="this.form.submit()">
                 <option value="">Sélectionner une date</option>
                 <!-- Boucle sur les dates pour créer les options du menu déroulant -->
@@ -51,11 +52,14 @@ $message = $result["data"]['message'];
                         <!-- Boucle sur les réservations pour créer les lignes du tableau -->
                         <?php foreach ($reservations as $reservation): ?>
                             <tr>
+                                <!-- Affichage des détails de la réservation -->
                                 <td><?= htmlspecialchars($reservation->getService()->getName()) ?></td>
                                 <td><?= (new DateTime($reservation->getDate()))->format('d/m/Y') ?></td>
                                 <td><?= htmlspecialchars($reservation->getHeure()) ?></td>
                                 <td>
+                                    <!-- Bouton pour annuler la réservation -->
                                     <button type="submit" name="annuler_creneau" value="<?= htmlspecialchars($reservation->getId()) ?>" class="btn btn-danger">Annuler</button>
+                                    <!-- Champ caché pour stocker l'ID du créneau -->
                                     <input type="hidden" name="creneau_id" value="<?= htmlspecialchars($reservation->getId()) ?>">
                                 </td>
                             </tr>

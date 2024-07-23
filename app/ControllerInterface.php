@@ -12,7 +12,6 @@ namespace App;  // Cela indique que l'interface que nous allons définir fait pa
 */
 
 
-
 //Ce interface définit une de règle que les autres classes doivent suivre. ICI elle s'appelle une "interface".
 // cette interface ControllerInterface dit à d'autres classes : "Si vous voulez être une un contrôleur vous devez avoir une méthode appelée index()". 
 // L'interface ne dit pas ce que la méthode doit faire, juste qu'elle doit exister.

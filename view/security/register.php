@@ -1,6 +1,6 @@
 <div class="Page registerPage">
     <figure class="logoContainer">
-        <img src="public/img/logo.wep" alt="Logo" class="logo">
+        <img src="public/img/logo.webp" alt="Logo" class="logo">
     </figure>
 
     <h1>INSCRIPTION</h1>
@@ -26,7 +26,7 @@
         <label for="telephone">Téléphone :</label><br>
         <input placeholder="Téléphone" type="tel" id="telephone" name="telephone" required><br>
 
-        <button type="submit">S'inscrire</button>
+        <button type="submit" class="btn-reservation">S'inscrire</button>
     </form>
 </div>
 

@@ -6,6 +6,6 @@
         <p>Votre réservation a été enregistrée avec succès. Vous pouvez gérer les détails de vos réservations, les modifier ou les annuler à tout moment depuis votre profil.</p>
         <p>Si vous avez des questions ou avez besoin d'assistance, n'hésitez pas à nous contacter.</p>
         <p>À très bientôt !</p>
-        <a  href="index.php?ctrl=security&action=profil">Aller à mon profil</a><br>
-        <a href="index.php">Retour à l'accueil</a>
+        <a class ="btn-annuler" href="index.php?ctrl=security&action=profil">Aller à mon profil</a><br>
+        <a class ="btn-annuler" href="index.php">Retour à l'accueil</a>
     </div>

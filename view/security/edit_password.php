@@ -1,5 +1,5 @@
-
-<h2>Modifier votre mot de passe</h2>
+<div class="Page Modifier MotDePasse">
+<h2 class ="titre">Modifier votre mot de passe</h2>
 <form action="index.php?ctrl=security&action=editPassword" method="POST">
     <div>
         <label for="old_password">Ancien mot de passe</label>
@@ -14,6 +14,7 @@
         <input type="password" name="confirm_new_password" required>
     </div>
     <div>
-        <button type="submit">Modifier le mot de passe</button>
+        <button type="submit"class ="btn-reservation">Modifier le mot de passe</button>
     </div>
 </form>
+</div>

@@ -3,24 +3,30 @@
 <div class="nom">
         <p>
             <strong>Nom :</strong> <?= htmlspecialchars(App\Session::getUser()->getPrenom()) ?>
-            <a href="index.php?ctrl=security&action=editProfile">Modifier</a>
+            <a href="index.php?ctrl=security&action=editProfile" class="btn-simple-modifier">Modifier</a>
         </p>
     </div>
     <div class="email">
         <p>
             <strong>Email :</strong> <?= htmlspecialchars(App\Session::getUser()->getEmail()) ?>
-            <a href="index.php?ctrl=security&action=editProfile">Modifier</a>
+            <a href="index.php?ctrl=security&action=editProfile" class="btn-simple-modifier">Modifier</a>
         </p>
     </div>
     <div class="telephone">
         <p>
             <strong>Téléphone :</strong> <?= htmlspecialchars(App\Session::getUser()->getTelephone()) ?>
-            <a href="index.php?ctrl=security&action=editProfile">Modifier</a>
+            <a href="index.php?ctrl=security&action=editProfile class="btn-simple-modifier"">Modifier</a>
         </p>
 
-        <a href="index.php?ctrl=security&action=editPassword">Modifier votre mot de passe</a>
+        <a href="index.php?ctrl=security&action=editPassword" class="btn-simple-modifier">Modifier votre mot de passe</a>
 
     </div>
+
+    <div class="deleteAccount">
+        <form action="index.php?ctrl=security&action=confirmDeleteAccount" method="POST">
+            <button type="submit" class="btn-simple" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">Supprimer mon compte</button>
+        </form>
+    </div
 
 
     <div class="dateInscription">

@@ -45,6 +45,21 @@ body, html {
     }
 }
 
+.btn-annuler{
+    text-decoration: none !important;
+    margin-left: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    border: transparent;
+    background-color: transparent;
+}
+
+.btn-annuler:hover{
+    color: gray;
+}
+
+
 /* ///////////////////////////HEADER //////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////// */
 
@@ -94,6 +109,19 @@ header {
     align-items: center;
     color: #fff;
 }
+
+header.header figure a img {
+    
+    margin-left:15px;
+    margin-top:15px;
+
+    max-height: 50px;
+}
+@media (max-width: 768px) {
+
+    header.header figure a img {
+        height: 10vh;
+    }}
 
 /* ///////////////////////////HEADER MOBILE//////////////////////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////////////// */
@@ -686,18 +714,17 @@ input[type="tel"] {
     text-align: center;
     margin-bottom: 10px;
 }
+
 .list-news {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px;
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
     padding: 20px;
-    margin: 20px; /* Ajout de marge de côté */
-    max-width: 500px;
-    margin: 0 auto; /* Center the container */
-    border-radius: 8px; /* Rounded corners */
+    margin: 20px auto; 
+    border-radius: 8px; 
+    justify-content: center; 
 }
 
-/* News Item Styles */
 .news {
     background-color: #1A1A1D;
     padding: 15px;
@@ -705,8 +732,9 @@ input[type="tel"] {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text */
+    align-items: center; 
+    text-align: center;  
+    width: 450px; 
 }
 
 .title-news {
@@ -735,6 +763,18 @@ input[type="tel"] {
     font-size: 12px; /* Taille de police réduite pour la date */
     color: #999999;
     margin-top: auto; /* Align date to bottom */
+}
+
+/* Responsive design: Stack news items in column on smaller screens */
+@media (max-width: 768px) {
+    .list-news {
+        flex-direction: column; /* Stack items in column */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .news {
+        width: 90%; /* Make news items take more width on smaller screens */
+    }
 }
 
 /* /////////////////////////////join US////////////////////////////////
@@ -896,7 +936,6 @@ footer {
 /* /////////////////////////////RESERVATIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
 
-
 /* Category Styles */
 .category-container {
     display: flex;
@@ -915,15 +954,20 @@ footer {
     flex: 1 1 calc(33.333% - 20px); /* Trois éléments par ligne */
     max-width: calc(33.333% - 20px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Ajout de la transition pour la couleur */
     margin: 10px; /* Marge pour un meilleur espacement */
 }
 
 .category-item:hover {
     background-color: #39D4FF;
-    color: #ffffff; /* Couleur du texte au survol */
+    color: #0a0000; /* Couleur du texte au survol */
     transform: scale(1.05);
     text-decoration: none; /* Suppression du soulignage au survol */
+}
+
+.category-item:hover .category-title,
+.category-item:hover .category-description {
+    color: #0a0000; /* Couleur du texte des éléments enfants au survol */
 }
 
 .category-title {
@@ -931,8 +975,12 @@ footer {
 }
 
 .category-description {
-    color: #cccccc;
+    color: #cccccc; /* Couleur initiale du texte */
 }
+
+
+
+
 
 /* Responsive Styles */
 @media screen and (max-width: 1024px) {
@@ -1003,28 +1051,28 @@ footer {
 
 
 /* Responsive Styles */
+
+/* Media query pour les écrans de 768 pixels de large ou moins */
 @media (max-width: 768px) {
    
     .listServices {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Change la direction du flex pour être en colonne */
+        align-items: center; /* Centre les élements*/
+    }   
+    H2.service-title {
+        font-size: 1em; /* Reduit la taille de la police */
     }
-
-    H2.service-title{
-       
-        font-size: 1em;
+    p.service-duration {
+        font-size: 1em; /* Reduit la taille de la police */
     }
+}
 
-    p.service-duration{
-        font-size: 1em;
-
-    }
 
 
     .btn-reservation {
         padding: 8px 16px;
     }
-}
+
 
 @media (max-width: 480px) {
     .service-item {
@@ -1119,19 +1167,6 @@ form {
 }
 .btn-reservation-planning:hover {
     background-color: #1A8BB3;
-}
-
-.btn-annuler-planning{
-    margin-left: 20px;
-    color: white;
-    cursor: pointer;
-    padding: 0;
-    border: transparent;
-    background-color: transparent;
-}
-
-.btn-annuler-planning:hover{
-    color: gray;
 }
 
 
@@ -1309,16 +1344,6 @@ form.contact-form {
 
 
 
-
-
-
-
-
-
-
-
-
-
 .container-planning {
     text-align: center;
     padding: 20px;
@@ -1363,73 +1388,64 @@ form.contact-form {
 /* /////////////////////////////planning par jour ////////////////////////////////
 ///////////////////////////////////////////////////////////////////// */
 
-
-
-.Page.container-planning-jour {
-    display: flex;
-    justify-content: center; /* Centrer les éléments horizontalement */
-    align-items: center; /* Centrer les éléments verticalement */
-    flex-direction: column; /* Aligner les éléments verticalement */
-    padding: 20px; /* Espacement interne pour le conteneur principal */
+.container-planning-jour {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+/* Styles pour la liste des réservations */
 .list-group-by-date {
-    display: grid;
-    gap: 20px;
-    justify-items: center; /* Centrer les éléments horizontalement dans la grille */
-}
-
-.list-item-header {
-    background-color: #7F32FA; /* Couleur de fond pour l'heure */
-    color: #fff; /* Couleur du texte */
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.list-item-body {
-    padding: 10px;
-    max-width: calc(100% - 60px); /* Réduire la largeur maximale */
-}
-
-@media (max-width: 768px) {
-    .list-item-body {
-        max-width: 80%; /* Sur les appareils mobiles, utiliser la pleine largeur */
-    }
-}
-
-.list-item-title {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #7F32FA; /* Couleur du titre */
-}
-
-.list-item-text {
-    margin: 0;
-    color: #555; /* Couleur du texte */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* espace entre les éléments */
 }
 
 .list-item-by-date {
-    background-color: white;
-
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px;
-    width: 100%; /* Utilise la largeur maximale disponible */
-    max-width: 400px; /* Limite la largeur maximale à 400px */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.333% - 30px); /* 3 éléments par ligne avec espace */
+    padding: 15px;
+    margin: 10px;
+}
+
+.list-item-header {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #711bfc;
+}
+
+.list-item-body {
+    font-size: 0.9em;
+}
+
+.list-item-title {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.list-item-text {
+    color: black;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .list-item-by-date {
+        flex: 1 1 calc(50% - 30px); /* 2 éléments par ligne */
+    }
 }
 
 @media (max-width: 768px) {
     .list-item-by-date {
-        max-width: 100%; /* Utilise la pleine largeur sur les appareils mobiles */
+        flex: 1 1 100%; /* 1 élément par ligne */
     }
 }
+
+
 
 
 
@@ -1543,7 +1559,7 @@ button[class="submit-message"]:hover {
     background-color: #c9302c;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     .message-item {
         align-items: flex-start;
@@ -1673,4 +1689,176 @@ button[class="submit-message"]:hover {
         border-radius: 4px;
     }
     
- 
+
+.btn-simple{
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    color: white;
+    padding: 5px;
+    background-color: transparent;
+}
+.btn-simple:hover{
+    
+    color: red;
+}
+a.btn-simple-modifier{
+    list-style: none;
+   text-decoration: none;
+   color: #39D4FF;
+}
+
+a.btn-simple-modifier:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(45, 213, 255);
+}
+
+
+
+.container-create-news {
+    display: flex;
+    justify-content: center; /* Centre le formulaire horizontalement */
+    align-items: center; /* Centre le formulaire verticalement */
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Styles pour le conteneur interne du formulaire */
+.create-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments du formulaire */
+    width: 100%;
+    max-width: 600px; /* Limite la largeur maximale du formulaire */
+    border-radius: 8px; /* Coins arrondis pour le formulaire */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère autour du formulaire */
+    padding: 20px; /* Padding interne du formulaire */
+}
+
+
+/* Style pour le formulaire de création d'actualité */
+.create-news form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le formulaire */
+    width: 100%;
+}
+
+/* Style pour les groupes de formulaire */
+.form-group-news{
+    width: 100%;
+    margin-bottom: 15px;
+}
+/* Style des labels */
+
+
+/* Style pour les champs de formulaire */
+.form-group-news input,
+.form-group-news textarea {
+    width: 100%; /* Prend toute la largeur disponible */
+    max-width: 100%; /* Limite la largeur maximale des champs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    font-size: 16px; /* Taille de police pour le texte dans les champs */
+}
+
+.form-group-news label,
+.form-group-news textarea {
+color: white;
+}
+
+
+/* Styles responsive pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    .container-create-news {
+        padding: 10px;
+    }
+
+    .form-group-news input,
+    .form-group-news textarea {
+        padding: 8px;
+        width: 80%; /* Augmente la largeur des champs pour les écrans plus petits */
+    }
+
+    
+}
+
+@media screen and (max-width: 480px) {
+    .form-group-news input,
+    .form-group-news textarea {
+        padding: 6px;
+        width: 90%; /* Augmente encore la largeur des champs pour les très petits écrans */
+    }
+
+    .btn-reservation {
+        padding: 6px 12px;
+        width: 90%; /* Augmente encore la largeur du bouton pour les très petits écrans */
+    }
+}
+
+
+
+.listeReservationClient {
+    max-width: 800px; /* Limite la largeur du conteneur */
+    margin: 20px auto; /* Centre le conteneur horizontalement avec une marge */
+    padding: 20px;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet de profondeur */
+}
+
+/* Style du titre de la section */
+.listeReservationClient h3 {
+    color: white;
+    margin-bottom: 15px; /* Espace sous le titre */
+    font-size: 24px; /* Taille du texte du titre */
+    text-align: center; /* Centre le titre */
+}
+
+/* Style pour les éléments de la liste des réservations */
+.listeReservationClient ul {
+    list-style-type: none; /* Supprime les puces des éléments de liste */
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 0; /* Supprime la marge par défaut */
+}
+
+.listeReservationClient li {
+    background-color: #fff; /* Fond blanc pour chaque élément */
+    border: 1px solid #ddd; /* Bordure légère */
+    border-radius: 4px; /* Coins arrondis */
+    padding: 15px; /* Espacement interne */
+    margin-bottom: 10px; /* Espace entre les éléments */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombre légère */
+}
+
+/* Style pour les labels et valeurs dans les éléments de liste */
+.listeReservationClient strong {
+    color: #555; /* Couleur du texte des labels */
+}
+
+.listeReservationClient form {
+    display: inline; /* Affiche le formulaire en ligne avec l'élément précédent */
+}
+
+.listeReservationClient button {
+    background-color: #711bfc; /* Couleur de fond rouge pour le bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none; /* Supprime les bordures par défaut */
+    padding: 8px 15px; /* Espacement interne du bouton */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    font-size: 14px; /* Taille de police du texte du bouton */
+    transition: background-color 0.3s ease; /* Effet de transition pour le changement de couleur */
+}
+
+
+
+/* Style pour les messages quand aucune réservation n'est disponible */
+.listeReservationClient p {
+    text-align: center; /* Centre le texte */
+    color: #777; /* Couleur du texte */
+    font-size: 16px; /* Taille de police du texte */
+}

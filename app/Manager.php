@@ -1,87 +1,100 @@
 <?php
 namespace App;
 
+// Une classe abstraite qui sert de base pour d'autres classes
 abstract class Manager{
 
+    // Une fonction pour se connecter à la base de données
     protected function connect(){
         DAO::connect();
     }
 
     /**
-     * get all the records of a table, sorted by optionnal field and order
+     * Obtenir tous les enregistrements d'une table, triés par un champ optionnel et un ordre optionnel
      * 
-     * @param array $order an array with field and order option
-     * @return Collection a collection of objects hydrated by DAO, which are results of the request sent
+     * @param array $order un tableau avec le champ et l'ordre de tri
+     * @return Collection une collection d'objets hydratés par DAO, qui sont les résultats de la requête envoyée
      */
     public function findAll($order = null){
 
+        // Construire la partie de la requête pour le tri si nécessaire
         $orderQuery = ($order) ?                 
             "ORDER BY ".$order[0]. " ".$order[1] :
             "";
 
+        // La requête SQL pour obtenir tous les enregistrements
         $sql = "SELECT *
                 FROM ".$this->tableName." a
                 ".$orderQuery;
                 
-                
+        // Retourner les résultats de la requête
         return $this->getMultipleResults(
             DAO::select($sql), 
             $this->className
         );
     }
     
+    // Obtenir un enregistrement par son identifiant
     public function findOneById($id){
 
+        // La requête SQL pour obtenir un enregistrement par son identifiant
         $sql = "SELECT *
                 FROM ".$this->tableName." a
                 WHERE a.id_".$this->tableName." = :id
                 ";
 
+        // Retourner le résultat de la requête
         return $this->getOneOrNullResult(
             DAO::select($sql, ['id' => $id], false), 
             $this->className
         );
     }
 
-    //$data = ['username' => 'Squalli', 'password' => 'dfsyfshfbzeifbqefbq', 'email' => 'sql@gmail.com'];
-
+    // Ajouter un nouvel enregistrement
     public function add($data){
-        //$keys = ['username' , 'password', 'email']
+        // Obtenir les noms des colonnes
         $keys = array_keys($data);
-        //$values = ['Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com']
+        // Obtenir les valeurs des colonnes
         $values = array_values($data);
-        //"username,password,email"
+        // Construire la requête SQL pour insérer un nouvel enregistrement
         $sql = "INSERT INTO ".$this->tableName."
                 (".implode(',', $keys).") 
                 VALUES
                 ('".implode("','",$values)."')";
-                //"'Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com'"
         /*
+            Par exemple :
             INSERT INTO user (username,password,email) VALUES ('Squalli', 'dfsyfshfbzeifbqefbq', 'sql@gmail.com') 
         */
         try{
+            // Insérer l'enregistrement et retourner le résultat
             return DAO::insert($sql);
         }
         catch(\PDOException $e){
+            // Afficher une erreur s'il y en a
             echo $e->getMessage();
             die();
         }
     }
     
+    // Supprimer un enregistrement par son identifiant
     public function delete($id){
+        // La requête SQL pour supprimer un enregistrement
         $sql = "DELETE FROM ".$this->tableName."
                 WHERE id_".$this->tableName." = :id
                 ";
 
+        // Retourner le résultat de la suppression
         return DAO::delete($sql, ['id' => $id]); 
     }
 
+    // Générer des objets à partir des résultats de la requête
     private function generate($rows, $class){
         foreach($rows as $row){
             yield new $class($row);
         }
     }
     
+    // Obtenir plusieurs résultats
     protected function getMultipleResults($rows, $class){
 
         if(is_iterable($rows)){
@@ -90,6 +103,7 @@ abstract class Manager{
         else return null;
     }
 
+    // Obtenir un résultat ou null
     protected function getOneOrNullResult($row, $class){
 
         if($row != null){
@@ -98,6 +112,7 @@ abstract class Manager{
         return false;
     }
 
+    // Obtenir une seule valeur
     protected function getSingleScalarResult($row){
 
         if($row != null){
@@ -107,7 +122,7 @@ abstract class Manager{
         return false;
     }
 
-
+    // Compter le nombre d'éléments
     public function countElem() {
         $sql = 
         "SELECT
@@ -121,15 +136,16 @@ abstract class Manager{
             $this->className
         );
     }
-    
 
+    // Afficher un message
     public function displayMessage($message) {
         echo "<div class='message'>$message</div>";
     }
 
+    // Formater une date en français
     public static function formaterDateEnFrancais($date) {
         // Convertir la date en objet DateTime
-        $dateTime = new \DateTime($date); // Utilisation de DateTime native de PHP
+        $dateTime = new \DateTime($date); 
     
         // Formater la date en français
         $mois = [
@@ -148,8 +164,7 @@ abstract class Manager{
         return ucfirst("$jour $numJour $mois $annee");
     }
     
-
-
+    // Formater seulement le mois en français
     public static function formaterMoisEnFrancais($date) {
         if (!$date) {
             return '';
@@ -165,8 +180,11 @@ abstract class Manager{
         $numMois = $dateTime->format('n');
 
         return $mois[$numMois] ?? '';
+
     }
 
-
-
+    function formatHeure($heure) {
+        return date("H:i", strtotime($heure));
+    }
 }
+
