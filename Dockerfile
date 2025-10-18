@@ -1,6 +1,9 @@
 # Utilise l'image officielle PHP avec Apache
 FROM php:8.2-apache
 
+# Installe les extensions PHP nécessaires (PDO MySQL)
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Copie tout ton code dans le dossier web du conteneur
 COPY . /var/www/html/
 
