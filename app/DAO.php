@@ -16,10 +16,10 @@ namespace App;
  */
 abstract class DAO{
 
-    private static $host   = 'mysql:host=127.0.0.1;port=3306';
-    private static $dbname = 'barber';
-    private static $dbuser = 'root';
-    private static $dbpass = '';
+    private static $host   = 'mysql:host=sql7.freesqldatabase.com;port=3306';
+    private static $dbname = 'sql7803680';
+    private static $dbuser = 'sql7803680';
+    private static $dbpass = 'ZqWyJmFan6';
 
     private static $bdd;
 
